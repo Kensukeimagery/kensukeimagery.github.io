@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+import { t, path, ui } from '../data/i18n.js';
+import { person } from '../data/profile.js';
+import Lightbox from '../components/Lightbox.astro';
+
+const { lang = 'th', page = 'home', title, description } = Astro.props;
+const site = 'https://kensukeimagery.github.io';
+const routes = { home: '/', works: '/works/', profile: '/profile/', gallery: '/gallery/' };
+const here = routes[page] ?? '/';
+const otherLang = lang === 'th' ? 'en' : 'th';
+const fullTitle = title ? `${title} — ${person.nameEn} (${t(person.nick, 'en')})` : `${person.nameEn} (${t(person.nick, 'en')}) — ${person.roles.en.join(' · ')}`;
+const desc = description ?? t(person.intro, lang);
+const canonical = site + path(here, lang);
+const links = [
+  ['home', '/'], ['works', '/works/'], ['profile', '/profile/'], ['gallery', '/gallery/'],
+];
+---
+<!doctype html>
+<html lang={lang} class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <meta name="theme-color" content="#0a1c17" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="th" href={site + path(here, 'th')} />
+    <link rel="alternate" hreflang="en" href={site + path(here, 'en')} />
+    <link rel="alternate" hreflang="x-default" href={site + path(here, 'th')} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site + '/og.jpg'} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'th' ? 'th_TH' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500&family=Noto+Serif+Thai:wght@300;400;500&display=swap" rel="stylesheet" />
+    <script is:inline>
+      document.documentElement.classList.replace('no-js', 'js');
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Person',
+      name: person.nameEn, alternateName: [person.nameTh, 'Ken'],
+      jobTitle: person.roles.en.join(', '), url: site,
+      sameAs: [`https://www.instagram.com/${person.contact.instagram}/`],
+    })} />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <div class="wrap nav">
+        <a class="brand" href={path('/', lang)} aria-label={person.nameEn}>
+          <span class="brand__mark">K</span>
+          <span class="brand__name">Ken Suthat<small>{t(person.roles, 'en')[0]}</small></span>
+        </a>
+        <nav aria-label="Main">
+          <ul class="nav__links">
+            {links.map(([k, p]) => (
+              <li><a href={path(p, lang)} aria-current={page === k ? 'page' : undefined}>{t(ui.nav[k], lang)}</a></li>
+            ))}
+            <li><a href="#contact">{t(ui.nav.contact, lang)}</a></li>
+          </ul>
+        </nav>
+        <div class="nav__right">
+          <div class="lang" role="group" aria-label="Language">
+            <a href={path(here, 'th')} hreflang="th" data-lang="th" aria-current={lang === 'th' ? 'true' : undefined}>TH</a>
+            <a href={path(here, 'en')} hreflang="en" data-lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+          </div>
+          <button class="menu-btn" aria-label={t(ui.menu, lang)} aria-expanded="false" data-menu-btn><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu" data-mobile-menu aria-hidden="true">
+      <ol>
+        {links.map(([k, p]) => (<li><a href={path(p, lang)}>{t(ui.nav[k], lang)}</a></li>))}
+        <li><a href="#contact" data-close-menu>{t(ui.nav.contact, lang)}</a></li>
+      </ol>
+      <p class="muted" style="font-size:12px;letter-spacing:.2em">INSTAGRAM · @{person.contact.instagram}</p>
+    </div>
+
+    <main id="top">
+      <slot />
+    </main>
+
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <span class="eyebrow reveal">{t(ui.nav.contact, lang)}</span>
+        <h2 class="h-display reveal" style="--d:.08s">{t(ui.contactTitle, lang)}</h2>
+        <p class="lead reveal" style="--d:.16s">{t(ui.contactLead, lang)}</p>
+        <div class="contact__actions reveal" style="--d:.24s">
+          <a class="btn" href={`https://www.instagram.com/${person.contact.instagram}/`} target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+            @{person.contact.instagram}
+          </a>
+          {person.contact.email && (
+            <a class="btn btn--ghost" href={`mailto:${person.contact.email}`}>{t(ui.email, lang)}</a>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© {new Date().getFullYear() + (lang === 'th' ? 543 : 0)} {lang === 'th' ? person.nameTh : person.nameEn} · {t(ui.rights, lang)}</span>
+        <span>KENSUKEIMAGERY</span>
+      </div>
+    </footer>
+
+    <Lightbox lang={lang} />
+
+    <script>
+      import '../scripts/site.js';
+    </script>
+  </body>
+</html>

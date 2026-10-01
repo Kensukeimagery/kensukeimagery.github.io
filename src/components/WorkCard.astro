@@ -1,0 +1,36 @@
+---
+import Media from './Media.astro';
+import { t, fmtYear, ui } from '../data/i18n.js';
+import { categories } from '../data/works.js';
+const { w, lang } = Astro.props;
+const cat = categories.find((c) => c.id === w.category);
+const brand = t(w.brand, lang);
+const media = w.status === 'soon' ? [] : (w.media ?? []);
+const wide = media.length >= 3;
+const single = media.length === 1 && media[0].type !== 'tiktok' && media[0].type !== 'instagram';
+---
+<article class={`work reveal${wide ? ' work--wide' : ''}`} id={w.slug} data-cat={w.category}>
+  <div class="work__meta">
+    <span>{t(cat, lang)}</span>
+    {w.status === 'soon' ? <span class="badge">{t(ui.comingSoon, lang)}</span> : w.year && <span class="yr">{fmtYear(w.year, lang)}</span>}
+  </div>
+  <div>
+    <h3 class="work__brand">{brand}</h3>
+    <p class="work__title">{t(w.title, lang)}</p>
+  </div>
+  {w.desc && <p class="work__desc">{t(w.desc, lang)}</p>}
+  {media.length > 0 && (
+    <div class={`media-row${single ? ' media-row--single' : ''}`}>
+      {media.map((m) => <Media m={m} lang={lang} brand={brand} />)}
+    </div>
+  )}
+  {w.links && (
+    <div>
+      <p class="work__company" style="margin:0 0 10px">{t(ui.references, lang)}</p>
+      <div class="links">
+        {w.links.map((l) => <a href={l.url} target="_blank" rel="noopener">{l.label} <span aria-hidden="true">↗</span></a>)}
+      </div>
+    </div>
+  )}
+  {w.company && <p class="work__company" style="margin-top:auto">{lang === 'th' ? 'ในนาม' : 'With'} {w.company}</p>}
+</article>

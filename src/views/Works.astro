@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WorkCard from '../components/WorkCard.astro';
+import { t, ui } from '../data/i18n.js';
+import { works, categories } from '../data/works.js';
+const { lang } = Astro.props;
+const counts = Object.fromEntries(categories.map((c) => [c.id, c.id === 'all' ? works.length : works.filter((w) => w.category === c.id).length]));
+const cats = categories.filter((c) => counts[c.id] > 0);
+---
+<Layout lang={lang} page="works" title={t(ui.worksTitle, 'en')}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Portfolio</span>
+      <h1 class="h-display">{t(ui.worksTitle, lang)}</h1>
+      <p class="lead">{t(ui.worksLead, lang)}</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:40px">
+    <div class="wrap">
+      <div class="filters" role="toolbar" aria-label="Filter">
+        {cats.map((c, i) => (
+          <button class="chip" type="button" data-filter={c.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+            {t(c, lang)}<span class="count">{counts[c.id]}</span>
+          </button>
+        ))}
+      </div>
+      <div class="works" data-works>
+        {works.map((w) => <WorkCard w={w} lang={lang} />)}
+      </div>
+    </div>
+  </section>
+</Layout>

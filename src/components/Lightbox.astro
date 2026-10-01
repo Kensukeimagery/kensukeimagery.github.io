@@ -1,0 +1,16 @@
+---
+import { t, ui } from '../data/i18n.js';
+const { lang } = Astro.props;
+---
+  <div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="lightbox__bar">
+      <span data-lb-count>1 / 1</span>
+      <button class="lb-btn" type="button" data-lb-close aria-label={t(ui.close, lang)}><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="lightbox__stage">
+      <img data-lb-img alt="" />
+      <button class="lb-btn lb-prev" type="button" data-lb-prev aria-label={t(ui.prev, lang)}><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="lb-btn lb-next" type="button" data-lb-next aria-label={t(ui.next, lang)}><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="lightbox__cap" data-lb-cap-el></div>
+  </div>

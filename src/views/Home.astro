@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t, path, ui, ageOn } from '../data/i18n.js';
+import { person, highlights, brands } from '../data/profile.js';
+import { works, categories } from '../data/works.js';
+import { portrait, film, srcset } from '../data/img.js';
+const { lang } = Astro.props;
+const hero = portrait(1);
+const about = portrait(2);
+const featured = works.filter((w) => w.featured);
+const age = ageOn(person.birthDate);
+const arrow = `<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+const strip = [film[10], film[0], film[18], film[8], film[13], film[2], film[19], film[16], film[6]].filter(Boolean);
+---
+<Layout lang={lang} page="home">
+  <section class="hero">
+    <div class="hero__media">
+      <img src={hero.lg} srcset={srcset(hero)} sizes="(max-width: 700px) 100vw, 55vw" alt={person.nameEn} fetchpriority="high" width={hero.w} height={hero.h} />
+    </div>
+    <div class="wrap hero__content">
+      <span class="eyebrow">Portfolio · {new Date().getFullYear()}</span>
+      <h1 class="h-display hero__name">
+        <span class="line"><span><em class="gold">Ken</em> Suthat</span></span>
+        <span class="line"><span>Thongkaemkaew</span></span>
+      </h1>
+      <p class="hero__th reveal" style="--d:.5s">{person.nameTh} ({t(person.nick, 'th')})</p>
+      <ul class="hero__roles reveal" style="--d:.6s">
+        {t(person.roles, lang).map((r) => <li>{r}</li>)}
+      </ul>
+      <div class="hero__cta reveal" style="--d:.7s">
+        <a class="btn" href={path('/works/', lang)}>{t(ui.viewWorks, lang)}</a>
+        <a class="btn btn--ghost" href="#contact">{t(ui.contactMe, lang)}</a>
+      </div>
+    </div>
+    <span class="hero__scroll" aria-hidden="true">{t(ui.scroll, 'en')}</span>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="wrap">
+      <div class="stats">
+        {highlights.map((h, i) => (
+          <div class="stat reveal" style={`--d:${i * 0.08}s`}>
+            <div class="stat__value">{h.prefix && <small style="margin:0 2px 0 0">{h.prefix}</small>}{h.value}{h.suffix && <small>{h.suffix}</small>}</div>
+            <div class="stat__label">{t(h.label, lang)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label={t(ui.brandsTitle, lang)}>
+    <div class="marquee__track">
+      {[...brands, ...brands].map((b, i) => <span class="marquee__item" aria-hidden={i >= brands.length ? 'true' : undefined}>{b}</span>)}
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="frame reveal-img">
+        <img src={about.sm} srcset={srcset(about)} sizes="(max-width: 860px) 90vw, 440px" alt={person.nameEn} loading="lazy" width={about.w} height={about.h} />
+      </div>
+      <div class="about__text">
+        <span class="eyebrow reveal">{t(ui.about, lang)}</span>
+        <h2 class="h-quote reveal" style="--d:.08s">{t(person.intro, lang)}</h2>
+        <p class="reveal" style="--d:.16s">{t(person.about, lang)[1]}</p>
+        <dl class="facts reveal" style="--d:.24s">
+          <div><dt>{t(ui.age, lang)}</dt><dd data-age={person.birthDate}>{age}</dd></div>
+          <div><dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd></div>
+          <div><dt>{t(ui.shoe, lang)}</dt><dd>EU 44.5</dd></div>
+        </dl>
+        <p class="reveal" style="--d:.3s;margin-top:34px"><a class="link-arrow" href={path('/profile/', lang)}>{t(ui.readProfile, lang)} →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow reveal">{t(ui.selected, lang)}</span>
+          <h2 class="h-section reveal" style="--d:.08s">{lang === 'th' ? 'ผลงานที่ภาคภูมิใจ' : 'Work I’m proud of'}</h2>
+        </div>
+        <a class="link-arrow reveal" href={path('/works/', lang)}>{t(ui.allWorks, lang)} →</a>
+      </div>
+      <div class="feature-list">
+        {featured.map((w, i) => (
+          <a class="feature reveal" style={`--d:${i * 0.06}s`} href={path('/works/', lang) + '#' + w.slug}>
+            <span class="feature__no">0{i + 1}</span>
+            <span class="feature__brand">{t(w.brand, lang)}</span>
+            <span class="feature__title">{t(w.title, lang)}</span>
+            <span style="display:flex;align-items:center;gap:22px;justify-content:flex-end">
+              <span class="feature__cat">{t(categories.find((c) => c.id === w.category), lang)}</span>
+              <span class="feature__arrow" set:html={arrow} />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow reveal">{t(ui.hobbies, lang)}</span>
+          <h2 class="h-section reveal" style="--d:.08s"><span class="italic">{t(ui.galleryTeaser, lang)}</span></h2>
+          <p class="lead reveal" style="--d:.14s;margin-top:16px">{t(ui.galleryTeaserText, lang)}</p>
+        </div>
+        <a class="link-arrow reveal" href={path('/gallery/', lang) + '#film'}>{t(ui.openGallery, lang)} →</a>
+      </div>
+      <div class="strip reveal">
+        {strip.map((f) => (
+          <a href={path('/gallery/', lang) + '#film'} aria-label={`${f.camera} · ${f.stock}`}>
+            <img src={f.sm} alt={`${f.camera} · ${f.stock}`} loading="lazy" decoding="async" width={f.w} height={f.h} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

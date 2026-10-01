@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t, ui, fmtRange, fmtYear, ageOn } from '../data/i18n.js';
+import { person, experience, education, awards } from '../data/profile.js';
+import { portrait, workImg, srcset } from '../data/img.js';
+const { lang } = Astro.props;
+const age = ageOn(person.birthDate);
+const headshot = portrait(13);
+const full = portrait(5);
+const groups = ['full', 'freelance', 'other', 'intern'];
+const today = new Date().toISOString().slice(0, 10);
+const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e.start <= today));
+---
+<Layout lang={lang} page="profile" title={t(ui.profileTitle, 'en')}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Profile · Résumé</span>
+      <h1 class="h-display">{t(ui.profileTitle, lang)}</h1>
+      <p class="lead">{t(person.intro, lang)}</p>
+      <p class="no-print" style="margin-top:28px">
+        <button class="btn btn--ghost" type="button" data-print>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+          {t(ui.print, lang)}
+        </button>
+      </p>
+      <p class="print-only" style="margin-top:8px">Instagram: @{person.contact.instagram}{person.contact.email && ` · ${person.contact.email}`} · kensukeimagery.github.io</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="comp">
+        <div class="comp__img reveal-img"><img src={headshot.sm} srcset={srcset(headshot)} sizes="(max-width: 900px) 50vw, 380px" alt={person.nameEn} width={headshot.w} height={headshot.h} /></div>
+        <div class="comp__img reveal-img" style="--d:.1s"><img src={full.sm} srcset={srcset(full)} sizes="(max-width: 900px) 50vw, 380px" alt="" width={full.w} height={full.h} loading="lazy" /></div>
+        <div class="comp__card reveal" style="--d:.2s">
+          <div>
+            <span class="eyebrow">{t(ui.compCard, lang)}</span>
+            <h2 class="comp__name">{person.nameEn}</h2>
+            <div class="comp__th">{person.nameTh} · {t(person.nick, lang)}</div>
+          </div>
+          <dl>
+            <div><dt>{t(ui.age, lang)}</dt><dd><span data-age={person.birthDate}>{age}</span> {t(ui.years, lang)}</dd></div>
+            <div><dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd></div>
+            <div><dt>{t(ui.weight, lang)}</dt><dd>{person.stats.weightKg} kg</dd></div>
+            <div><dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in<br /><span class="muted">{person.stats.measurementsCm} cm</span></dd></div>
+            <div><dt>{t(ui.shoe, lang)}</dt><dd>{person.stats.shoe}</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">01</span>
+          <h2 class="h-section reveal">{t(ui.about, lang)}</h2>
+        </div>
+        <div class="about__text reveal">
+          {t(person.about, lang).map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">02</span>
+          <h2 class="h-section reveal">{t(ui.experience, lang)}</h2>
+        </div>
+        <ol class="timeline">
+          {groups.map((g) => (
+            <>
+              <li class="tl-group reveal">{t(ui.groups[g], lang)}</li>
+              {experience.filter((e) => e.group === g).map((e) => (
+                <li class={`tl reveal${isNow(e) ? ' tl--now' : ''}`}>
+                  {e.start && <div class="tl__when">{fmtRange(e.start, e.end, lang)}</div>}
+                  <h3 class="tl__org">{t(e.org, lang)}</h3>
+                  <div class="tl__role">{t(e.role, lang)}</div>
+                  {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
+                  {e.photos && (
+                    <div class="tl__photos" data-gallery-group={e.photos.join(',')}>
+                      {e.photos.map((k, i) => {
+                        const im = workImg(k);
+                        return (
+                          <button type="button" data-lb={im.lg} data-lb-group={`exp-${k.split('-')[1]}`} data-lb-cap={t(e.org, lang)} aria-label={`${t(e.org, lang)} ${i + 1}`}>
+                            <img src={im.sm} alt="" loading="lazy" width={im.w} height={im.h} />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </li>
+              ))}
+            </>
+          ))}
+        </ol>
+      </div>
+
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">03</span>
+          <h2 class="h-section reveal">{t(ui.education, lang)}</h2>
+        </div>
+        <div class="cards">
+          {education.map((e) => (
+            <div class="card reveal">
+              <h3>{t(e.level, lang)}</h3>
+              <p>{t(e.school, lang)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">04</span>
+          <h2 class="h-section reveal">{t(ui.awards, lang)}</h2>
+        </div>
+        <div class="cards">
+          {awards.map((a) => (
+            <div class="card reveal">
+              <div class="tl__when">{fmtYear(a.year, lang)} · {t(a.event, lang)}</div>
+              <h3>{t(a.title, lang)}</h3>
+              <ul>{t(a.results, lang).map((r) => <li>{r}</li>)}</ul>
+              <a class="link-arrow no-print" href={a.url} target="_blank" rel="noopener">{t(ui.references, lang)} ↗</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">05</span>
+          <h2 class="h-section reveal">{t(ui.skills, lang)}</h2>
+        </div>
+        <div>
+          <div class="tags reveal">{t(person.skills, lang).map((s) => <span>{s}</span>)}</div>
+          <p class="eyebrow reveal" style="margin-top:40px">{t(ui.hobbies, lang)}</p>
+          <div class="tags reveal" style="margin-top:16px">{t(person.hobbies, lang).map((s) => <span>{s}</span>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

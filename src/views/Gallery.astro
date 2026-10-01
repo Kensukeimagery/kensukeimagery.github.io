@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { t, ui } from '../data/i18n.js';
+import { person } from '../data/profile.js';
+import { portraits, film, srcset } from '../data/img.js';
+const { lang } = Astro.props;
+const albums = [
+  { id: 'portraits', title: ui.portraits, lead: ui.portraitsLead, items: portraits.map((p) => ({ ...p, cap: person.nameEn })) },
+  { id: 'film', title: ui.film, lead: ui.filmLead, items: film.map((f) => ({ ...f, cap: `${f.camera} · ${f.stock}` })) },
+];
+---
+<Layout lang={lang} page="gallery" title={t(ui.galleryTitle, 'en')}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Gallery</span>
+      <h1 class="h-display">{t(ui.galleryTitle, lang)}</h1>
+      <div class="tabs" role="tablist">
+        {albums.map((a, i) => (
+          <button class="tab" role="tab" id={`tab-${a.id}`} aria-controls={`panel-${a.id}`} aria-selected={i === 0 ? 'true' : 'false'} data-tab={a.id}>
+            {t(a.title, lang)} <span class="muted" style="font-size:11px;margin-left:4px">{a.items.length}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:20px">
+    <div class="wrap">
+      {albums.map((a, i) => (
+        <div role="tabpanel" id={`panel-${a.id}`} aria-labelledby={`tab-${a.id}`} hidden={i !== 0}>
+          <p class="lead" style="margin-top:28px">{t(a.lead, lang)}</p>
+          <div class="masonry">
+            {a.items.map((im, j) => (
+              <button type="button" class="reveal" style={`--d:${(j % 3) * 0.06}s`} data-lb={im.lg} data-lb-group={a.id} data-lb-cap={im.cap}>
+                <img src={im.sm} srcset={srcset(im)} sizes="(max-width: 600px) 50vw, (max-width: 1000px) 45vw, 400px" alt={im.cap} loading={j < 6 && i === 0 ? 'eager' : 'lazy'} decoding="async" width={im.w} height={im.h} />
+                <figcaption>{im.cap}</figcaption>
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</Layout>
