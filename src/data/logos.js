@@ -14,6 +14,11 @@ export const logos = {
   'LIVELAB': { file: 'livelab', w: 415 },
   'DEVAS IPASON': { file: 'ipason', w: 693 },
   'IT CITY': { file: 'itcity', w: 447 },
+  'CIMB THAI': { file: 'cimb', w: 553 },
+  'RAZER': { file: 'razer', w: 413 },
+  'THERMALTAKE': { file: 'thermaltake', w: 602 },
+  'EPOS': { file: 'epos', w: 330 },
+  'PERSOL': { file: 'persol', w: 475 },
 };
 
 /** ความสูงที่แสดง (px) ให้พื้นที่โลโก้ใกล้เคียงกัน: โลโก้ยาวจะเตี้ยลง โลโก้กะทัดรัดจะสูงขึ้น */
