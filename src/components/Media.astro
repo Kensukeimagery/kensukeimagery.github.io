@@ -10,7 +10,8 @@ let cfg = null;
 if (m.type === 'tiktok') {
   cfg = {
     cls: 'embed--v', platform: 'TikTok',
-    src: `https://www.tiktok.com/player/v1/${m.id}?autoplay=1&description=0&music_info=0&rel=0`,
+    // shoppable clips can't play outside TikTok on desktop — play our own copy from Google Drive instead
+    src: m.drive ? `https://drive.google.com/file/d/${m.drive}/preview` : `https://www.tiktok.com/player/v1/${m.id}?autoplay=1&description=0&music_info=0&rel=0`,
     ext: `https://www.tiktok.com/@${m.user}/video/${m.id}`,
     poster: ttPosters.has(m.id) ? `/img/tt/${m.id}.webp` : undefined,
   };

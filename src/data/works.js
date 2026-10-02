@@ -6,7 +6,8 @@
 //    { type: 'youtube', id: '<รหัสวิดีโอ>' }
 //    { type: 'instagram', id: '<รหัส reel>' }
 //    { type: 'image', src: '<ชื่อรูปใน images.json>' }
-//    เพิ่ม shop: true ให้คลิป TikTok ที่ปักตะกร้า (บนคอมจะเปิดในแท็บ TikTok แทน เพราะ TikTok ไม่ให้เล่นในเว็บอื่น)
+//    คลิป TikTok ที่ปักตะกร้า: TikTok ไม่ให้เล่นในเว็บอื่นบนคอม → ใส่ drive: '<Google Drive file id>' ให้เล่นไฟล์จาก Drive แทน
+//    (ไฟล์ต้องแชร์แบบ 'ทุกคนที่มีลิงก์ดูได้') ถ้ายังไม่มีไฟล์ ใส่ shop: true ไว้ก่อน (บนคอมจะเปิดในแท็บ TikTok)
 //  links: ลิงก์อ้างอิงที่ฝังไม่ได้ (เช่น Facebook)
 //  status: 'soon' = รอออนแอร์ (ยังไม่แสดงสื่อ)
 //  featured: ตัวเลข = แสดงในสไลด์ผลงานหน้าแรก (เรียงตามเลข)
@@ -37,9 +38,9 @@ export const works = [
       en: 'Presenting the JERALD and UNDERSCORE collections in a minimal business look for the brand’s TikTok channel.',
     },
     media: [
-      { type: 'tiktok', user: 'samsonitethbackpack', id: '7485214483044896008', shop: true, label: { th: 'JERALD กระเป๋าเป้', en: 'JERALD backpack' } },
-      { type: 'tiktok', user: 'samsonitethbackpack', id: '7520163410294918418', shop: true, label: { th: 'JERALD กระเป๋าถือ', en: 'JERALD briefcase' } },
-      { type: 'tiktok', user: 'samsonitethbackpack', id: '7680149614472744213', shop: true, label: { th: 'UNDERSCORE', en: 'UNDERSCORE' } },
+      { type: 'tiktok', user: 'samsonitethbackpack', id: '7485214483044896008', drive: '1k93ffkSRn_3sXfFpg8VtdQwB3waIt2Az', label: { th: 'JERALD กระเป๋าเป้', en: 'JERALD backpack' } },
+      { type: 'tiktok', user: 'samsonitethbackpack', id: '7520163410294918418', drive: '1iglKdvvJMB5cRgVeJihxOahW1eV7Klhl', label: { th: 'JERALD กระเป๋าถือ', en: 'JERALD briefcase' } },
+      { type: 'tiktok', user: 'samsonitethbackpack', id: '7680149614472744213', drive: '1EHRvou0Z4kLf219Etj_9TgxDwK5fYjxj', label: { th: 'UNDERSCORE', en: 'UNDERSCORE' } },
     ],
   },
   {
@@ -84,8 +85,8 @@ export const works = [
       en: 'Currently the resident host for Joyroom (gadgets); previously hosted live sales for SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER and Bousvclight.',
     },
     media: [
-      { type: 'tiktok', user: 'bousvclight', id: '7365507705513069842', shop: true, label: { th: 'ตัวอย่างไลฟ์ 1', en: 'Live sample 1' } },
-      { type: 'tiktok', user: 'bousvclight', id: '7394667143058492688', shop: true, label: { th: 'ตัวอย่างไลฟ์ 2', en: 'Live sample 2' } },
+      { type: 'tiktok', user: 'bousvclight', id: '7365507705513069842', drive: '1jo5mRqYbh-wTZV_hkPT7U7sN74eW1xeC', label: { th: 'ตัวอย่างไลฟ์ 1', en: 'Live sample 1' } },
+      { type: 'tiktok', user: 'bousvclight', id: '7394667143058492688', drive: '1Lw9CBXp8J0i6wNM5Fkg23tU2O8cdfLVN', label: { th: 'ตัวอย่างไลฟ์ 2', en: 'Live sample 2' } },
     ],
   },
   {
@@ -135,7 +136,7 @@ export const works = [
     title: { th: 'คลิปสั้นโปรโมตสินค้า IT', en: 'IT product promo short' },
     company: 'Devas IPASON',
     year: '2023',
-    media: [{ type: 'tiktok', user: 'ipason_thailand', id: '7283820993099894021', shop: true }],
+    media: [{ type: 'tiktok', user: 'ipason_thailand', id: '7283820993099894021', drive: '1BiQNaPoYakMEBTSRzz4OQ_-_MeNNhKXf' }],
   },
   {
     slug: 'standin',
