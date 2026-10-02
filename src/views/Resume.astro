@@ -88,6 +88,8 @@ const intern = experience.filter((e) => e.group === 'intern');
     .award b { font-weight: 500; }
     .award .meta { color: var(--gold); font-size: 7.8pt; }
     .foot { margin-top: 6mm; padding-top: 3mm; border-top: .25mm solid var(--rule); font-size: 7.6pt; color: var(--ink-2); display: flex; justify-content: space-between; }
+    /* keep everything on one A4 page */
+    .compact li { padding: .4mm 0; } .main section + section { margin-top: 3.8mm; } .job { margin-bottom: 2.4mm; } .summary { line-height: 1.55; } .sub { margin-top: 3.2mm; }
   </style>
 </head>
 <body>
