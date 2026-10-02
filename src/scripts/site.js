@@ -52,12 +52,20 @@ document.querySelectorAll('[data-year]').forEach((el) => {
 // ---------- reveal on scroll ----------
 const revealEls = document.querySelectorAll('.reveal, .reveal-img');
 if ('IntersectionObserver' in window) {
+  // .reveal-img starts fully clipped (clip-path), and Chrome then never reports it as
+  // intersecting — so watch its parent instead and reveal the image from there
   const io = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
-      if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      if (en.isIntersecting) { [en.target, ...(en.target._reveal || [])].forEach((t) => { if (t._reveal ? t.matches('.reveal, .reveal-img') : true) t.classList.add('is-in'); }); io.unobserve(en.target); }
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  revealEls.forEach((el) => io.observe(el));
+  revealEls.forEach((el) => {
+    if (el.classList.contains('reveal-img') && el.parentElement) {
+      const p = el.parentElement;
+      (p._reveal ||= []).push(el);
+      io.observe(p);
+    } else io.observe(el);
+  });
 } else {
   revealEls.forEach((el) => el.classList.add('is-in'));
 }
