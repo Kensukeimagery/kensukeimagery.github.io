@@ -1,21 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { t, path, ui, ageOn } from '../data/i18n.js';
+import Media from '../components/Media.astro';
+import { t, path, ui, ageOn, fmtYear } from '../data/i18n.js';
 import { person, highlights, brands } from '../data/profile.js';
 import { works, categories } from '../data/works.js';
 import { portrait, film, srcset } from '../data/img.js';
 const { lang } = Astro.props;
-const hero = portrait(1);
+// รูปสไลด์หน้าแรก (เลขตามลำดับใน images.json)
+const heroSlides = [1, 2, 4, 16].map(portrait);
 const about = portrait(2);
-const featured = works.filter((w) => w.featured);
+const featured = works.filter((w) => w.featured).sort((a, b) => a.featured - b.featured);
 const age = ageOn(person.birthDate);
-const arrow = `<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 const strip = [film[10], film[0], film[18], film[8], film[13], film[2], film[19], film[16], film[6]].filter(Boolean);
+const chev = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
 ---
 <Layout lang={lang} page="home">
   <section class="hero">
-    <div class="hero__media">
-      <img src={hero.lg} srcset={srcset(hero)} sizes="(max-width: 700px) 100vw, 55vw" alt={person.nameEn} fetchpriority="high" width={hero.w} height={hero.h} />
+    <div class="hero__media" data-slideshow data-interval="5500">
+      {heroSlides.map((im, i) => (
+        <img class={`slide${i === 0 ? ' is-active' : ''}`} src={i === 0 ? im.lg : im.sm} srcset={srcset(im)} sizes="(max-width: 700px) 100vw, 58vw"
+          alt={i === 0 ? person.nameEn : ''} fetchpriority={i === 0 ? 'high' : 'low'} decoding="async" width={im.w} height={im.h} />
+      ))}
     </div>
     <div class="wrap hero__content">
       <span class="eyebrow">Portfolio · {new Date().getFullYear()}</span>
@@ -28,12 +33,23 @@ const strip = [film[10], film[0], film[18], film[8], film[13], film[2], film[19]
         {t(person.roles, lang).map((r) => <li>{r}</li>)}
       </ul>
       <div class="hero__cta reveal" style="--d:.7s">
-        <a class="btn" href={path('/works/', lang)}>{t(ui.viewWorks, lang)}</a>
+        <a class="btn" href="#works">{t(ui.viewWorks, lang)}</a>
         <a class="btn btn--ghost" href="#contact">{t(ui.contactMe, lang)}</a>
       </div>
     </div>
-    <span class="hero__scroll" aria-hidden="true">{t(ui.scroll, 'en')}</span>
+    <div class="slide-dots" aria-hidden="true">
+      {heroSlides.map((_, i) => <span class={i === 0 ? 'is-active' : ''}></span>)}
+    </div>
   </section>
+
+  {person.showreel && (
+    <section class="section" style="padding-top:40px">
+      <div class="wrap">
+        <span class="eyebrow reveal">Showreel</span>
+        <div class="showreel reveal" style="margin-top:24px"><Media m={person.showreel} lang={lang} brand="Showreel" /></div>
+      </div>
+    </section>
+  )}
 
   <section class="section" style="padding-top:40px">
     <div class="wrap">
@@ -54,6 +70,45 @@ const strip = [film[10], film[0], film[18], film[8], film[13], film[2], film[19]
     </div>
   </div>
 
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow reveal">{t(ui.selected, lang)}</span>
+          <h2 class="h-section reveal" style="--d:.08s">{lang === 'th' ? 'ผลงานที่ภาคภูมิใจ' : 'Work I’m proud of'}</h2>
+          <p class="lead reveal" style="--d:.12s;margin-top:14px">{t(ui.carouselHint, lang)}</p>
+        </div>
+        <div class="carousel-nav reveal">
+          <button class="lb-btn" type="button" data-car-prev aria-label={t(ui.prev, lang)} set:html={chev('M15 6l-6 6 6 6')} />
+          <button class="lb-btn" type="button" data-car-next aria-label={t(ui.next, lang)} set:html={chev('M9 6l6 6-6 6')} />
+        </div>
+      </div>
+      <div class="carousel" data-carousel>
+        {featured.map((w, i) => {
+          const cat = categories.find((c) => c.id === w.category);
+          const m = (w.media ?? [])[0];
+          return (
+            <article class="wcard reveal" style={`--d:${Math.min(i, 3) * 0.08}s`}>
+              {m && <Media m={m} lang={lang} brand={t(w.brand, lang)} card />}
+              <div class="wcard__body">
+                <div class="work__meta"><span>{t(cat, lang)}</span>{w.year && <span class="yr">{fmtYear(w.year, lang)}</span>}</div>
+                <h3 class="wcard__brand">{t(w.brand, lang)}</h3>
+                <p class="wcard__title">{t(w.title, lang)}</p>
+                {w.desc && <p class="wcard__desc">{t(w.desc, lang)}</p>}
+                <a class="link-arrow" href={path('/works/', lang) + '#' + w.slug}>{t(ui.details, lang)} →</a>
+              </div>
+            </article>
+          );
+        })}
+        <a class="wcard wcard--more reveal" href={path('/works/', lang)}>
+          <span class="eyebrow">{t(ui.worksTitle, lang)}</span>
+          <span class="wcard__more">{t(ui.allWorks, lang)} →</span>
+          <span class="muted">{works.length} {lang === 'th' ? 'ผลงาน' : 'projects'}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap split">
       <div class="frame reveal-img">
@@ -69,31 +124,6 @@ const strip = [film[10], film[0], film[18], film[8], film[13], film[2], film[19]
           <div><dt>{t(ui.shoe, lang)}</dt><dd>EU 44.5</dd></div>
         </dl>
         <p class="reveal" style="--d:.3s;margin-top:34px"><a class="link-arrow" href={path('/profile/', lang)}>{t(ui.readProfile, lang)} →</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <span class="eyebrow reveal">{t(ui.selected, lang)}</span>
-          <h2 class="h-section reveal" style="--d:.08s">{lang === 'th' ? 'ผลงานที่ภาคภูมิใจ' : 'Work I’m proud of'}</h2>
-        </div>
-        <a class="link-arrow reveal" href={path('/works/', lang)}>{t(ui.allWorks, lang)} →</a>
-      </div>
-      <div class="feature-list">
-        {featured.map((w, i) => (
-          <a class="feature reveal" style={`--d:${i * 0.06}s`} href={path('/works/', lang) + '#' + w.slug}>
-            <span class="feature__no">0{i + 1}</span>
-            <span class="feature__brand">{t(w.brand, lang)}</span>
-            <span class="feature__title">{t(w.title, lang)}</span>
-            <span style="display:flex;align-items:center;gap:22px;justify-content:flex-end">
-              <span class="feature__cat">{t(categories.find((c) => c.id === w.category), lang)}</span>
-              <span class="feature__arrow" set:html={arrow} />
-            </span>
-          </a>
-        ))}
       </div>
     </div>
   </section>

@@ -1,29 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { t, ui, fmtRange, fmtYear, ageOn } from '../data/i18n.js';
+import { t, ui, path, fmtRange, fmtYear, ageOn } from '../data/i18n.js';
 import { person, experience, education, awards } from '../data/profile.js';
 import { portrait, workImg, srcset } from '../data/img.js';
 const { lang } = Astro.props;
 const age = ageOn(person.birthDate);
 const headshot = portrait(13);
 const full = portrait(5);
+const headSlides = [6, 9, 15, 22].map(portrait);
 const groups = ['full', 'freelance', 'other', 'intern'];
 const today = new Date().toISOString().slice(0, 10);
 const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e.start <= today));
 ---
 <Layout lang={lang} page="profile" title={t(ui.profileTitle, 'en')}>
-  <header class="page-head">
+  <header class="page-head page-head--photo">
+    <div class="page-head__media" data-slideshow data-interval="5000">
+      {headSlides.map((im, i) => (
+        <img class={`slide${i === 0 ? ' is-active' : ''}`} src={i === 0 ? im.lg : im.sm} srcset={srcset(im)} sizes="100vw" alt="" decoding="async" width={im.w} height={im.h} />
+      ))}
+    </div>
     <div class="wrap">
       <span class="eyebrow">Profile · Résumé</span>
       <h1 class="h-display">{t(ui.profileTitle, lang)}</h1>
       <p class="lead">{t(person.intro, lang)}</p>
-      <p class="no-print" style="margin-top:28px">
-        <button class="btn btn--ghost" type="button" data-print>
+      <p class="no-print" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn" href={`/resume-${lang}.pdf`} download={`Suthat-Thongkaemkaew-Resume-${lang.toUpperCase()}.pdf`}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
           {t(ui.print, lang)}
-        </button>
+        </a>
+        <a class="btn btn--ghost" href={path('/resume/', lang)} target="_blank" rel="noopener">{t(ui.resumeOnline, lang)}</a>
       </p>
-      <p class="print-only" style="margin-top:8px">Instagram: @{person.contact.instagram}{person.contact.email && ` · ${person.contact.email}`} · kensukeimagery.github.io</p>
     </div>
   </header>
 
@@ -45,6 +51,24 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
             <div><dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in<br /><span class="muted">{person.stats.measurementsCm} cm</span></dd></div>
             <div><dt>{t(ui.shoe, lang)}</dt><dd>{person.stats.shoe}</dd></div>
           </dl>
+        </div>
+      </div>
+
+      <div class="skills-block">
+        <div>
+          <span class="eyebrow reveal">{t(ui.skillsLead, lang)}</span>
+          <h2 class="h-section reveal">{t(ui.skills, lang)}</h2>
+        </div>
+        <div>
+          <div class="skill-grid reveal">{t(person.skills, lang).map((sk) => <div>{sk}</div>)}</div>
+          {person.languages?.length > 0 && (
+            <>
+              <p class="eyebrow reveal" style="margin-top:32px">{t(ui.languages, lang)}</p>
+              <div class="tags reveal" style="margin-top:14px">{person.languages.map((l) => <span>{t(l, lang)}</span>)}</div>
+            </>
+          )}
+          <p class="eyebrow reveal" style="margin-top:32px">{t(ui.hobbies, lang)}</p>
+          <div class="tags reveal" style="margin-top:14px">{t(person.hobbies, lang).map((h) => <span>{h}</span>)}</div>
         </div>
       </div>
     </div>
@@ -103,9 +127,11 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
         </div>
         <div class="cards">
           {education.map((e) => (
-            <div class="card reveal">
+            <div class="card edu reveal">
+              <span class="edu__mark">✦</span>
               <h3>{t(e.level, lang)}</h3>
-              <p>{t(e.school, lang)}</p>
+              <p class="edu__major">{t(e.major, lang)}</p>
+              <p class="edu__school">{t(e.school, lang)}</p>
             </div>
           ))}
         </div>
@@ -128,17 +154,6 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
         </div>
       </div>
 
-      <div class="resume">
-        <div class="resume__label">
-          <span class="eyebrow reveal">05</span>
-          <h2 class="h-section reveal">{t(ui.skills, lang)}</h2>
-        </div>
-        <div>
-          <div class="tags reveal">{t(person.skills, lang).map((s) => <span>{s}</span>)}</div>
-          <p class="eyebrow reveal" style="margin-top:40px">{t(ui.hobbies, lang)}</p>
-          <div class="tags reveal" style="margin-top:16px">{t(person.hobbies, lang).map((s) => <span>{s}</span>)}</div>
-        </div>
-      </div>
     </div>
   </section>
 </Layout>

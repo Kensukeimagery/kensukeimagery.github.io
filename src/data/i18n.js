@@ -115,4 +115,9 @@ export const ui = {
   prev: { th: 'ก่อนหน้า', en: 'Previous' },
   next: { th: 'ถัดไป', en: 'Next' },
   scroll: { th: 'เลื่อนลง', en: 'Scroll' },
+  carouselHint: { th: 'ปัดเพื่อดูผลงาน แตะที่คลิปเพื่อเล่นได้ทันที', en: 'Swipe through — tap any clip to play it right here.' },
+  details: { th: 'ดูรายละเอียด', en: 'Details' },
+  languages: { th: 'ภาษา', en: 'Languages' },
+  skillsLead: { th: 'ความสามารถหลัก', en: 'What I bring' },
+  resumeOnline: { th: 'ดูเรซูเม่ออนไลน์', en: 'View résumé online' },
 };

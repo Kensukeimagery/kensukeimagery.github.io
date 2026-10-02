@@ -1,0 +1,189 @@
+---
+// เรซูเม่ A4 — หน้านี้ถูกแปลงเป็น PDF อัตโนมัติ (resume-th.pdf / resume-en.pdf) ตอน deploy
+import { t, ui, path, fmtRange, fmtYear, ageOn } from '../data/i18n.js';
+import { person, experience, education, awards } from '../data/profile.js';
+import { portrait } from '../data/img.js';
+const { lang } = Astro.props;
+const photo = portrait(13);
+const age = ageOn(person.birthDate);
+const L = (th, en) => (lang === 'th' ? th : en);
+const full = experience.filter((e) => e.group === 'full');
+const free = experience.filter((e) => e.group === 'freelance');
+const other = experience.filter((e) => e.group === 'other');
+const intern = experience.filter((e) => e.group === 'intern');
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{L('เรซูเม่', 'Résumé')} — {person.nameEn}</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500&family=Noto+Serif+Thai:wght@400;500&display=swap" rel="stylesheet" />
+  <style is:global>
+    :root { --green: #0d2520; --green-2: #133129; --gold: #b8955a; --gold-l: #d9bd86; --ink: #1b2622; --ink-2: #4b5852; --paper: #fbf8f1; --rule: #e4dccb; }
+    * { box-sizing: border-box; }
+    @page { size: A4; margin: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { margin: 0; background: #1a1f1d; font-family: 'IBM Plex Sans Thai', Arial, sans-serif; font-weight: 300; color: var(--ink); }
+    .toolbar { display: flex; justify-content: center; gap: 10px; padding: 18px; font-size: 14px; }
+    .toolbar a { color: #0d2520; background: var(--gold-l); padding: 10px 18px; text-decoration: none; letter-spacing: .04em; }
+    .toolbar a.ghost { background: transparent; color: var(--gold-l); border: 1px solid var(--gold); }
+    .sheet { width: 210mm; min-height: 297mm; margin: 0 auto 40px; background: var(--paper); display: grid; grid-template-columns: 70mm 1fr; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    @media print { body { background: none; } .toolbar { display: none; } .sheet { margin: 0; box-shadow: none; } }
+    @media (max-width: 820px) { .sheet { transform-origin: top left; } }
+
+    /* sidebar */
+    .side { background: var(--green); color: #efe7d6; padding: 14mm 8mm 12mm; position: relative; }
+    .side::before { content: ''; position: absolute; inset: 5mm; border: .3mm solid rgba(184,149,90,.45); pointer-events: none; }
+    .photo { width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; object-position: 50% 30%; display: block; border: .4mm solid var(--gold); }
+    .name { font-family: 'Cormorant Garamond', serif; font-size: 21pt; line-height: 1.02; margin: 6mm 0 0; font-weight: 500; letter-spacing: .02em; }
+    .name em { color: var(--gold-l); font-weight: 400; }
+    .th-name { font-family: 'Noto Serif Thai', serif; font-size: 10pt; color: #cfc6b2; margin-top: 2mm; }
+    .roles { font-size: 7.6pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-l); margin-top: 3mm; line-height: 1.6; }
+    .side h3 { font-size: 7.5pt; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-l); font-weight: 500; margin: 7mm 0 2.5mm; display: flex; align-items: center; gap: 2.5mm; }
+    .side h3::after { content: ''; flex: 1; height: .25mm; background: rgba(184,149,90,.5); }
+    html[lang='th'] .side h3 { letter-spacing: .04em; font-size: 9pt; }
+    .kv { display: grid; grid-template-columns: auto 1fr; gap: 1.2mm 3mm; font-size: 8.4pt; }
+    .kv dt { color: #a9b3ab; }
+    .kv dd { margin: 0; text-align: right; }
+    .list { margin: 0; padding: 0; list-style: none; font-size: 8.6pt; line-height: 1.55; }
+    .list li { display: flex; gap: 2mm; }
+    .list li::before { content: '✦'; color: var(--gold); font-size: 6pt; padding-top: .8mm; }
+    .contact a { color: #efe7d6; text-decoration: none; }
+
+    /* main */
+    .main { padding: 13mm 11mm 12mm 10mm; }
+    .main h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 15pt; color: var(--green); margin: 0 0 2.5mm; display: flex; align-items: center; gap: 3mm; letter-spacing: .03em; }
+    html[lang='th'] .main h2 { font-family: 'Noto Serif Thai', serif; font-size: 12.5pt; }
+    .main h2::after { content: ''; flex: 1; height: .25mm; background: var(--rule); }
+    .main section + section { margin-top: 4.6mm; }
+    html[lang='th'] .main { font-size: 98%; } html[lang='th'] .job ul, html[lang='th'] .compact { line-height: 1.42; }
+    .summary { font-size: 9.2pt; line-height: 1.65; color: var(--ink-2); margin: 0; }
+    .job { margin-bottom: 3mm; break-inside: avoid; }
+    .job__top { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+    .job__org { font-weight: 500; font-size: 9.6pt; color: var(--ink); }
+    .job__when { font-size: 7.8pt; color: var(--gold); white-space: nowrap; letter-spacing: .04em; }
+    .job__role { font-size: 8.8pt; color: var(--green-2); font-style: italic; }
+    html[lang='th'] .job__role { font-style: normal; color: #2e5a4c; }
+    .job ul { margin: 1.2mm 0 0; padding-left: 4mm; font-size: 8.5pt; line-height: 1.5; color: var(--ink-2); }
+    .job li::marker { color: var(--gold); }
+    .sub { font-size: 7.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin: 4mm 0 1.8mm; font-weight: 500; }
+    html[lang='th'] .sub { letter-spacing: .03em; font-size: 8.4pt; }
+    .compact { margin: 0; padding: 0; list-style: none; font-size: 8.5pt; line-height: 1.5; }
+    .compact li { display: grid; grid-template-columns: 1fr auto; gap: 3mm; padding: .6mm 0; border-bottom: .2mm dotted var(--rule); }
+    .compact b { font-weight: 500; color: var(--ink); }
+    .compact span { color: var(--ink-2); }
+    .compact .when { color: var(--gold); font-size: 7.8pt; white-space: nowrap; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+    .edu b { display: block; font-weight: 500; font-size: 9pt; }
+    .edu span { display: block; font-size: 8.4pt; color: var(--ink-2); }
+    .edu + .edu { margin-top: 2.4mm; }
+    .award { font-size: 8.5pt; line-height: 1.5; break-inside: avoid; }
+    .award + .award { margin-top: 2.4mm; }
+    .award b { font-weight: 500; }
+    .award .meta { color: var(--gold); font-size: 7.8pt; }
+    .foot { margin-top: 6mm; padding-top: 3mm; border-top: .25mm solid var(--rule); font-size: 7.6pt; color: var(--ink-2); display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href={`/resume-${lang}.pdf`} download={`Suthat-Thongkaemkaew-Resume-${lang.toUpperCase()}.pdf`}>{t(ui.print, lang)}</a>
+    <a class="ghost" href={path('/resume/', lang === 'th' ? 'en' : 'th')}>{lang === 'th' ? 'English' : 'ภาษาไทย'}</a>
+    <a class="ghost" href={path('/profile/', lang)}>← {t(ui.nav.profile, lang)}</a>
+  </div>
+
+  <article class="sheet">
+    <aside class="side">
+      <img class="photo" src={photo.sm} alt={person.nameEn} width={photo.w} height={photo.h} />
+      <h1 class="name">Suthat<br /><em>Ken</em> Thongkaemkaew</h1>
+      <div class="th-name">{person.nameTh} ({t(person.nick, 'th')})</div>
+      <div class="roles">{person.roles.en.join(' · ')}</div>
+
+      <h3>{t(ui.nav.contact, lang)}</h3>
+      <ul class="list contact">
+        <li>Instagram: <a href={`https://www.instagram.com/${person.contact.instagram}/`}>@{person.contact.instagram}</a></li>
+        {person.contact.email && <li><a href={`mailto:${person.contact.email}`}>{person.contact.email}</a></li>}
+        <li><a href="https://kensukeimagery.github.io">kensukeimagery.github.io</a></li>
+      </ul>
+
+      <h3>{t(ui.compCard, lang)}</h3>
+      <dl class="kv">
+        <dt>{t(ui.age, lang)}</dt><dd>{age} {t(ui.years, lang)}</dd>
+        <dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd>
+        <dt>{t(ui.weight, lang)}</dt><dd>{person.stats.weightKg} kg</dd>
+        <dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in</dd>
+        <dt>{t(ui.shoe, lang)}</dt><dd>EU 44.5 · US 10.5</dd>
+      </dl>
+
+      <h3>{t(ui.skills, lang)}</h3>
+      <ul class="list">{t(person.skills, lang).map((s) => <li>{s}</li>)}</ul>
+
+      {person.languages?.length > 0 && (<><h3>{t(ui.languages, lang)}</h3><ul class="list">{person.languages.map((l) => <li>{t(l, lang)}</li>)}</ul></>)}
+
+      <h3>{t(ui.hobbies, lang)}</h3>
+      <ul class="list">{t(person.hobbies, lang).map((s) => <li>{s}</li>)}</ul>
+    </aside>
+
+    <main class="main">
+      <section>
+        <h2>{L('ข้อมูลโดยสรุป', 'Profile')}</h2>
+        <p class="summary">{t(person.intro, lang)}</p>
+      </section>
+
+      <section>
+        <h2>{t(ui.experience, lang)}</h2>
+        {full.map((e) => (
+          <div class="job">
+            <div class="job__top"><span class="job__org">{t(e.org, lang)}</span><span class="job__when">{fmtRange(e.start, e.end, lang)}</span></div>
+            <div class="job__role">{t(e.role, lang)}</div>
+            {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
+          </div>
+        ))}
+        <div class="sub">{t(ui.groups.freelance, lang)}</div>
+        <ul class="compact">
+          {free.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{e.start ? fmtRange(e.start, e.end, lang) : ''}</span></li>)}
+        </ul>
+        <div class="two">
+          <div>
+            <div class="sub">{t(ui.groups.other, lang)}</div>
+            <ul class="compact">
+              {other.map((e) => <li><span><b>{t(e.role, lang)}</b> — {t(e.org, lang)}</span><span class="when"></span></li>)}
+            </ul>
+          </div>
+          <div>
+            <div class="sub">{t(ui.groups.intern, lang)}</div>
+            <ul class="compact">
+              {intern.map((e) => <li><span><b>{t(e.role, lang)}</b> — {t(e.org, lang)}</span><span class="when">{fmtYear(e.start.slice(0, 4), lang)}</span></li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="two">
+        <div>
+          <h2>{t(ui.education, lang)}</h2>
+          {education.map((e) => (
+            <div class="edu"><b>{t(e.level, lang)}</b><span>{t(e.major, lang)}</span><span>{t(e.school, lang)}</span></div>
+          ))}
+        </div>
+        <div>
+          <h2>{t(ui.awards, lang)}</h2>
+          {awards.map((a) => (
+            <div class="award">
+              <div class="meta">{fmtYear(a.year, lang)} · Thailand Innovation</div>
+              <b>{t(a.title, lang)}</b>
+              <div>{t(a.results, lang).join(' · ')}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="foot"><span>{L('ดูผลงานวิดีโอและภาพทั้งหมดที่', 'Full video portfolio at')} kensukeimagery.github.io</span><span>{new Date().getFullYear() + (lang === 'th' ? 543 : 0)}</span></div>
+    </main>
+  </article>
+</body>
+</html>

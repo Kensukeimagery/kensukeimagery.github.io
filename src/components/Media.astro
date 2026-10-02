@@ -2,7 +2,7 @@
 // One media item: TikTok / YouTube / Instagram (click-to-load) or a photo
 import { t, ui } from '../data/i18n.js';
 import { workImg, srcset } from '../data/img.js';
-const { m, lang, brand = '' } = Astro.props;
+const { m, lang, brand = '', card = false } = Astro.props;
 
 const play = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>`;
 let cfg = null;
@@ -30,7 +30,7 @@ const label = t(m.label, lang) || brand;
 const im = m.type === 'image' ? workImg(m.src) : null;
 ---
 {cfg && (
-  <div class={`embed ${cfg.cls}`}>
+  <div class={`embed ${card ? 'embed--card' : cfg.cls}`}>
     <button class="embed__poster" type="button" data-embed={cfg.src} data-title={`${cfg.platform} — ${label}`} aria-label={`${t(ui.play, lang)}: ${label}`}>
       {cfg.poster && <img src={cfg.poster} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />}
       <span class="embed__platform">{cfg.platform}</span>
@@ -41,8 +41,8 @@ const im = m.type === 'image' ? workImg(m.src) : null;
   </div>
 )}
 {im && (
-  <figure class="photo" style="margin:0">
-    <img src={im.sm} srcset={srcset(im)} sizes="(max-width: 860px) 100vw, 600px" alt={label} loading="lazy" decoding="async" width={im.w} height={im.h} />
+  <figure class={`photo${card ? ' photo--card' : ''}`} style="margin:0">
+    <img src={im.sm} srcset={srcset(im)} sizes={card ? "320px" : "(max-width: 860px) 100vw, 600px"} alt={label} loading="lazy" decoding="async" width={im.w} height={im.h} />
     {m.label && <figcaption>{t(m.label, lang)}</figcaption>}
   </figure>
 )}

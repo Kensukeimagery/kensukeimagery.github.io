@@ -8,7 +8,7 @@
 //    { type: 'image', src: '<ชื่อรูปใน images.json>' }
 //  links: ลิงก์อ้างอิงที่ฝังไม่ได้ (เช่น Facebook)
 //  status: 'soon' = รอออนแอร์ (ยังไม่แสดงสื่อ)
-//  featured: true = แสดงในหน้าแรก
+//  featured: ตัวเลข = แสดงในสไลด์ผลงานหน้าแรก (เรียงตามเลข)
 // =============================================================
 
 export const categories = [
@@ -26,7 +26,7 @@ export const works = [
   {
     slug: 'samsonite',
     category: 'commercial',
-    featured: true,
+    featured: 1,
     brand: 'SAMSONITE',
     title: { th: 'นักแสดงโฆษณากระเป๋า', en: 'Bag commercial — on-screen talent' },
     company: 'Techland Technology',
@@ -44,6 +44,7 @@ export const works = [
   {
     slug: 'samsonite-bts',
     category: 'bts',
+    featured: 6,
     brand: 'SAMSONITE × LIVELAB',
     title: { th: 'เบื้องหลังกองถ่ายโฆษณา', en: 'Commercial shoot — behind the scenes' },
     company: 'Techland Technology',
@@ -72,7 +73,7 @@ export const works = [
   {
     slug: 'live-mc-techland',
     category: 'live',
-    featured: true,
+    featured: 2,
     brand: 'JOYROOM & MORE',
     title: { th: 'พิธีกรไลฟ์สดประจำแบรนด์', en: 'Resident live commerce host' },
     company: 'Techland Technology',
@@ -97,6 +98,7 @@ export const works = [
   {
     slug: 'livelab',
     category: 'short',
+    featured: 3,
     brand: 'LIVELAB TH',
     title: { th: 'คลิปสั้นแนะนำบริษัท', en: 'Company promo short videos' },
     company: 'Techland Technology',
@@ -109,7 +111,7 @@ export const works = [
   {
     slug: 'valorant',
     category: 'event',
-    featured: true,
+    featured: 4,
     brand: 'Esports · VALORANT',
     title: { th: 'พิธีกรการแข่งขัน Valorant ณ มหาวิทยาลัยศรีปทุม', en: 'Valorant tournament MC at Sripatum University' },
     company: 'Devas IPASON',
@@ -146,7 +148,6 @@ export const works = [
   {
     slug: 'st-louis',
     category: 'business',
-    featured: true,
     brand: { th: 'โรงเรียนเซนต์หลุยส์ ฉะเชิงเทรา', en: 'St. Louis School Chachoengsao' },
     title: { th: 'ชนะการประมูลโครงการ IT มูลค่า 1,500,000 บาท', en: 'Won a ฿1,500,000 IT project bid' },
     company: 'Devas IPASON',
@@ -168,6 +169,7 @@ export const works = [
   {
     slug: 'spica',
     category: 'model',
+    featured: 5,
     brand: 'SPICA HAIR DESIGN',
     title: { th: 'นายแบบทรงผม', en: 'Hair model' },
     media: [{ type: 'instagram', id: 'DdlHoLKC8cW' }],

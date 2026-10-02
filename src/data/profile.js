@@ -44,6 +44,10 @@ export const person = {
     th: ['พิธีกรไลฟ์สดขายสินค้า', 'นำเสนอสินค้าหน้ากล้อง', 'นักแสดงโฆษณา / นายแบบ', 'พิธีกรอีเวนต์และอีสปอร์ต', 'งานขายและประมูลโครงการ', 'IT Support / ฮาร์ดแวร์'],
     en: ['Live commerce hosting', 'On-camera product presentation', 'Commercial acting & modelling', 'Event & esports hosting', 'Sales & project bidding', 'IT support & hardware'],
   },
+  // ภาษาที่สื่อสารได้ เช่น [{ th: 'ไทย (ภาษาแม่)', en: 'Thai (native)' }] — เว้นว่างไว้จะไม่แสดง
+  languages: [],
+  // คลิปรวมผลงาน (showreel) เช่น { type: 'youtube', id: 'xxxx' } — null = ไม่แสดง
+  showreel: null,
   contact: {
     instagram: 'kensukefps',
     email: '', // ใส่อีเมลงานภายหลัง เช่น 'ken@example.com' แล้วปุ่มอีเมลจะขึ้นเอง
@@ -157,11 +161,13 @@ export const experience = [
 
 export const education = [
   {
-    level: { th: 'ปวส. สาขาเทคโนโลยีสารสนเทศ', en: 'Higher Vocational Certificate, Information Technology' },
+    level: { th: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)', en: 'Higher Vocational Diploma' },
+    major: { th: 'สาขาวิชาเทคโนโลยีสารสนเทศ', en: 'Information Technology' },
     school: { th: 'วิทยาลัยพณิชยการบางนา', en: 'Bangna Commercial College' },
   },
   {
-    level: { th: 'ปวช. สาขาคอมพิวเตอร์ธุรกิจ', en: 'Vocational Certificate, Business Computer' },
+    level: { th: 'ประกาศนียบัตรวิชาชีพ (ปวช.)', en: 'Vocational Certificate' },
+    major: { th: 'สาขาวิชาคอมพิวเตอร์ธุรกิจ', en: 'Business Computer' },
     school: { th: 'วิทยาลัยพณิชยการบางนา', en: 'Bangna Commercial College' },
   },
 ];

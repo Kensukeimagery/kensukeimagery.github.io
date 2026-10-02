@@ -171,3 +171,39 @@ document.querySelector('[data-print]')?.addEventListener('click', () => {
   document.querySelectorAll('.reveal, .reveal-img').forEach((el) => el.classList.add('is-in'));
   window.print();
 });
+
+// ---------- slideshows (hero / page header) ----------
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('[data-slideshow]').forEach((box) => {
+  const slides = [...box.querySelectorAll('.slide')];
+  const dots = [...(box.parentElement.querySelectorAll('.slide-dots span') || [])];
+  if (slides.length < 2 || reduceMotion) return;
+  let i = 0;
+  const go = () => {
+    if (document.hidden) return;
+    slides[i].classList.remove('is-active'); dots[i]?.classList.remove('is-active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('is-active');
+    const d = dots[i]; if (d) { d.classList.remove('is-active'); void d.offsetWidth; d.classList.add('is-active'); }
+  };
+  setInterval(go, Number(box.dataset.interval) || 5500);
+});
+
+// ---------- works carousel ----------
+const car = document.querySelector('[data-carousel]');
+if (car) {
+  const step = () => (car.querySelector('.wcard')?.getBoundingClientRect().width || 300) + 20;
+  document.querySelector('[data-car-prev]')?.addEventListener('click', () => car.scrollBy({ left: -step(), behavior: 'smooth' }));
+  document.querySelector('[data-car-next]')?.addEventListener('click', () => car.scrollBy({ left: step(), behavior: 'smooth' }));
+}
+
+// ---------- sticky contact button (mobile) ----------
+const cta = document.querySelector('[data-sticky-cta]');
+const contactSec = document.getElementById('contact');
+if (cta && contactSec) {
+  let contactVisible = false;
+  new IntersectionObserver((es) => { contactVisible = es[0].isIntersecting; upd(); }, { threshold: 0.05 }).observe(contactSec);
+  const upd = () => cta.classList.toggle('is-on', window.scrollY > window.innerHeight * 0.6 && !contactVisible);
+  window.addEventListener('scroll', upd, { passive: true });
+  upd();
+}
