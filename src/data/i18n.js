@@ -97,6 +97,7 @@ export const ui = {
   skills: { th: 'ทักษะ', en: 'Skills' },
   hobbies: { th: 'งานอดิเรก', en: 'Hobbies' },
   print: { th: 'ดาวน์โหลดเรซูเม่ (PDF)', en: 'Download résumé (PDF)' },
+  printPng: { th: 'ดาวน์โหลดเป็นรูปภาพ (PNG)', en: 'Download as image (PNG)' },
   galleryTitle: { th: 'อัลบั้ม', en: 'Gallery' },
   portraits: { th: 'Portraits', en: 'Portraits' },
   film: { th: 'Film Photography', en: 'Film Photography' },

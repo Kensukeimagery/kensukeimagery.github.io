@@ -29,6 +29,7 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
           {t(ui.print, lang)}
         </a>
+        <a class="btn btn--ghost" href={`/resume-${lang}.png`} download={`Suthat-Thongkamkaew-Resume-${lang.toUpperCase()}.png`}>{t(ui.printPng, lang)}</a>
         <a class="btn btn--ghost" href={path('/resume/', lang)} target="_blank" rel="noopener">{t(ui.resumeOnline, lang)}</a>
       </p>
     </div>
