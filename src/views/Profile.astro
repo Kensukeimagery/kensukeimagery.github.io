@@ -120,6 +120,12 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
                       <ol>{e.brands.map((r, i) => <li class={i === e.brands.length - 1 ? 'is-last' : ''}><span>{i + 1}</span>{r}{i === e.brands.length - 1 && ` · ${t(ui.current, lang)}`}</li>)}</ol>
                     </div>
                   )}
+                  {e.brandList && (
+                    <div class="duties">
+                      <span class="ladder__label">{t(ui.brandsHosted, lang)}</span>
+                      <ul>{e.brandList.map((d) => <li>{d}</li>)}</ul>
+                    </div>
+                  )}
                   {e.duties && (
                     <div class="duties">
                       <span class="ladder__label">{t(ui.duties, lang)}</span>

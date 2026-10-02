@@ -19,6 +19,9 @@ export const logos = {
   'THERMALTAKE': { file: 'thermaltake', w: 602 },
   'EPOS': { file: 'epos', w: 330 },
   'PERSOL': { file: 'persol', w: 475 },
+  'FBT': { file: 'fbt', w: 116 },
+  'SMILEYHOUND': { file: 'smileyhound', w: 273 },
+  'EVEREST': { file: 'everest', w: 100 },
 };
 
 /** ความสูงที่แสดง (px) ให้พื้นที่โลโก้ใกล้เคียงกัน: โลโก้ยาวจะเตี้ยลง โลโก้กะทัดรัดจะสูงขึ้น */

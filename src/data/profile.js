@@ -65,7 +65,7 @@ export const highlights = [
 // แบรนด์ที่เคยร่วมงาน (ถ้ามีโลโก้ใน logos.js จะแสดงเป็นโลโก้ ไม่มีจะแสดงเป็นตัวอักษร)
 export const brands = [
   'SAMSONITE', 'TECNO', 'JOYROOM', 'UGREEN', 'SKECHERS', 'POSEE', 'QIAODAN', 'AKASO',
-  'SOLOEVER', 'BOUSVCLIGHT', 'CIMB THAI', 'DEVAS IPASON', 'IT CITY', 'RAZER', 'THERMALTAKE', 'EPOS', 'PERSOL',
+  'SOLOEVER', 'BOUSVCLIGHT', 'CIMB THAI', 'DEVAS IPASON', 'IT CITY', 'RAZER', 'THERMALTAKE', 'EPOS', 'PERSOL', 'FBT', 'SMILEYHOUND', 'EVEREST',
 ];
 
 // ---------------- ประวัติการทำงาน ----------------
@@ -77,6 +77,8 @@ export const experience = [
     role: { th: 'พิธีกรไลฟ์ขายสินค้า (สัญญาจ้าง)', en: 'Live Commerce MC (contract)' },
     start: '2026-08-01', end: '2026-12-31',
     note: { th: 'งานพาร์ทไทม์ ทำควบคู่กับงานประจำ', en: 'Part-time, alongside my full-time role' },
+    // แบรนด์ที่ไลฟ์ (ไม่มีแบรนด์ประจำ — หมุนเวียนตามงาน)
+    brandList: ['FBT', 'SMILEYHOUND by GREYHOUND', 'Everest Cooler Box'],
   },
   {
     group: 'full',

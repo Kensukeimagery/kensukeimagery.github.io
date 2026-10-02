@@ -178,7 +178,7 @@ const intern = experience.filter((e) => e.group === 'intern');
         </ul>
         <div class="sub">{t(ui.partTime, lang)}</div>
         <ul class="compact">
-          {part.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{e.whenShort ? t(e.whenShort, lang) : fmtRange(e.start, e.end, lang)}</span></li>)}
+          {part.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}{e.brandList && ` (${e.brandList.join(', ')})`}</span><span class="when">{e.whenShort ? t(e.whenShort, lang) : fmtRange(e.start, e.end, lang)}</span></li>)}
         </ul>
         <div class="sub">{t(ui.groups.intern, lang)}</div>
         <ul class="compact">

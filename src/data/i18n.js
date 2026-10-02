@@ -123,6 +123,7 @@ export const ui = {
   careerPath: { th: 'ลำดับตำแหน่ง', en: 'Career progression' },
   brandPath: { th: 'แบรนด์ที่ไลฟ์ (เรียงตามลำดับ)', en: 'Brands hosted, in order' },
   current: { th: 'ปัจจุบัน', en: 'current' },
+  brandsHosted: { th: 'แบรนด์ที่ไลฟ์', en: 'Brands hosted' },
   duties: { th: 'หน้าที่ที่รับผิดชอบ', en: 'Responsibilities' },
   fullTime: { th: 'งานประจำ', en: 'Full-time' },
   partTime: { th: 'พาร์ทไทม์', en: 'Part-time' },
