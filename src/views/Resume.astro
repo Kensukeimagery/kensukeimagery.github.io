@@ -7,9 +7,9 @@ const { lang } = Astro.props;
 const photo = portrait(13);
 const age = ageOn(person.birthDate);
 const L = (th, en) => (lang === 'th' ? th : en);
-const full = experience.filter((e) => e.group === 'full');
+const full = experience.filter((e) => e.group === 'full' && e.type !== 'part');
+const part = experience.filter((e) => e.type === 'part');
 const free = experience.filter((e) => e.group === 'freelance');
-const other = experience.filter((e) => e.group === 'other');
 const intern = experience.filter((e) => e.group === 'intern');
 ---
 <!doctype html>
@@ -91,6 +91,7 @@ const intern = experience.filter((e) => e.group === 'intern');
     /* keep everything on one A4 page */
     .compact li { padding: .4mm 0; } .main section + section { margin-top: 3.8mm; } .job { margin-bottom: 2.4mm; } .summary { line-height: 1.55; } .sub { margin-top: 3.2mm; }
     html[lang='th'] .summary { line-height: 1.5; }
+    .compact { line-height: 1.42; } .compact li { padding: .25mm 0; } .sub { margin: 2.6mm 0 1.2mm; }
     .job__duty { font-style: normal; font-size: 7.8pt; color: var(--ink-2); }
     .main { padding-top: 11mm; padding-bottom: 9mm; } .foot { margin-top: 4mm; }
   </style>
@@ -161,19 +162,14 @@ const intern = experience.filter((e) => e.group === 'intern');
         <ul class="compact">
           {free.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{e.start ? fmtRange(e.start, e.end, lang) : ''}</span></li>)}
         </ul>
-        <div class="two">
-          <div>
-            <div class="sub">{t(ui.groups.other, lang)}</div>
-            <ul class="compact">
-              {other.map((e) => <li><span><b>{t(e.role, lang)}</b> — {t(e.org, lang)}</span><span class="when"></span></li>)}
-            </ul>
-          </div>
-          <div>
-            <div class="sub">{t(ui.groups.intern, lang)}</div>
-            <ul class="compact">
-              {intern.map((e) => <li><span><b>{t(e.role, lang)}</b> — {t(e.org, lang)}</span><span class="when">{fmtYear(e.start.slice(0, 4), lang)}</span></li>)}
-            </ul>
-          </div>
+        <div class="sub">{t(ui.partTime, lang)}</div>
+        <ul class="compact">
+          {part.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{e.whenShort ? t(e.whenShort, lang) : fmtRange(e.start, e.end, lang)}</span></li>)}
+        </ul>
+        <div class="sub">{t(ui.groups.intern, lang)}</div>
+        <ul class="compact">
+          {intern.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{fmtYear(e.start.slice(0, 4), lang)}</span></li>)}
+        </ul>
         </div>
       </section>
 

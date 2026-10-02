@@ -69,23 +69,47 @@ export const brands = [
 ];
 
 // ---------------- ประวัติการทำงาน ----------------
-// group: 'full' = งานประจำ, 'freelance' = ฟรีแลนซ์/สัญญาจ้าง, 'other' = ประสบการณ์อื่น, 'intern' = ฝึกงาน
+// group: 'full' = เส้นทางการทำงาน (งานประจำ + พาร์ทไทม์ ใส่ type: 'part'), เรียงใหม่ → เก่า; 'freelance' = ฟรีแลนซ์/สัญญาจ้าง, 'other' = ประสบการณ์อื่น, 'intern' = ฝึกงาน
 export const experience = [
   {
-    group: 'freelance',
-    org: 'Giga Live',
+    group: 'full', type: 'part',
+    org: { th: 'บริษัท กิกะไลฟ์ จำกัด', en: 'Giga Live Co., Ltd.' },
     role: { th: 'พิธีกรไลฟ์ขายสินค้า (สัญญาจ้าง)', en: 'Live Commerce MC (contract)' },
     start: '2026-08-01', end: '2026-12-31',
+    note: { th: 'งานพาร์ทไทม์ ทำควบคู่กับงานประจำ', en: 'Part-time, alongside my full-time role' },
   },
   {
     group: 'full',
     org: { th: 'บริษัท เทคแลนด์ เทคโนโลยี (ประเทศไทย) จำกัด', en: 'Techland Technology (Thailand) Co., Ltd.' },
     role: { th: 'พิธีกรไลฟ์สด (MC Live)', en: 'Live Stream MC' },
     start: '2024-02-15', end: null,
+    note: { th: 'บริษัทติดต่อมาชวนร่วมงาน จึงกลับสู่สายงานขายและไลฟ์ที่ถนัด', en: 'Approached by the company — a return to the sales and live work I do best' },
     points: {
       th: ['พิธีกรไลฟ์ประจำแบรนด์ Joyroom (สินค้าแกดเจ็ต)', 'ไลฟ์ให้ SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER, Bousvclight', 'นักแสดงโฆษณา SAMSONITE, TECNO Mobile และ POSEE'],
       en: ['Resident live host for Joyroom (gadgets)', 'Live sales for SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER, Bousvclight', 'Commercial talent for SAMSONITE, TECNO Mobile and POSEE'],
     },
+  },
+  // ---- พาร์ทไทม์ ช่วงหลังออกจาก Devas IPASON ก่อนเข้า Techland (เรียงใหม่ → เก่า) ----
+  {
+    group: 'full', type: 'part',
+    org: { th: 'ร้าน ARA COFFEE (ลาซาล 52)', en: 'ARA COFFEE (Lasalle 52)' },
+    role: { th: 'บาริสต้า', en: 'Barista' },
+    when: { th: 'ช่วง ต.ค. 2566 – ก.พ. 2567', en: 'Between Oct 2023 – Feb 2024' }, whenShort: { th: '2566–67', en: '2023–24' },
+  },
+  {
+    group: 'full', type: 'part',
+    org: { th: 'ร้านโภควดี Coffee and Bar (เดอโบตั๋น บางนา)', en: 'Phokhawadee Coffee and Bar (De Bottan Bangna)' },
+    role: { th: 'บาริสต้า', en: 'Barista' },
+    when: { th: 'ช่วง ต.ค. 2566 – ก.พ. 2567', en: 'Between Oct 2023 – Feb 2024' }, whenShort: { th: '2566–67', en: '2023–24' },
+    note: { th: 'ฝึกทักษะบาริสต้า ต่อยอดเป้าหมายเปิดคาเฟ่ของตัวเองในอนาคต', en: 'Building barista skills toward opening my own café one day' },
+  },
+  {
+    group: 'full', type: 'part',
+    org: 'The City Wave · JAS Urban Srinakarin',
+    role: { th: 'Assistant Bartender (บาร์ดาดฟ้า)', en: 'Assistant Bartender (rooftop bar)' },
+    when: { th: 'ช่วง ต.ค. 2566 – ก.พ. 2567', en: 'Between Oct 2023 – Feb 2024' }, whenShort: { th: '2566–67', en: '2023–24' },
+    note: { th: 'ลองเปิดประสบการณ์ใหม่ในสายงานบริการ', en: 'Trying something new in hospitality' },
+    photos: ['work-citywave-1', 'work-citywave-2', 'work-citywave-4'],
   },
   {
     group: 'full',
@@ -109,6 +133,7 @@ export const experience = [
     org: { th: 'บริษัท ไอที ซิตี้ จำกัด (มหาชน)', en: 'IT City Public Co., Ltd.' },
     role: { th: 'พนักงานขายหน้าร้าน', en: 'Retail Sales Staff' },
     start: '2022-07-24', end: '2023-01-30',
+    note: { th: 'งานประจำแรกหลังเรียนจบ', en: 'First full-time job after graduating' },
     duties: {
       th: ['พนักงานขาย', 'แคชเชียร์', 'ช่างคอม'],
       en: ['Sales', 'Cashier', 'Computer technician'],
@@ -138,17 +163,6 @@ export const experience = [
     group: 'freelance',
     org: 'Commart',
     role: { th: 'เดินบิล พนักงานขาย และตัวแทนแนะนำสินค้าประจำบูธ (Razer, EPOS, Thermaltake, IPASON)', en: 'Booth sales & product presenter (Razer, EPOS, Thermaltake, IPASON)' },
-  },
-  {
-    group: 'other',
-    org: 'The City Wave · JAS Urban Srinakarin',
-    role: { th: 'Assistant Bartender (บาร์ดาดฟ้า)', en: 'Assistant Bartender (rooftop bar)' },
-    photos: ['work-citywave-1', 'work-citywave-2', 'work-citywave-4'],
-  },
-  {
-    group: 'other',
-    org: { th: 'ARA COFFEE (ลาซาล 52) · โภควดี Coffee and Bar (เดอโบตั๋น บางนา)', en: 'ARA COFFEE (Lasalle 52) · Phokhawadee Coffee and Bar (De Bottan Bangna)' },
-    role: { th: 'บาริสต้า', en: 'Barista' },
   },
   {
     group: 'other',

@@ -97,9 +97,15 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
               <li class="tl-group reveal">{t(ui.groups[g], lang)}</li>
               {experience.filter((e) => e.group === g).map((e) => (
                 <li class={`tl reveal${isNow(e) ? ' tl--now' : ''}`}>
-                  {e.start && <div class="tl__when">{fmtRange(e.start, e.end, lang)}</div>}
+                  {(e.start || e.when) && (
+                    <div class="tl__when">
+                      {e.when ? t(e.when, lang) : fmtRange(e.start, e.end, lang)}
+                      {g === 'full' && <span class={`tl__type${e.type === 'part' ? ' is-part' : ''}`}>{t(e.type === 'part' ? ui.partTime : ui.fullTime, lang)}</span>}
+                    </div>
+                  )}
                   <h3 class="tl__org">{t(e.org, lang)}</h3>
                   <div class="tl__role">{t(e.role, lang)}</div>
+                  {e.note && <p class="tl__note">{t(e.note, lang)}</p>}
                   {e.path && (
                     <div class="ladder">
                       <span class="ladder__label">{t(ui.careerPath, lang)}</span>

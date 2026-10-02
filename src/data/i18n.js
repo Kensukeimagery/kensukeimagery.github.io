@@ -87,7 +87,7 @@ export const ui = {
   shoe: { th: 'ไซซ์รองเท้า', en: 'Shoe size' },
   experience: { th: 'ประสบการณ์ทำงาน', en: 'Experience' },
   groups: {
-    full: { th: 'งานประจำ', en: 'Full-time' },
+    full: { th: 'เส้นทางการทำงาน', en: 'Career timeline' },
     freelance: { th: 'ฟรีแลนซ์ & สัญญาจ้าง', en: 'Freelance & Contract' },
     other: { th: 'ประสบการณ์อื่น', en: 'Other Experience' },
     intern: { th: 'ฝึกงาน', en: 'Internships' },
@@ -122,6 +122,8 @@ export const ui = {
   resumeOnline: { th: 'ดูเรซูเม่ออนไลน์', en: 'View résumé online' },
   careerPath: { th: 'ลำดับตำแหน่ง', en: 'Career progression' },
   duties: { th: 'หน้าที่ที่รับผิดชอบ', en: 'Responsibilities' },
+  fullTime: { th: 'งานประจำ', en: 'Full-time' },
+  partTime: { th: 'พาร์ทไทม์', en: 'Part-time' },
   available: { th: 'พร้อมรับงาน', en: 'Available for booking' },
   servicesEyebrow: { th: 'รับงาน', en: 'Services' },
   servicesTitle: { th: 'จ้างเคนได้ในงานแบบไหน', en: 'What you can book Ken for' },
