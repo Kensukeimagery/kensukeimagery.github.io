@@ -6,6 +6,7 @@ import { t, path, ui, ageOn, fmtYear } from '../data/i18n.js';
 import { person, highlights, brands } from '../data/profile.js';
 import { works, categories } from '../data/works.js';
 import { portrait, film, srcset } from '../data/img.js';
+import { logos, logoHeight } from '../data/logos.js';
 const { lang } = Astro.props;
 // รูปสไลด์หน้าแรก (เลขตามลำดับใน images.json)
 const heroSlides = [1, 2, 4, 16].map(portrait);
@@ -68,7 +69,13 @@ const chev = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
 
   <div class="marquee" aria-label={t(ui.brandsTitle, lang)}>
     <div class="marquee__track">
-      {[...brands, ...brands].map((b, i) => <span class="marquee__item" aria-hidden={i >= brands.length ? 'true' : undefined}>{b}</span>)}
+      {[...brands, ...brands].map((b, i) => (
+        <span class={`marquee__item${logos[b] ? ' marquee__item--logo' : ''}`} aria-hidden={i >= brands.length ? 'true' : undefined}>
+          {logos[b]
+            ? <img src={`/img/logos/${logos[b].file}.png`} alt={b} style={`--h:${logoHeight(b)}`} width={Math.round(logos[b].w * logoHeight(b) / 96)} height={logoHeight(b)} loading="lazy" decoding="async" />
+            : b}
+        </span>
+      ))}
     </div>
   </div>
 

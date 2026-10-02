@@ -618,3 +618,8 @@ html[lang='en'] .it-band__title { font-family: var(--f-display); font-weight: 40
 .tl__type.is-part { border-color: var(--line-2); color: var(--ivory-2); }
 .tl__note { margin: 6px 0 0; font-size: 14px; color: var(--muted); font-style: italic; }
 html[lang='th'] .tl__note { font-style: normal; }
+/* brand logos in the marquee */
+.marquee__item--logo img { height: calc(var(--h) * 1px); width: auto; display: block; opacity: .72; transition: opacity .4s var(--ease); }
+.marquee__item--logo:hover img { opacity: 1; }
+@media (max-width: 700px) { .marquee__item--logo img { height: calc(var(--h) * .78px); } }
+.tl__logo { display: block; height: 22px; width: auto; margin: 10px 0 2px; opacity: .8; }

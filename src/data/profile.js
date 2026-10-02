@@ -62,10 +62,10 @@ export const highlights = [
   { value: '185', suffix: 'cm', label: { th: 'ส่วนสูง', en: 'Height' } },
 ];
 
-// แบรนด์ที่เคยร่วมงาน (แสดงเป็นตัวอักษร)
+// แบรนด์ที่เคยร่วมงาน (ถ้ามีโลโก้ใน logos.js จะแสดงเป็นโลโก้ ไม่มีจะแสดงเป็นตัวอักษร)
 export const brands = [
   'SAMSONITE', 'TECNO', 'JOYROOM', 'UGREEN', 'SKECHERS', 'POSEE', 'QIAODAN', 'AKASO',
-  'SOLOEVER', 'BOUSVCLIGHT', 'CIMB THAI', 'DEVAS IPASON', 'RAZER', 'THERMALTAKE', 'EPOS', 'PERSOL',
+  'SOLOEVER', 'BOUSVCLIGHT', 'LIVELAB', 'CIMB THAI', 'DEVAS IPASON', 'IT CITY', 'RAZER', 'THERMALTAKE', 'EPOS', 'PERSOL',
 ];
 
 // ---------------- ประวัติการทำงาน ----------------
@@ -114,6 +114,7 @@ export const experience = [
   {
     group: 'full',
     org: { th: 'บริษัท เดวาส์ ไอพาสัน จำกัด', en: 'Devas IPASON Co., Ltd.' },
+    logo: 'DEVAS IPASON',
     role: { th: 'Sales Executive', en: 'Sales Executive' },
     // ลำดับตำแหน่งตั้งแต่เข้างานจนถึงตำแหน่งสุดท้าย
     path: ['Senior Admin and Sales Staff', 'Senior Sales Staff', 'Products and Sales Staff', 'Product Manager', 'Sales Executive'],
@@ -131,6 +132,7 @@ export const experience = [
   {
     group: 'full',
     org: { th: 'บริษัท ไอที ซิตี้ จำกัด (มหาชน)', en: 'IT City Public Co., Ltd.' },
+    logo: 'IT CITY',
     role: { th: 'พนักงานขายหน้าร้าน', en: 'Retail Sales Staff' },
     start: '2022-07-24', end: '2023-01-30',
     note: { th: 'งานประจำแรกหลังเรียนจบ', en: 'First full-time job after graduating' },
