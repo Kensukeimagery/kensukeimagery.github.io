@@ -94,7 +94,7 @@ const intern = experience.filter((e) => e.group === 'intern');
 </head>
 <body>
   <div class="toolbar">
-    <a href={`/resume-${lang}.pdf`} download={`Suthat-Thongkaemkaew-Resume-${lang.toUpperCase()}.pdf`}>{t(ui.print, lang)}</a>
+    <a href={`/resume-${lang}.pdf`} download={`Suthat-Thongkamkaew-Resume-${lang.toUpperCase()}.pdf`}>{t(ui.print, lang)}</a>
     <a class="ghost" href={path('/resume/', lang === 'th' ? 'en' : 'th')}>{lang === 'th' ? 'English' : 'ภาษาไทย'}</a>
     <a class="ghost" href={path('/profile/', lang)}>← {t(ui.nav.profile, lang)}</a>
   </div>
@@ -102,7 +102,7 @@ const intern = experience.filter((e) => e.group === 'intern');
   <article class="sheet">
     <aside class="side">
       <img class="photo" src={photo.sm} alt={person.nameEn} width={photo.w} height={photo.h} />
-      <h1 class="name">Suthat<br /><em>Ken</em> Thongkaemkaew</h1>
+      <h1 class="name">Suthat<br /><em>Ken</em> Thongkamkaew</h1>
       <div class="th-name">{person.nameTh} ({t(person.nick, 'th')})</div>
       <div class="roles">{person.roles.en.join(' · ')}</div>
 

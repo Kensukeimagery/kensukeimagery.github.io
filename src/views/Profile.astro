@@ -24,7 +24,7 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
       <h1 class="h-display">{t(ui.profileTitle, lang)}</h1>
       <p class="lead">{t(person.intro, lang)}</p>
       <p class="no-print" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px">
-        <a class="btn" href={`/resume-${lang}.pdf`} download={`Suthat-Thongkaemkaew-Resume-${lang.toUpperCase()}.pdf`}>
+        <a class="btn" href={`/resume-${lang}.pdf`} download={`Suthat-Thongkamkaew-Resume-${lang.toUpperCase()}.pdf`}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
           {t(ui.print, lang)}
         </a>

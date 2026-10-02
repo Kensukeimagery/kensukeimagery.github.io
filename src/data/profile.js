@@ -6,7 +6,7 @@
 
 export const person = {
   nameTh: 'สุทัศน์ ทองแกมแก้ว',
-  nameEn: 'Suthat Thongkaemkaew',
+  nameEn: 'Suthat Thongkamkaew',
   nick: { th: 'เคน', en: 'Ken' },
   birthDate: '2002-02-01', // ใช้คำนวณอายุอัตโนมัติ (ไม่แสดงวันเกิดเต็มบนเว็บ)
   roles: {
