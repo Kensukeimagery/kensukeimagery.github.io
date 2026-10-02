@@ -100,6 +100,12 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
                   {e.start && <div class="tl__when">{fmtRange(e.start, e.end, lang)}</div>}
                   <h3 class="tl__org">{t(e.org, lang)}</h3>
                   <div class="tl__role">{t(e.role, lang)}</div>
+                  {e.path && (
+                    <div class="ladder">
+                      <span class="ladder__label">{t(ui.careerPath, lang)}</span>
+                      <ol>{e.path.map((r, i) => <li class={i === e.path.length - 1 ? 'is-last' : ''}><span>{i + 1}</span>{r}</li>)}</ol>
+                    </div>
+                  )}
                   {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
                   {e.photos && (
                     <div class="tl__photos" data-gallery-group={e.photos.join(',')}>

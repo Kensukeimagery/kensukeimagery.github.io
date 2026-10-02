@@ -120,5 +120,6 @@ export const ui = {
   languages: { th: 'ภาษา', en: 'Languages' },
   skillsLead: { th: 'ความสามารถหลัก', en: 'What I bring' },
   resumeOnline: { th: 'ดูเรซูเม่ออนไลน์', en: 'View résumé online' },
+  careerPath: { th: 'ลำดับตำแหน่ง', en: 'Career progression' },
   openTiktok: { th: 'บนคอมจะเปิดดูใน TikTok', en: 'Opens in TikTok on desktop' },
 };

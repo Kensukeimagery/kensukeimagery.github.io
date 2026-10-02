@@ -90,7 +90,9 @@ export const experience = [
   {
     group: 'full',
     org: { th: 'บริษัท เดวาส์ ไอพาสัน จำกัด', en: 'Devas IPASON Co., Ltd.' },
-    role: { th: 'Senior Products and Sales Staff', en: 'Senior Products and Sales Staff' },
+    role: { th: 'Sales Executive', en: 'Sales Executive' },
+    // ลำดับตำแหน่งตั้งแต่เข้างานจนถึงตำแหน่งสุดท้าย
+    path: ['Senior Admin and Sales Staff', 'Senior Sales Staff', 'Products and Sales Staff', 'Product Manager', 'Sales Executive'],
     start: '2023-02-05', end: '2023-10-05',
     points: {
       th: ['ชนะการประมูลโครงการ IT โรงเรียนเซนต์หลุยส์ ฉะเชิงเทรา มูลค่า 1,500,000 บาท', 'พิธีกรไลฟ์ขายสินค้า แนะนำโปรโมชั่นและกิจกรรม', 'พิธีกรการแข่งขัน Valorant ณ มหาวิทยาลัยศรีปทุม'],

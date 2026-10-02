@@ -61,7 +61,7 @@ const intern = experience.filter((e) => e.group === 'intern');
     html[lang='th'] .main h2 { font-family: 'Noto Serif Thai', serif; font-size: 12.5pt; }
     .main h2::after { content: ''; flex: 1; height: .25mm; background: var(--rule); }
     .main section + section { margin-top: 4.6mm; }
-    html[lang='th'] .main { font-size: 98%; } html[lang='th'] .job ul, html[lang='th'] .compact { line-height: 1.42; }
+    html[lang='th'] .main { font-size: 96%; } html[lang='th'] .compact li { padding: .4mm 0; } html[lang='th'] .main section + section { margin-top: 3.8mm; } html[lang='th'] .job ul, html[lang='th'] .compact { line-height: 1.42; }
     .summary { font-size: 9.2pt; line-height: 1.65; color: var(--ink-2); margin: 0; }
     .job { margin-bottom: 3mm; break-inside: avoid; }
     .job__top { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
@@ -71,6 +71,7 @@ const intern = experience.filter((e) => e.group === 'intern');
     html[lang='th'] .job__role { font-style: normal; color: #2e5a4c; }
     .job ul { margin: 1.2mm 0 0; padding-left: 4mm; font-size: 8.5pt; line-height: 1.5; color: var(--ink-2); }
     .job li::marker { color: var(--gold); }
+    .job__path { font-size: 7.8pt; color: var(--ink-2); margin-top: .6mm; line-height: 1.45; }
     .sub { font-size: 7.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin: 4mm 0 1.8mm; font-weight: 500; }
     html[lang='th'] .sub { letter-spacing: .03em; font-size: 8.4pt; }
     .compact { margin: 0; padding: 0; list-style: none; font-size: 8.5pt; line-height: 1.5; }
@@ -140,6 +141,7 @@ const intern = experience.filter((e) => e.group === 'intern');
           <div class="job">
             <div class="job__top"><span class="job__org">{t(e.org, lang)}</span><span class="job__when">{fmtRange(e.start, e.end, lang)}</span></div>
             <div class="job__role">{t(e.role, lang)}</div>
+            {e.path && <div class="job__path">{t(ui.careerPath, lang)}: {e.path.join(' → ')}</div>}
             {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
           </div>
         ))}

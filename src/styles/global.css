@@ -562,3 +562,15 @@ html[lang='th'] .wcard__more { font-family: var(--f-th-display); font-size: 24px
 .hero__roles { gap: 8px 16px; }
 .hero__roles li { gap: 16px; }
 .hero__roles li + li::before { margin: 0; left: auto; position: static; flex: none; }
+
+/* career progression ladder (experience timeline) */
+.ladder { margin-top: 12px; }
+.ladder__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+html[lang='th'] .ladder__label { letter-spacing: 0.02em; text-transform: none; font-size: 12.5px; }
+.ladder ol { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ladder li { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ivory-2); padding: 6px 12px 6px 6px; border: 1px solid var(--line-2); background: var(--bg-2); }
+.ladder li span { width: 20px; height: 20px; display: grid; place-items: center; font-size: 11px; color: var(--gold); border: 1px solid var(--line); }
+.ladder li + li::before { content: '→'; color: var(--gold-dim); margin: 0 4px 0 -2px; order: -1; position: relative; left: -14px; width: 0; }
+.ladder li.is-last { border-color: var(--gold); color: var(--ivory); }
+.ladder li.is-last span { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+@media (max-width: 600px) { .ladder ol { flex-direction: column; align-items: flex-start; gap: 6px; } .ladder li + li::before { display: none; } }
