@@ -65,7 +65,7 @@ export const highlights = [
 // แบรนด์ที่เคยร่วมงาน (ถ้ามีโลโก้ใน logos.js จะแสดงเป็นโลโก้ ไม่มีจะแสดงเป็นตัวอักษร)
 export const brands = [
   'SAMSONITE', 'TECNO', 'JOYROOM', 'UGREEN', 'SKECHERS', 'POSEE', 'QIAODAN', 'AKASO',
-  'SOLOEVER', 'BOUSVCLIGHT', 'LIVELAB', 'CIMB THAI', 'DEVAS IPASON', 'IT CITY', 'RAZER', 'THERMALTAKE', 'EPOS', 'PERSOL',
+  'SOLOEVER', 'BOUSVCLIGHT', 'CIMB THAI', 'DEVAS IPASON', 'IT CITY', 'RAZER', 'THERMALTAKE', 'EPOS', 'PERSOL',
 ];
 
 // ---------------- ประวัติการทำงาน ----------------
@@ -81,6 +81,7 @@ export const experience = [
   {
     group: 'full',
     org: { th: 'บริษัท เทคแลนด์ เทคโนโลยี (ประเทศไทย) จำกัด', en: 'Techland Technology (Thailand) Co., Ltd.' },
+    logo: 'LIVELAB', // LiveLab = อีกชื่อของบริษัท Techland
     role: { th: 'พิธีกรไลฟ์สด (MC Live)', en: 'Live Stream MC' },
     start: '2024-02-15', end: null,
     note: { th: 'บริษัทติดต่อมาชวนร่วมงาน จึงกลับสู่สายงานขายและไลฟ์ที่ถนัด', en: 'Approached by the company — a return to the sales and live work I do best' },
