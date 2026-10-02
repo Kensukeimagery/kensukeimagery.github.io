@@ -45,6 +45,10 @@ document.querySelectorAll('[data-age]').forEach((el) => {
   el.textContent = a;
 });
 
+document.querySelectorAll('[data-year]').forEach((el) => {
+  el.textContent = new Date().getFullYear() + (el.dataset.year === 'th' ? 543 : 0);
+});
+
 // ---------- reveal on scroll ----------
 const revealEls = document.querySelectorAll('.reveal, .reveal-img');
 if ('IntersectionObserver' in window) {

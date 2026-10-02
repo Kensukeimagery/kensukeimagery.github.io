@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # สร้างเว็บใหม่อัตโนมัติ: 1 ม.ค. (ปีเปลี่ยน) และ 1 ก.พ. (อายุเปลี่ยน) เวลา 00:05 น. ไทย
+  schedule:
+    - cron: '5 17 31 12 *'
+    - cron: '5 17 31 1 *'
 
 permissions:
   contents: read
