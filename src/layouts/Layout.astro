@@ -6,7 +6,7 @@ import Lightbox from '../components/Lightbox.astro';
 
 const { lang = 'th', page = 'home', title, description } = Astro.props;
 const site = 'https://kensukeimagery.github.io';
-const routes = { home: '/', works: '/works/', profile: '/profile/', gallery: '/gallery/' };
+const routes = { home: '/', works: '/works/', profile: '/profile/', gallery: '/gallery/', it: '/it-services/' };
 const here = routes[page] ?? '/';
 const otherLang = lang === 'th' ? 'en' : 'th';
 const fullTitle = title ? `${title} — ${person.nameEn} (${t(person.nick, 'en')})` : `${person.nameEn} (${t(person.nick, 'en')}) — ${person.roles.en.join(' · ')}`;
@@ -93,11 +93,13 @@ const links = [
         <span class="eyebrow reveal">{t(ui.nav.contact, lang)}</span>
         <h2 class="h-display reveal" style="--d:.08s">{t(ui.contactTitle, lang)}</h2>
         <p class="lead reveal" style="--d:.16s">{t(ui.contactLead, lang)}</p>
+        <p class="contact__ig reveal" style="--d:.2s">Instagram · @{person.contact.instagram}</p>
         <div class="contact__actions reveal" style="--d:.24s">
           <a class="btn" href={`https://www.instagram.com/${person.contact.instagram}/`} target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
-            @{person.contact.instagram}
+            {t(ui.askTalent, lang)}
           </a>
+          <a class="btn btn--ghost" href={`https://www.instagram.com/${person.contact.instagram}/`} target="_blank" rel="noopener">{t(ui.askIt, lang)}</a>
           {person.contact.email && (
             <a class="btn btn--ghost" href={`mailto:${person.contact.email}`}>{t(ui.email, lang)}</a>
           )}

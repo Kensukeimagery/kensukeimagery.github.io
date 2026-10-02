@@ -92,6 +92,11 @@ const applyFilter = (cat) => {
   });
 };
 chips.forEach((c) => c.addEventListener('click', () => applyFilter(c.dataset.filter)));
+// deep link to a category: /works/#cat-live
+if (cards.length && location.hash.startsWith('#cat-')) {
+  const cat = location.hash.slice(5);
+  if ([...chips].some((c) => c.dataset.filter === cat)) applyFilter(cat);
+} else
 // deep link to a single work: /works/#samsonite
 if (cards.length && location.hash) {
   const target = document.getElementById(location.hash.slice(1));

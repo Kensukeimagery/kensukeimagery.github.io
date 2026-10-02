@@ -574,3 +574,38 @@ html[lang='th'] .ladder__label { letter-spacing: 0.02em; text-transform: none; f
 .ladder li.is-last { border-color: var(--gold); color: var(--ivory); }
 .ladder li.is-last span { background: var(--gold); color: var(--bg); border-color: var(--gold); }
 @media (max-width: 600px) { .ladder ol { flex-direction: column; align-items: flex-start; gap: 6px; } .ladder li + li::before { display: none; } }
+
+/* ============ services ============ */
+.avail { display: inline-flex; align-items: center; gap: 10px; margin-left: 18px; padding: 5px 12px; border: 1px solid var(--line); font-size: 12px; color: var(--ivory-2); vertical-align: middle; }
+.avail i { width: 7px; height: 7px; border-radius: 50%; background: #7bd88f; box-shadow: 0 0 0 0 rgba(123,216,143,.6); animation: availPulse 2s infinite; }
+@keyframes availPulse { 70% { box-shadow: 0 0 0 8px rgba(123,216,143,0); } 100% { box-shadow: 0 0 0 0 rgba(123,216,143,0); } }
+@media (max-width: 560px) { .avail { margin: 12px 0 0; display: flex; width: fit-content; } }
+.icon { width: 26px; height: 26px; }
+.svc-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--line-2); border: 1px solid var(--line-2); }
+.svc-grid--it { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.svc { background: var(--bg-2); padding: clamp(22px, 2.4vw, 32px); display: flex; flex-direction: column; gap: 10px; transition: background .5s var(--ease); }
+a.svc:hover { background: var(--surface); }
+.svc__icon { width: 52px; height: 52px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--gold); margin-bottom: 8px; transition: all .5s var(--ease); }
+a.svc:hover .svc__icon { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.svc__title { margin: 0; font-family: var(--f-th-display); font-weight: 400; font-size: 19px; line-height: 1.4; }
+html[lang='en'] .svc__title { font-family: var(--f-display); font-size: 24px; font-weight: 500; }
+.svc__desc { margin: 0; color: var(--ivory-2); font-size: 14px; }
+.svc__more { margin-top: auto; padding-top: 10px; font-size: 13px; color: var(--gold); }
+@media (max-width: 1100px) { .svc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .svc-grid--it { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .svc-grid, .svc-grid--it { grid-template-columns: 1fr 1fr; } .svc { padding: 18px 16px; } .svc__title { font-size: 16px; } .svc__desc { font-size: 13px; } }
+.it-band { margin-top: clamp(28px, 4vw, 48px); border: 1px solid var(--line); padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: 1.2fr 1.6fr auto; gap: 24px 40px; align-items: center; background: linear-gradient(120deg, rgba(201,169,110,.06), transparent 60%); }
+.it-band__title { margin: 10px 0 0; font-family: var(--f-th-display); font-weight: 300; font-size: clamp(22px, 2.2vw, 30px); }
+html[lang='en'] .it-band__title { font-family: var(--f-display); font-weight: 400; }
+.it-band__area { margin: 10px 0 0; font-size: 13.5px; color: var(--ivory-2); display: flex; gap: 8px; align-items: flex-start; }
+.it-band__area .icon { width: 18px; height: 18px; color: var(--gold); flex: none; margin-top: 3px; }
+.it-band__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+.it-band__list li { display: flex; gap: 10px; align-items: center; font-size: 15px; }
+.it-band__list .icon { color: var(--gold); width: 22px; height: 22px; }
+@media (max-width: 960px) { .it-band { grid-template-columns: 1fr; } }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line-2); border: 1px solid var(--line-2); max-width: 980px; }
+.steps li { background: var(--bg-2); padding: 18px 22px; display: flex; gap: 18px; align-items: baseline; font-size: 15.5px; }
+.steps span { font-family: var(--f-display); font-size: 22px; color: var(--gold); }
+.contact__ig { margin: 18px 0 0; color: var(--gold); font-size: 13px; letter-spacing: .14em; }
+@media (max-width: 1100px) { .svc-grid:not(.svc-grid--it) > .svc:last-child { grid-column: span 2; } }
+@media (max-width: 640px) { .svc-grid:not(.svc-grid--it) > .svc:last-child { grid-column: 1 / -1; } }
+@media (min-width: 641px) { .skill-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

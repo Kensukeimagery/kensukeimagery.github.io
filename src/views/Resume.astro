@@ -39,12 +39,12 @@ const intern = experience.filter((e) => e.group === 'intern');
     /* sidebar */
     .side { background: var(--green); color: #efe7d6; padding: 14mm 8mm 12mm; position: relative; }
     .side::before { content: ''; position: absolute; inset: 5mm; border: .3mm solid rgba(184,149,90,.45); pointer-events: none; }
-    .photo { width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; object-position: 50% 30%; display: block; border: .4mm solid var(--gold); }
+    .photo { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 30%; display: block; border: .4mm solid var(--gold); }
     .name { font-family: 'Cormorant Garamond', serif; font-size: 21pt; line-height: 1.02; margin: 6mm 0 0; font-weight: 500; letter-spacing: .02em; }
     .name em { color: var(--gold-l); font-weight: 400; }
     .th-name { font-family: 'Noto Serif Thai', serif; font-size: 10pt; color: #cfc6b2; margin-top: 2mm; }
     .roles { font-size: 7.6pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-l); margin-top: 3mm; line-height: 1.6; }
-    .side h3 { font-size: 7.5pt; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-l); font-weight: 500; margin: 7mm 0 2.5mm; display: flex; align-items: center; gap: 2.5mm; }
+    .side h3 { font-size: 7.5pt; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-l); font-weight: 500; margin: 5.6mm 0 2.2mm; display: flex; align-items: center; gap: 2.5mm; }
     .side h3::after { content: ''; flex: 1; height: .25mm; background: rgba(184,149,90,.5); }
     html[lang='th'] .side h3 { letter-spacing: .04em; font-size: 9pt; }
     .kv { display: grid; grid-template-columns: auto 1fr; gap: 1.2mm 3mm; font-size: 8.4pt; }
@@ -121,6 +121,12 @@ const intern = experience.filter((e) => e.group === 'intern');
         <dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in</dd>
         <dt>{t(ui.shoe, lang)}</dt><dd>EU 44.5 · US 10.5</dd>
       </dl>
+
+      <h3>{t(ui.offers, lang)}</h3>
+      <ul class="list">
+        <li>{L('งานแสดง · อีเวนต์ · พิธีกร/MC · ไลฟ์ขายของ · นายแบบ', 'Acting · Events · MC · Live commerce · Modelling')}</li>
+        <li>{L('ซ่อม · ดูแล · อัปเกรด · ประกอบคอม', 'PC repair · care · upgrades · builds')}</li>
+      </ul>
 
       <h3>{t(ui.skills, lang)}</h3>
       <ul class="list">{t(person.skills, lang).map((s) => <li>{s}</li>)}</ul>

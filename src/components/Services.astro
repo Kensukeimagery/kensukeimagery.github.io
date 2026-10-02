@@ -1,0 +1,40 @@
+---
+// ส่วน "รับงาน" (ใช้ในหน้าแรก)
+import Icon from './Icon.astro';
+import { t, path, ui } from '../data/i18n.js';
+import { talentServices, itServices, serviceArea } from '../data/services.js';
+const { lang } = Astro.props;
+---
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">{t(ui.servicesEyebrow, lang)}</span>
+        <h2 class="h-section reveal" style="--d:.08s">{t(ui.servicesTitle, lang)}</h2>
+        <p class="lead reveal" style="--d:.12s;margin-top:14px">{t(ui.servicesLead, lang)}</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      {talentServices.map((s, i) => (
+        <a class="svc reveal" style={`--d:${i * 0.06}s`} href={path('/works/', lang) + '#cat-' + s.filter}>
+          <span class="svc__icon"><Icon name={s.id} /></span>
+          <h3 class="svc__title">{t(s.title, lang)}</h3>
+          <p class="svc__desc">{t(s.desc, lang)}</p>
+          <span class="svc__more">{t(ui.seeExamples, lang)} →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="it-band reveal">
+      <div class="it-band__head">
+        <span class="eyebrow">{t(ui.itEyebrow, lang)}</span>
+        <h3 class="it-band__title">{t(ui.itTitle, lang)}</h3>
+        <p class="it-band__area"><Icon name="care" /> {t(serviceArea, lang)}</p>
+      </div>
+      <ul class="it-band__list">
+        {itServices.map((s) => <li><Icon name={s.id} /><span>{t(s.title, lang)}</span></li>)}
+      </ul>
+      <a class="link-arrow" href={path('/it-services/', lang)}>{t(ui.itMore, lang)} →</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { t, ui } from '../data/i18n.js';
+import { person } from '../data/profile.js';
+import { itServices, serviceArea, itSteps } from '../data/services.js';
+const { lang } = Astro.props;
+const ig = `https://www.instagram.com/${person.contact.instagram}/`;
+const creds = {
+  th: ['ปวส. สาขาเทคโนโลยีสารสนเทศ · ปวช. คอมพิวเตอร์ธุรกิจ', 'IT Support ฝึกงาน 2 บริษัทมหาชน (สยามแก๊ส, มิตรสิบ ลิสซิ่ง)', 'พนักงานขายคอมพิวเตอร์ IT City และ Product Manager ที่ Devas IPASON', 'ชนะประมูลและส่งมอบห้องคอมพิวเตอร์โรงเรียน มูลค่า 1.5 ล้านบาท'],
+  en: ['Diploma in Information Technology · Certificate in Business Computer', 'IT Support internships at two listed companies (Siam Gas, Mitsib Leasing)', 'Computer sales at IT City; Product Manager at Devas IPASON', 'Won and delivered a ฿1.5M school computer-lab project'],
+};
+---
+<Layout lang={lang} page="it" title={t(ui.itTitle, 'en')} description={t(ui.itLead, lang)}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">{t(ui.itEyebrow, lang)}</span>
+      <h1 class="h-display">{t(ui.itTitle, lang)}</h1>
+      <p class="lead">{t(ui.itLead, lang)}</p>
+      <p style="margin-top:28px"><a class="btn" href={ig} target="_blank" rel="noopener">{t(ui.askIt, lang)} · @{person.contact.instagram}</a></p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="svc-grid svc-grid--it">
+        {itServices.map((s, i) => (
+          <div class="svc reveal" style={`--d:${i * 0.06}s`}>
+            <span class="svc__icon"><Icon name={s.id} /></span>
+            <h2 class="svc__title">{t(s.title, lang)}</h2>
+            <p class="svc__desc">{t(s.desc, lang)}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="resume" style="margin-top:clamp(56px,8vw,100px)">
+        <div class="resume__label">
+          <span class="eyebrow reveal">01</span>
+          <h2 class="h-section reveal">{t(ui.itArea, lang)}</h2>
+        </div>
+        <div class="card reveal"><p style="font-size:16px;margin:0">{t(serviceArea, lang)}</p></div>
+      </div>
+
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">02</span>
+          <h2 class="h-section reveal">{t(ui.itHow, lang)}</h2>
+        </div>
+        <ol class="steps">
+          {itSteps.map((s, i) => <li class="reveal"><span>{String(i + 1).padStart(2, '0')}</span>{t(s, lang)}</li>)}
+        </ol>
+      </div>
+
+      <div class="resume">
+        <div class="resume__label">
+          <span class="eyebrow reveal">03</span>
+          <h2 class="h-section reveal">{t(ui.itWhy, lang)}</h2>
+        </div>
+        <div class="skill-grid skill-grid--2 reveal">{t(creds, lang).map((c) => <div>{c}</div>)}</div>
+      </div>
+    </div>
+  </section>
+</Layout>
