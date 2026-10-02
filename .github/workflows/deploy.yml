@@ -16,11 +16,12 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,6 +30,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npx playwright install --with-deps chromium
+        timeout-minutes: 10
       - run: npm run pdf
       - uses: actions/upload-pages-artifact@v3
         with:
