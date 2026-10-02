@@ -20,13 +20,14 @@ for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/']]) {
   await page.pdf({ path: join(root, `resume-${lang}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
   console.log('wrote', `resume-${lang}.pdf`);
 }
-// รูปภาพ PNG สำหรับเปิดในโทรศัพท์: เลย์เอาต์คอลัมน์เดียว ตัวอักษรใหญ่ คมชัด (3x)
-const phone = await browser.newPage({ viewport: { width: 430, height: 900 }, deviceScaleFactor: 3 });
+// รูปภาพ PNG: หน้า A4 เดียวกับไฟล์ PDF แต่เป็นรูป ความละเอียดสูง (3x ≈ 2382×3369 px) ซูมดูได้คมชัด
+const shot = await browser.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 3 });
+await shot.emulateMedia({ media: 'print' });
 for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/']]) {
-  await phone.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });
-  await phone.evaluate(() => document.fonts.ready);
-  await phone.waitForTimeout(300);
-  await phone.locator('.sheet').screenshot({ path: join(root, `resume-${lang}.png`) });
+  await shot.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });
+  await shot.evaluate(() => document.fonts.ready);
+  await shot.waitForTimeout(300);
+  await shot.locator('.sheet').screenshot({ path: join(root, `resume-${lang}.png`) });
   console.log('wrote', `resume-${lang}.png`);
 }
 await browser.close();
