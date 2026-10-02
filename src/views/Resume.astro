@@ -90,6 +90,9 @@ const intern = experience.filter((e) => e.group === 'intern');
     .foot { margin-top: 6mm; padding-top: 3mm; border-top: .25mm solid var(--rule); font-size: 7.6pt; color: var(--ink-2); display: flex; justify-content: space-between; }
     /* keep everything on one A4 page */
     .compact li { padding: .4mm 0; } .main section + section { margin-top: 3.8mm; } .job { margin-bottom: 2.4mm; } .summary { line-height: 1.55; } .sub { margin-top: 3.2mm; }
+    html[lang='th'] .summary { line-height: 1.5; }
+    .job__duty { font-style: normal; font-size: 7.8pt; color: var(--ink-2); }
+    .main { padding-top: 11mm; padding-bottom: 9mm; } .foot { margin-top: 4mm; }
   </style>
 </head>
 <body>
@@ -148,8 +151,9 @@ const intern = experience.filter((e) => e.group === 'intern');
         {full.map((e) => (
           <div class="job">
             <div class="job__top"><span class="job__org">{t(e.org, lang)}</span><span class="job__when">{fmtRange(e.start, e.end, lang)}</span></div>
-            <div class="job__role">{t(e.role, lang)}</div>
+            <div class="job__role">{t(e.role, lang)}{e.duties && !e.path && <span class="job__duty"> — {t(ui.duties, lang)}: {t(e.duties, lang).join(' · ')}</span>}</div>
             {e.path && <div class="job__path">{t(ui.careerPath, lang)}: {e.path.join(' → ')}</div>}
+            {e.duties && e.path && <div class="job__path">{t(ui.duties, lang)}: {t(e.duties, lang).join(' · ')}</div>}
             {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
           </div>
         ))}

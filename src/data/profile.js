@@ -94,6 +94,11 @@ export const experience = [
     // ลำดับตำแหน่งตั้งแต่เข้างานจนถึงตำแหน่งสุดท้าย
     path: ['Senior Admin and Sales Staff', 'Senior Sales Staff', 'Products and Sales Staff', 'Product Manager', 'Sales Executive'],
     start: '2023-02-05', end: '2023-10-05',
+    // หน้าที่ที่เคยทำ
+    duties: {
+      th: ['แอดมินตอบแชทลูกค้า', 'พนักงานขาย', 'หัวหน้าฝ่ายขาย', 'ดูแลโปรดักต์', 'เทรนเนอร์สินค้า'],
+      en: ['Customer chat admin', 'Sales', 'Sales team lead', 'Product management', 'Product trainer'],
+    },
     points: {
       th: ['ชนะการประมูลโครงการ IT โรงเรียนเซนต์หลุยส์ ฉะเชิงเทรา มูลค่า 1,500,000 บาท', 'พิธีกรไลฟ์ขายสินค้า แนะนำโปรโมชั่นและกิจกรรม', 'พิธีกรการแข่งขัน Valorant ณ มหาวิทยาลัยศรีปทุม'],
       en: ['Won a ฿1.5M IT project bid for St. Louis School, Chachoengsao', 'Hosted live sales, promotions and campaigns', 'Esports MC for a Valorant tournament at Sripatum University'],
@@ -104,6 +109,10 @@ export const experience = [
     org: { th: 'บริษัท ไอที ซิตี้ จำกัด (มหาชน)', en: 'IT City Public Co., Ltd.' },
     role: { th: 'พนักงานขายหน้าร้าน', en: 'Retail Sales Staff' },
     start: '2022-07-24', end: '2023-01-30',
+    duties: {
+      th: ['พนักงานขาย', 'แคชเชียร์', 'ช่างคอม'],
+      en: ['Sales', 'Cashier', 'Computer technician'],
+    },
   },
   {
     group: 'freelance',

@@ -121,6 +121,7 @@ export const ui = {
   skillsLead: { th: 'ความสามารถหลัก', en: 'What I bring' },
   resumeOnline: { th: 'ดูเรซูเม่ออนไลน์', en: 'View résumé online' },
   careerPath: { th: 'ลำดับตำแหน่ง', en: 'Career progression' },
+  duties: { th: 'หน้าที่ที่รับผิดชอบ', en: 'Responsibilities' },
   available: { th: 'พร้อมรับงาน', en: 'Available for booking' },
   servicesEyebrow: { th: 'รับงาน', en: 'Services' },
   servicesTitle: { th: 'จ้างเคนได้ในงานแบบไหน', en: 'What you can book Ken for' },

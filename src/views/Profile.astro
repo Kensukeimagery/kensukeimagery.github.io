@@ -106,6 +106,12 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
                       <ol>{e.path.map((r, i) => <li class={i === e.path.length - 1 ? 'is-last' : ''}><span>{i + 1}</span>{r}</li>)}</ol>
                     </div>
                   )}
+                  {e.duties && (
+                    <div class="duties">
+                      <span class="ladder__label">{t(ui.duties, lang)}</span>
+                      <ul>{t(e.duties, lang).map((d) => <li>{d}</li>)}</ul>
+                    </div>
+                  )}
                   {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
                   {e.photos && (
                     <div class="tl__photos" data-gallery-group={e.photos.join(',')}>

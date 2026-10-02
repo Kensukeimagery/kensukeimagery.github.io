@@ -610,3 +610,7 @@ html[lang='en'] .it-band__title { font-family: var(--f-display); font-weight: 40
 @media (max-width: 640px) { .svc-grid:not(.svc-grid--it) > .svc:last-child { grid-column: 1 / -1; } }
 @media (min-width: 641px) { .skill-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .hero__media { overflow: hidden; }
+.duties { margin-top: 12px; }
+.duties ul { list-style: none; margin: 8px 0 0 !important; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 6px 8px; }
+.duties li { font-size: 13px; color: var(--ivory-2); padding: 4px 11px; border: 1px solid var(--line-2); border-radius: 999px; margin: 0 !important; }
+.duties li::before { display: none !important; }
