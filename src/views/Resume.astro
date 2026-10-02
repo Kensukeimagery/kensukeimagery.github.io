@@ -154,6 +154,7 @@ const intern = experience.filter((e) => e.group === 'intern');
             <div class="job__top"><span class="job__org">{t(e.org, lang)}</span><span class="job__when">{fmtRange(e.start, e.end, lang)}</span></div>
             <div class="job__role">{t(e.role, lang)}{e.duties && !e.path && <span class="job__duty"> — {t(ui.duties, lang)}: {t(e.duties, lang).join(' · ')}</span>}</div>
             {e.path && <div class="job__path">{t(ui.careerPath, lang)}: {e.path.join(' → ')}</div>}
+            {e.brands && <div class="job__path">{t(ui.brandPath, lang)}: {e.brands.join(' → ')} ({t(ui.current, lang)})</div>}
             {e.duties && e.path && <div class="job__path">{t(ui.duties, lang)}: {t(e.duties, lang).join(' · ')}</div>}
             {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
           </div>

@@ -121,6 +121,8 @@ export const ui = {
   skillsLead: { th: 'ความสามารถหลัก', en: 'What I bring' },
   resumeOnline: { th: 'ดูเรซูเม่ออนไลน์', en: 'View résumé online' },
   careerPath: { th: 'ลำดับตำแหน่ง', en: 'Career progression' },
+  brandPath: { th: 'แบรนด์ที่ไลฟ์ (เรียงตามลำดับ)', en: 'Brands hosted, in order' },
+  current: { th: 'ปัจจุบัน', en: 'current' },
   duties: { th: 'หน้าที่ที่รับผิดชอบ', en: 'Responsibilities' },
   fullTime: { th: 'งานประจำ', en: 'Full-time' },
   partTime: { th: 'พาร์ทไทม์', en: 'Part-time' },

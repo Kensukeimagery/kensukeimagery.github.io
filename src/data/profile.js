@@ -85,9 +85,11 @@ export const experience = [
     role: { th: 'พิธีกรไลฟ์สด (MC Live)', en: 'Live Stream MC' },
     start: '2024-02-15', end: null,
     note: { th: 'บริษัทติดต่อมาชวนร่วมงาน จึงกลับสู่สายงานขายและไลฟ์ที่ถนัด', en: 'Approached by the company — a return to the sales and live work I do best' },
+    // แบรนด์ที่ไลฟ์ เรียงจากแบรนด์แรก → แบรนด์ปัจจุบัน (ตัวสุดท้าย = ปัจจุบัน)
+    brands: ['POSEE', 'UGREEN', 'Bousvclight', 'Qiaodan', 'AKASO', 'SOLOEVER', 'Skechers', 'JOYROOM'],
     points: {
-      th: ['พิธีกรไลฟ์ประจำแบรนด์ Joyroom (สินค้าแกดเจ็ต)', 'ไลฟ์ให้ SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER, Bousvclight', 'นักแสดงโฆษณา SAMSONITE, TECNO Mobile และ POSEE'],
-      en: ['Resident live host for Joyroom (gadgets)', 'Live sales for SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER, Bousvclight', 'Commercial talent for SAMSONITE, TECNO Mobile and POSEE'],
+      th: ['ปัจจุบันเป็นพิธีกรไลฟ์ประจำแบรนด์ JOYROOM (สินค้าแกดเจ็ต)', 'นักแสดงโฆษณา SAMSONITE, TECNO Mobile และ POSEE'],
+      en: ['Currently the resident live host for JOYROOM (gadgets)', 'Commercial talent for SAMSONITE, TECNO Mobile and POSEE'],
     },
   },
   // ---- พาร์ทไทม์ ช่วงหลังออกจาก Devas IPASON ก่อนเข้า Techland (เรียงใหม่ → เก่า) ----
