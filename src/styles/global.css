@@ -553,3 +553,7 @@ html[lang='th'] .wcard__more { font-family: var(--f-th-display); font-size: 24px
   .works { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .work--wide { grid-column: 1 / -1; }
 }
+
+/* shoppable TikTok clips: hint shown on desktop only */
+.embed__note { display: block; margin-top: 6px; font-family: var(--f-body); font-size: 11px; letter-spacing: 0.04em; color: var(--gold); font-weight: 400; }
+@media (hover: none), (pointer: coarse) { .embed__note { display: none; } }

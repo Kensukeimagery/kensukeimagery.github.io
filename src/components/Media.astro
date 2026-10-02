@@ -31,11 +31,11 @@ const im = m.type === 'image' ? workImg(m.src) : null;
 ---
 {cfg && (
   <div class={`embed ${card ? 'embed--card' : cfg.cls}`}>
-    <button class="embed__poster" type="button" data-embed={cfg.src} data-title={`${cfg.platform} — ${label}`} aria-label={`${t(ui.play, lang)}: ${label}`}>
+    <button class="embed__poster" type="button" data-embed={cfg.src} data-shop={m.shop ? '1' : undefined} data-ext={m.shop ? cfg.ext : undefined} data-title={`${cfg.platform} — ${label}`} aria-label={`${t(ui.play, lang)}: ${label}`}>
       {cfg.poster && <img src={cfg.poster} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />}
       <span class="embed__platform">{cfg.platform}</span>
       <span class="embed__play" set:html={play} />
-      <span class="embed__label">{label}</span>
+      <span class="embed__label">{label}{m.shop && <small class="embed__note">{t(ui.openTiktok, lang)} ↗</small>}</span>
     </button>
     <a class="embed__ext" href={cfg.ext} target="_blank" rel="noopener" aria-label={`${t(ui.watchOn, lang)} ${cfg.platform}`}>↗</a>
   </div>

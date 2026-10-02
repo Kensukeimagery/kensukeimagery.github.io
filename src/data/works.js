@@ -6,6 +6,7 @@
 //    { type: 'youtube', id: '<รหัสวิดีโอ>' }
 //    { type: 'instagram', id: '<รหัส reel>' }
 //    { type: 'image', src: '<ชื่อรูปใน images.json>' }
+//    เพิ่ม shop: true ให้คลิป TikTok ที่ปักตะกร้า (บนคอมจะเปิดในแท็บ TikTok แทน เพราะ TikTok ไม่ให้เล่นในเว็บอื่น)
 //  links: ลิงก์อ้างอิงที่ฝังไม่ได้ (เช่น Facebook)
 //  status: 'soon' = รอออนแอร์ (ยังไม่แสดงสื่อ)
 //  featured: ตัวเลข = แสดงในสไลด์ผลงานหน้าแรก (เรียงตามเลข)
@@ -36,9 +37,9 @@ export const works = [
       en: 'Presenting the JERALD and UNDERSCORE collections in a minimal business look for the brand’s TikTok channel.',
     },
     media: [
-      { type: 'tiktok', user: 'samsonitethbackpack', id: '7485214483044896008', label: { th: 'JERALD กระเป๋าเป้', en: 'JERALD backpack' } },
-      { type: 'tiktok', user: 'samsonitethbackpack', id: '7520163410294918418', label: { th: 'JERALD กระเป๋าถือ', en: 'JERALD briefcase' } },
-      { type: 'tiktok', user: 'samsonitethbackpack', id: '7680149614472744213', label: { th: 'UNDERSCORE', en: 'UNDERSCORE' } },
+      { type: 'tiktok', user: 'samsonitethbackpack', id: '7485214483044896008', shop: true, label: { th: 'JERALD กระเป๋าเป้', en: 'JERALD backpack' } },
+      { type: 'tiktok', user: 'samsonitethbackpack', id: '7520163410294918418', shop: true, label: { th: 'JERALD กระเป๋าถือ', en: 'JERALD briefcase' } },
+      { type: 'tiktok', user: 'samsonitethbackpack', id: '7680149614472744213', shop: true, label: { th: 'UNDERSCORE', en: 'UNDERSCORE' } },
     ],
   },
   {
@@ -83,8 +84,8 @@ export const works = [
       en: 'Currently the resident host for Joyroom (gadgets); previously hosted live sales for SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER and Bousvclight.',
     },
     media: [
-      { type: 'tiktok', user: 'bousvclight', id: '7365507705513069842', label: { th: 'ตัวอย่างไลฟ์ 1', en: 'Live sample 1' } },
-      { type: 'tiktok', user: 'bousvclight', id: '7394667143058492688', label: { th: 'ตัวอย่างไลฟ์ 2', en: 'Live sample 2' } },
+      { type: 'tiktok', user: 'bousvclight', id: '7365507705513069842', shop: true, label: { th: 'ตัวอย่างไลฟ์ 1', en: 'Live sample 1' } },
+      { type: 'tiktok', user: 'bousvclight', id: '7394667143058492688', shop: true, label: { th: 'ตัวอย่างไลฟ์ 2', en: 'Live sample 2' } },
     ],
   },
   {
@@ -134,7 +135,7 @@ export const works = [
     title: { th: 'คลิปสั้นโปรโมตสินค้า IT', en: 'IT product promo short' },
     company: 'Devas IPASON',
     year: '2023',
-    media: [{ type: 'tiktok', user: 'ipason_thailand', id: '7283820993099894021' }],
+    media: [{ type: 'tiktok', user: 'ipason_thailand', id: '7283820993099894021', shop: true }],
   },
   {
     slug: 'standin',
