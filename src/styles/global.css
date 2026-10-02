@@ -621,5 +621,5 @@ html[lang='th'] .tl__note { font-style: normal; }
 /* brand logos in the marquee */
 .marquee__item--logo img { height: calc(var(--h) * 1px); width: auto; display: block; opacity: .72; transition: opacity .4s var(--ease); }
 .marquee__item--logo:hover img { opacity: 1; }
-@media (max-width: 700px) { .marquee__item--logo img { height: calc(var(--h) * .78px); } }
-.tl__logo { display: block; height: 22px; width: auto; margin: 10px 0 2px; opacity: .8; }
+@media (max-width: 700px) { .marquee__item--logo img { height: calc(var(--h) * .66px); } .marquee__item { padding: 0 22px; gap: 44px; } }
+.tl__logo { display: block; height: 18px; width: auto; margin: 10px 0 4px; opacity: .7; }

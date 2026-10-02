@@ -72,7 +72,7 @@ const chev = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
       {[...brands, ...brands].map((b, i) => (
         <span class={`marquee__item${logos[b] ? ' marquee__item--logo' : ''}`} aria-hidden={i >= brands.length ? 'true' : undefined}>
           {logos[b]
-            ? <img src={`/img/logos/${logos[b].file}.png`} alt={b} style={`--h:${logoHeight(b)}`} width={Math.round(logos[b].w * logoHeight(b) / 96)} height={logoHeight(b)} loading="lazy" decoding="async" />
+            ? <img src={`/img/logos/${logos[b].file}.png`} alt={b} style={`--h:${logoHeight(b)}`} width={Math.round(logos[b].w * logoHeight(b) / 96)} height={logoHeight(b)} decoding="async" />
             : b}
         </span>
       ))}
