@@ -623,3 +623,55 @@ html[lang='th'] .tl__note { font-style: normal; }
 .marquee__item--logo:hover img { opacity: 1; }
 @media (max-width: 700px) { .marquee__item--logo img { height: calc(var(--h) * .66px); } .marquee__item { padding: 0 22px; gap: 44px; } }
 .tl__logo { display: block; height: 18px; width: auto; margin: 10px 0 4px; opacity: .7; }
+
+/* ============ readability pass (feedback: text too thin / too small) ============ */
+:root { --ivory-2: #d6cebd; --muted: #a4aea6; }
+body { font-weight: 400; }
+html[lang='th'] .h-section, html[lang='th'] .h-th, html[lang='th'] .hero__th, html[lang='th'] .page-head .h-display,
+html[lang='th'] .contact .h-display, html[lang='th'] .h-quote, html[lang='th'] .it-band__title, html[lang='th'] .comp__th,
+html[lang='th'] .embed__label, html[lang='th'] .wcard__more, .mobile-menu li a { font-weight: 400; }
+.lead { font-size: clamp(16px, 1.45vw, 18px); }
+.about__text p { font-size: 16.5px; }
+.nav__links a { font-size: 14.5px; }
+.lang { font-size: 12px; }
+.hero__roles li { font-size: 15px; letter-spacing: .08em; }
+html[lang='th'] .hero__roles li { font-size: 15.5px; letter-spacing: .02em; }
+.stat__label { font-size: 15px; }
+.eyebrow { font-size: 12px; }
+html[lang='th'] .eyebrow, html[lang='th'] .facts dt, html[lang='th'] .tl-group { font-size: 14.5px; }
+.facts dt { font-size: 12px; }
+.chip { font-size: 14.5px; }
+.work__meta { font-size: 12px; }
+html[lang='th'] .work__meta > span:first-child, html[lang='th'] .feature__cat { font-size: 14px; }
+.work__company { font-size: 13.5px; }
+.badge { font-size: 12px; }
+.links a { font-size: 13.5px; }
+.embed__platform { font-size: 11.5px; }
+.embed__note { font-size: 12.5px; }
+.photo figcaption { font-size: 13.5px; }
+.tl__when { font-size: 13.5px; }
+.tl__note { font-size: 15px; }
+.tl__type { font-size: 12px; }
+.card p, .card li { font-size: 15.5px; }
+.tags span { font-size: 14.5px; }
+.tab { font-size: 14.5px; }
+.lightbox__cap { font-size: 14.5px; }
+.wcard__desc { font-size: 15px; }
+.ladder__label { font-size: 12px; }
+html[lang='th'] .ladder__label { font-size: 14px; }
+.ladder li { font-size: 14.5px; }
+.duties li { font-size: 14px; }
+.avail { font-size: 13.5px; }
+.svc__desc { font-size: 15px; }
+.svc__more { font-size: 14px; }
+.it-band__area { font-size: 15px; }
+.it-band__list li { font-size: 16px; }
+.steps li { font-size: 16px; }
+.contact__ig { font-size: 14px; }
+.site-footer { font-size: 13px; }
+.skill-grid div { font-size: 16px; }
+@media (max-width: 640px) { .svc__title { font-size: 17px; } .svc__desc { font-size: 14px; } }
+/* video cover images: brighter, with a soft fade so labels stay readable */
+.embed__poster img { opacity: .78; }
+.embed__poster:hover img { opacity: .95; }
+.embed__poster::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(7,19,15,.55), transparent 22%, transparent 55%, rgba(7,19,15,.92)); }

@@ -2,6 +2,7 @@
 // One media item: TikTok / YouTube / Instagram (click-to-load) or a photo
 import { t, ui } from '../data/i18n.js';
 import { workImg, srcset } from '../data/img.js';
+import { ttPosters } from '../data/ttposters.js';
 const { m, lang, brand = '', card = false } = Astro.props;
 
 const play = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>`;
@@ -11,6 +12,7 @@ if (m.type === 'tiktok') {
     cls: 'embed--v', platform: 'TikTok',
     src: `https://www.tiktok.com/player/v1/${m.id}?autoplay=1&description=0&music_info=0&rel=0`,
     ext: `https://www.tiktok.com/@${m.user}/video/${m.id}`,
+    poster: ttPosters.has(m.id) ? `/img/tt/${m.id}.webp` : undefined,
   };
 } else if (m.type === 'youtube') {
   cfg = {
