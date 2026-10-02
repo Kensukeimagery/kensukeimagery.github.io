@@ -185,5 +185,14 @@ const intern = experience.filter((e) => e.group === 'intern');
       <div class="foot"><span>{L('ดูผลงานวิดีโอและภาพทั้งหมดที่', 'Full video portfolio at')} kensukeimagery.github.io</span><span>{new Date().getFullYear() + (lang === 'th' ? 543 : 0)}</span></div>
     </main>
   </article>
+  <script is:inline>
+    (function () {
+      var s = document.querySelector('.sheet');
+      function fit() { s.style.zoom = ''; var w = s.offsetWidth, v = document.documentElement.clientWidth - 16; if (v < w) s.style.zoom = v / w; }
+      fit(); addEventListener('resize', fit);
+      addEventListener('beforeprint', function () { s.style.zoom = ''; });
+      addEventListener('afterprint', fit);
+    })();
+  </script>
 </body>
 </html>
