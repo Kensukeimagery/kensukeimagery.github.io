@@ -94,6 +94,19 @@ const intern = experience.filter((e) => e.group === 'intern');
     .compact { line-height: 1.42; } .compact li { padding: .25mm 0; } .sub { margin: 2.6mm 0 1.2mm; }
     .job__duty { font-style: normal; font-size: 7.8pt; color: var(--ink-2); }
     .main { padding-top: 11mm; padding-bottom: 9mm; } .foot { margin-top: 4mm; }
+    /* phone reading mode (screen only — print/PDF keeps the A4 layout above) */
+    @media screen {
+    body.m .sheet { grid-template-columns: 1fr; min-height: 0; margin-bottom: 24px; }
+    body.m .side { padding: 9mm 7mm; }
+    body.m .side::before { inset: 3mm; }
+    body.m .photo { max-width: 46mm; aspect-ratio: 4 / 5; }
+    body.m .main { padding: 8mm 7mm; }
+    body.m .two { grid-template-columns: 1fr; gap: 0; }
+    body.m .two > div + div h2 { margin-top: 4mm; }
+    body.m .compact li { grid-template-columns: 1fr; gap: 0; }
+    body.m .foot { flex-direction: column; gap: 1mm; }
+    }
+    @media print { .sheet { zoom: 1 !important; width: 210mm !important; } }
   </style>
 </head>
 <body>
@@ -203,10 +216,18 @@ const intern = experience.filter((e) => e.group === 'intern');
         if (n.getMonth() < b.getMonth() || (n.getMonth() === b.getMonth() && n.getDate() < b.getDate())) a--;
         el.textContent = a;
       });
-      var s = document.querySelector('.sheet');
-      function fit() { s.style.zoom = ''; var w = s.offsetWidth, v = document.documentElement.clientWidth - 16; if (v < w) s.style.zoom = v / w; }
+      // On screen, enlarge the A4 sheet so text is readable without zooming:
+      // desktop = the same A4 page scaled up; phone = single column, scaled to the screen width.
+      var s = document.querySelector('.sheet'), Z = 1.32;
+      function fit() {
+        s.style.zoom = ''; s.style.width = ''; document.body.classList.remove('m');
+        var v = document.documentElement.clientWidth - 16, w = s.offsetWidth;
+        if (v >= w * 1.05) { s.style.zoom = Math.min(Z, v / w); return; }
+        document.body.classList.add('m');
+        s.style.width = (v / Z) + 'px'; s.style.zoom = Z;
+      }
       fit(); addEventListener('resize', fit);
-      addEventListener('beforeprint', function () { s.style.zoom = ''; });
+      addEventListener('beforeprint', function () { s.style.zoom = ''; s.style.width = ''; document.body.classList.remove('m'); });
       addEventListener('afterprint', fit);
     })();
   </script>
