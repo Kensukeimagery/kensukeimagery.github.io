@@ -112,7 +112,7 @@ export const experience = [
     role: { th: 'Assistant Bartender (บาร์ดาดฟ้า)', en: 'Assistant Bartender (rooftop bar)' },
     start: '2023-12',
     note: { th: 'ลองเปิดประสบการณ์ใหม่ในสายงานบริการ', en: 'Trying something new in hospitality' },
-    photos: ['work-citywave-1', 'work-citywave-2', 'work-citywave-4'],
+    photos: ['work-citywave-5', 'work-citywave-7', 'work-citywave-6', 'work-citywave-8', 'work-citywave-4', 'work-citywave-2', 'work-citywave-1'],
   },
   {
     group: 'full',

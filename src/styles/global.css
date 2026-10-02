@@ -675,3 +675,4 @@ html[lang='th'] .ladder__label { font-size: 14px; }
 .embed__poster img { opacity: .78; }
 .embed__poster:hover img { opacity: .95; }
 .embed__poster::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(7,19,15,.55), transparent 22%, transparent 55%, rgba(7,19,15,.92)); }
+.tl__photos { flex-wrap: wrap; }

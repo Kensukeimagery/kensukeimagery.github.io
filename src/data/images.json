@@ -337,6 +337,30 @@
    "h": 1080,
    "sm": "/img/work-citywave-4-800.webp",
    "lg": "/img/work-citywave-4-1600.webp"
+  },
+  "work-citywave-5": {
+   "w": 1920,
+   "h": 1280,
+   "sm": "/img/work-citywave-5-800.webp",
+   "lg": "/img/work-citywave-5-1600.webp"
+  },
+  "work-citywave-6": {
+   "w": 1920,
+   "h": 1920,
+   "sm": "/img/work-citywave-6-800.webp",
+   "lg": "/img/work-citywave-6-1600.webp"
+  },
+  "work-citywave-7": {
+   "w": 2000,
+   "h": 1125,
+   "sm": "/img/work-citywave-7-800.webp",
+   "lg": "/img/work-citywave-7-1600.webp"
+  },
+  "work-citywave-8": {
+   "w": 2000,
+   "h": 1125,
+   "sm": "/img/work-citywave-8-800.webp",
+   "lg": "/img/work-citywave-8-1600.webp"
   }
  }
 }
