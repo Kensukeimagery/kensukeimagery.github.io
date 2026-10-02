@@ -537,3 +537,19 @@ html[lang='th'] .wcard__more { font-family: var(--f-th-display); font-size: 24px
 .edu .edu__major { color: var(--gold-2); font-size: 16px; margin: 0; }
 .edu .edu__school { color: var(--ivory-2); font-size: 15px; margin: 0; }
 @media (max-width: 700px) { .carousel-nav { display: none; } }
+
+/* ============ v3: wide screens — use the full width ============ */
+:root { --wrap: 1720px; --gutter: clamp(16px, 4.5vw, 80px); }
+.about__text p, .about__text .h-quote { max-width: 68ch; }
+.timeline, .resume .cards, .resume .about__text { max-width: 980px; }
+@media (min-width: 1100px) {
+  .wcard { width: clamp(280px, 21vw, 400px); }
+  .strip a { height: clamp(300px, 26vw, 460px); }
+  .masonry { columns: 4 300px; }
+  .split { grid-template-columns: 6fr 7fr; }
+  .frame { max-width: 620px; }
+}
+@media (min-width: 1500px) {
+  .works { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .work--wide { grid-column: 1 / -1; }
+}
