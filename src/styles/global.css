@@ -678,3 +678,9 @@ html[lang='th'] .ladder__label { font-size: 14px; }
 .tl__photos { flex-wrap: wrap; }
 /* ladder: numbered boxes already show the order — drop the arrows (they dangled at the start of wrapped rows) */
 .ladder li + li::before { content: none; }
+/* side projects (kept low-key at the end of the profile page) */
+.projects__lead { margin: 10px 0 0; font-size: 14px; color: var(--muted); max-width: 26ch; }
+.project h3 { font-family: var(--f-display); font-size: 22px; font-weight: 500; }
+.project__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.project__tags span { font-size: 12.5px; color: var(--ivory-2); padding: 3px 10px; border: 1px solid var(--line-2); border-radius: 999px; }
+.projects .h-section { font-size: clamp(26px, 2.6vw, 34px); }

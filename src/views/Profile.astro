@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { t, ui, path, fmtRange, fmtYear, ageOn } from '../data/i18n.js';
 import { logos } from '../data/logos.js';
+import { projects } from '../data/projects.js';
 import { person, experience, education, awards } from '../data/profile.js';
 import { portrait, workImg, srcset } from '../data/img.js';
 const { lang } = Astro.props;
@@ -186,6 +187,27 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
           ))}
         </div>
       </div>
+
+      {projects.length > 0 && (
+        <div class="resume projects no-print">
+          <div class="resume__label">
+            <span class="eyebrow reveal">05</span>
+            <h2 class="h-section reveal">{t(ui.projects, lang)}</h2>
+            <p class="projects__lead reveal">{t(ui.projectsLead, lang)}</p>
+          </div>
+          <div class="cards">
+            {projects.map((p) => (
+              <div class="card project reveal">
+                <div class="tl__when">{fmtYear(p.year, lang)}</div>
+                <h3>{p.title}</h3>
+                <p>{t(p.desc, lang)}</p>
+                <div class="project__tags">{p.tags.map((g) => <span>{g}</span>)}</div>
+                <a class="link-arrow" href={p.url} target="_blank" rel="noopener">{t(ui.viewProject, lang)} ↗</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
     </div>
   </section>
