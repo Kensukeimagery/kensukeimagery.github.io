@@ -757,3 +757,22 @@ a.svc:hover .svc__title { color: var(--gold-2); }
 /* video tiles: lighter frame */
 .embed, .photo, .strip a, .masonry button, .comp__img, .tl__photos button { border-color: rgba(239, 231, 214, 0.06); }
 .embed__ext { border: 0; background: rgba(7,19,15,.45); }
+
+/* profile & résumé page: keep the original richer look (boxed cards, filled skill grid, timeline) */
+main:has(.timeline) .section { padding: clamp(72px, 11vw, 140px) 0; }
+main:has(.timeline) .section + .section { border-top: 1px solid var(--line-2); }
+main:has(.timeline) .page-head { padding: clamp(130px, 18vw, 200px) 0 clamp(40px, 6vw, 72px); }
+main:has(.timeline) .eyebrow::before { width: 36px; opacity: 0.7; }
+main:has(.timeline) .h-section { margin-top: 18px; }
+main:has(.timeline) .card { background: var(--bg-2); border: 1px solid var(--line-2); padding: 24px; }
+main:has(.timeline) .card li::before { content: '✦'; color: var(--gold); font-size: 10px; }
+main:has(.timeline) .comp__card { background: linear-gradient(170deg, var(--bg-2), var(--bg)); border-color: var(--line); }
+main:has(.timeline) .skill-grid { background: var(--line-2); border: 1px solid var(--line-2); gap: 1px; }
+main:has(.timeline) .skill-grid div { background: var(--bg-2); padding: 18px 20px; border-top: 0; }
+main:has(.timeline) .skill-grid div::before { content: '✦'; color: var(--gold); font-size: 11px; }
+main:has(.timeline) .tags span { border-color: var(--line); border-radius: 0; padding: 9px 16px; }
+main:has(.timeline) .ladder li { border-color: var(--line-2); border-radius: 0; background: var(--bg-2); padding: 6px 12px 6px 6px; }
+main:has(.timeline) .ladder li span { border-radius: 0; border-color: var(--line); }
+main:has(.timeline) .ladder li.is-last { border-color: var(--gold); }
+main:has(.timeline) .ladder li.is-last span { border-color: var(--gold); }
+main:has(.timeline) .comp__img, main:has(.timeline) .tl__photos button { border-color: var(--line-2); }
