@@ -5,9 +5,11 @@
 //    { type: 'tiktok', user: '<ชื่อบัญชี>', id: '<เลขวิดีโอ>' }
 //    { type: 'youtube', id: '<รหัสวิดีโอ>' }
 //    { type: 'instagram', id: '<รหัส reel>' }
+//    { type: 'facebook', page: '<ชื่อเพจ>', id: '<เลขวิดีโอ>' }  (ใส่รูปปกที่ public/img/fb/<เลขวิดีโอ>.webp)
 //    { type: 'image', src: '<ชื่อรูปใน images.json>' }
 //    คลิป TikTok ที่ปักตะกร้า: TikTok ไม่ให้เล่นในเว็บอื่นบนคอม → ใส่ drive: '<Google Drive file id>' ให้เล่นไฟล์จาก Drive แทน
 //    (ไฟล์ต้องแชร์แบบ 'ทุกคนที่มีลิงก์ดูได้') ถ้ายังไม่มีไฟล์ ใส่ shop: true ไว้ก่อน (บนคอมจะเปิดในแท็บ TikTok)
+//  photos: ['<ชื่อรูปใน images.json>', ...] = แถบรูปเล็กใต้คลิป กดแล้วเปิดดูรูปใหญ่
 //  links: ลิงก์อ้างอิงที่ฝังไม่ได้ (เช่น Facebook)
 //  status: 'soon' = รอออนแอร์ (ยังไม่แสดงสื่อ)
 //  featured: ตัวเลข = แสดงในสไลด์ผลงานหน้าแรก (เรียงตามเลข)
@@ -159,9 +161,15 @@ export const works = [
   },
   {
     slug: 'cimb',
-    category: 'model',
+    category: 'commercial',
     brand: 'CIMB THAI',
     title: { th: 'นักแสดงเดินทรูป รับบทมาสคอต "Reminder Man"', en: 'Troupe performer as mascot "Reminder Man"' },
+    desc: {
+      th: 'แคมเปญ “จำให้ขึ้นใจ มองหาหุ้นกู้ ต้องแอป CIMB THAI” — Reminder Man ออกเดินเตือนตามย่านต่าง ๆ ในคลิปโฆษณาของธนาคาร',
+      en: 'Campaign “Remember it by heart: for bonds, it’s the CIMB THAI app” — Reminder Man roams the city in the bank’s commercial.',
+    },
+    media: [{ type: 'facebook', page: 'CIMBThai', id: '976940862115240', label: { th: 'คลิปโฆษณา Reminder Man', en: 'Reminder Man commercial' } }],
+    photos: ['work-cimb-1', 'work-cimb-2', 'work-cimb-3', 'work-cimb-4'],
     links: [
       { label: 'Facebook 1', url: 'https://www.facebook.com/share/p/1cv5f6Grdu/' },
       { label: 'Facebook 2', url: 'https://www.facebook.com/share/p/18CaiC4bgh/' },

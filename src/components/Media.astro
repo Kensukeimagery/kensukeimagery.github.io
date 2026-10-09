@@ -22,6 +22,15 @@ if (m.type === 'tiktok') {
     ext: `https://www.youtube.com/watch?v=${m.id}`,
     poster: `https://i.ytimg.com/vi/${m.id}/hqdefault.jpg`,
   };
+} else if (m.type === 'facebook') {
+  // Facebook video plugin — poster saved locally at public/img/fb/<id>.webp
+  const href = `https://www.facebook.com/${m.page}/videos/${m.id}/`;
+  cfg = {
+    cls: 'embed--h', platform: 'Facebook',
+    src: `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(href)}&show_text=false&autoplay=true&width=1280`,
+    ext: href,
+    poster: `/img/fb/${m.id}.webp`,
+  };
 } else if (m.type === 'instagram') {
   cfg = {
     cls: 'embed--ig', platform: 'Instagram',

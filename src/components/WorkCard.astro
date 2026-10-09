@@ -2,6 +2,7 @@
 import Media from './Media.astro';
 import { t, fmtYear, ui } from '../data/i18n.js';
 import { categories } from '../data/works.js';
+import { workImg } from '../data/img.js';
 const { w, lang } = Astro.props;
 const cat = categories.find((c) => c.id === w.category);
 const brand = t(w.brand, lang);
@@ -22,6 +23,18 @@ const single = media.length === 1 && media[0].type !== 'tiktok' && media[0].type
   {media.length > 0 && (
     <div class={`media-row${single ? ' media-row--single' : ''}`}>
       {media.map((m) => <Media m={m} lang={lang} brand={brand} />)}
+    </div>
+  )}
+  {w.photos && (
+    <div class="tl__photos work__photos">
+      {w.photos.map((k, i) => {
+        const im = workImg(k);
+        return (
+          <button type="button" data-lb={im.lg} data-lb-group={`work-${w.slug}`} data-lb-cap={brand} aria-label={`${brand} ${i + 1}`}>
+            <img src={im.sm} alt="" loading="lazy" decoding="async" width={im.w} height={im.h} />
+          </button>
+        );
+      })}
     </div>
   )}
   {w.links && (

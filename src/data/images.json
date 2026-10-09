@@ -1,366 +1,390 @@
 {
- "portraits": [
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-01-800.webp",
-   "lg": "/img/portrait-01-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-02-800.webp",
-   "lg": "/img/portrait-02-1600.webp"
-  },
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-03-800.webp",
-   "lg": "/img/portrait-03-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-04-800.webp",
-   "lg": "/img/portrait-04-1600.webp"
-  },
-  {
-   "w": 3000,
-   "h": 4000,
-   "sm": "/img/portrait-05-800.webp",
-   "lg": "/img/portrait-05-1600.webp"
-  },
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-06-800.webp",
-   "lg": "/img/portrait-06-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-07-800.webp",
-   "lg": "/img/portrait-07-1600.webp"
-  },
-  {
-   "w": 5712,
-   "h": 4284,
-   "sm": "/img/portrait-08-800.webp",
-   "lg": "/img/portrait-08-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-09-800.webp",
-   "lg": "/img/portrait-09-1600.webp"
-  },
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-10-800.webp",
-   "lg": "/img/portrait-10-1600.webp"
-  },
-  {
-   "w": 896,
-   "h": 1194,
-   "sm": "/img/portrait-11-800.webp",
-   "lg": "/img/portrait-11-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-12-800.webp",
-   "lg": "/img/portrait-12-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-13-800.webp",
-   "lg": "/img/portrait-13-1600.webp"
-  },
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-14-800.webp",
-   "lg": "/img/portrait-14-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-15-800.webp",
-   "lg": "/img/portrait-15-1600.webp"
-  },
-  {
-   "w": 3024,
-   "h": 4032,
-   "sm": "/img/portrait-16-800.webp",
-   "lg": "/img/portrait-16-1600.webp"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/portrait-17-800.webp",
-   "lg": "/img/portrait-17-1600.webp"
-  },
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-18-800.webp",
-   "lg": "/img/portrait-18-1600.webp"
-  },
-  {
-   "w": 1365,
-   "h": 2048,
-   "sm": "/img/portrait-19-800.webp",
-   "lg": "/img/portrait-19-1600.webp"
-  },
-  {
-   "w": 1293,
-   "h": 1293,
-   "sm": "/img/portrait-20-800.webp",
-   "lg": "/img/portrait-20-1600.webp"
-  },
-  {
-   "w": 3060,
-   "h": 4080,
-   "sm": "/img/portrait-21-800.webp",
-   "lg": "/img/portrait-21-1600.webp"
-  },
-  {
-   "w": 4000,
-   "h": 6000,
-   "sm": "/img/portrait-22-800.webp",
-   "lg": "/img/portrait-22-1600.webp"
-  },
-  {
-   "w": 3060,
-   "h": 4080,
-   "sm": "/img/portrait-23-800.webp",
-   "lg": "/img/portrait-23-1600.webp"
+  "portraits": [
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-01-800.webp",
+      "lg": "/img/portrait-01-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-02-800.webp",
+      "lg": "/img/portrait-02-1600.webp"
+    },
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-03-800.webp",
+      "lg": "/img/portrait-03-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-04-800.webp",
+      "lg": "/img/portrait-04-1600.webp"
+    },
+    {
+      "w": 3000,
+      "h": 4000,
+      "sm": "/img/portrait-05-800.webp",
+      "lg": "/img/portrait-05-1600.webp"
+    },
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-06-800.webp",
+      "lg": "/img/portrait-06-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-07-800.webp",
+      "lg": "/img/portrait-07-1600.webp"
+    },
+    {
+      "w": 5712,
+      "h": 4284,
+      "sm": "/img/portrait-08-800.webp",
+      "lg": "/img/portrait-08-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-09-800.webp",
+      "lg": "/img/portrait-09-1600.webp"
+    },
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-10-800.webp",
+      "lg": "/img/portrait-10-1600.webp"
+    },
+    {
+      "w": 896,
+      "h": 1194,
+      "sm": "/img/portrait-11-800.webp",
+      "lg": "/img/portrait-11-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-12-800.webp",
+      "lg": "/img/portrait-12-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-13-800.webp",
+      "lg": "/img/portrait-13-1600.webp"
+    },
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-14-800.webp",
+      "lg": "/img/portrait-14-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-15-800.webp",
+      "lg": "/img/portrait-15-1600.webp"
+    },
+    {
+      "w": 3024,
+      "h": 4032,
+      "sm": "/img/portrait-16-800.webp",
+      "lg": "/img/portrait-16-1600.webp"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/portrait-17-800.webp",
+      "lg": "/img/portrait-17-1600.webp"
+    },
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-18-800.webp",
+      "lg": "/img/portrait-18-1600.webp"
+    },
+    {
+      "w": 1365,
+      "h": 2048,
+      "sm": "/img/portrait-19-800.webp",
+      "lg": "/img/portrait-19-1600.webp"
+    },
+    {
+      "w": 1293,
+      "h": 1293,
+      "sm": "/img/portrait-20-800.webp",
+      "lg": "/img/portrait-20-1600.webp"
+    },
+    {
+      "w": 3060,
+      "h": 4080,
+      "sm": "/img/portrait-21-800.webp",
+      "lg": "/img/portrait-21-1600.webp"
+    },
+    {
+      "w": 4000,
+      "h": 6000,
+      "sm": "/img/portrait-22-800.webp",
+      "lg": "/img/portrait-22-1600.webp"
+    },
+    {
+      "w": 3060,
+      "h": 4080,
+      "sm": "/img/portrait-23-800.webp",
+      "lg": "/img/portrait-23-1600.webp"
+    }
+  ],
+  "film": [
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-01-800.webp",
+      "lg": "/img/film-01-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Kodak ColorPlus 200"
+    },
+    {
+      "w": 2433,
+      "h": 3637,
+      "sm": "/img/film-02-800.webp",
+      "lg": "/img/film-02-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Kodak ColorPlus 200"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-03-800.webp",
+      "lg": "/img/film-03-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Kodak ColorPlus 200"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-04-800.webp",
+      "lg": "/img/film-04-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Kodak ColorPlus 200"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-05-800.webp",
+      "lg": "/img/film-05-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Lomography 400"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-06-800.webp",
+      "lg": "/img/film-06-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Lomography 400"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-07-800.webp",
+      "lg": "/img/film-07-1600.webp",
+      "camera": "Olympus XA2",
+      "stock": "Lomography 400"
+    },
+    {
+      "w": 3130,
+      "h": 2075,
+      "sm": "/img/film-08-800.webp",
+      "lg": "/img/film-08-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "REFLX Lab 400D"
+    },
+    {
+      "w": 2075,
+      "h": 3130,
+      "sm": "/img/film-09-800.webp",
+      "lg": "/img/film-09-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "REFLX Lab 400D"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-10-800.webp",
+      "lg": "/img/film-10-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "Kodak Vision3 250D"
+    },
+    {
+      "w": 2433,
+      "h": 3637,
+      "sm": "/img/film-11-800.webp",
+      "lg": "/img/film-11-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "Kodak Vision3 500T"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-12-800.webp",
+      "lg": "/img/film-12-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "Kodak Vision3 500T"
+    },
+    {
+      "w": 2433,
+      "h": 3637,
+      "sm": "/img/film-13-800.webp",
+      "lg": "/img/film-13-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "Kodak Vision3 500T"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-14-800.webp",
+      "lg": "/img/film-14-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "Kodak Vision3 500T"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-15-800.webp",
+      "lg": "/img/film-15-1600.webp",
+      "camera": "Olympus OM-1 · 28mm f/3.5",
+      "stock": "Cyberpunk 640T"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-16-800.webp",
+      "lg": "/img/film-16-1600.webp",
+      "camera": "Olympus OM-1 · 28mm f/3.5",
+      "stock": "Cyberpunk 640T"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-17-800.webp",
+      "lg": "/img/film-17-1600.webp",
+      "camera": "Olympus OM-1 · 28mm f/3.5",
+      "stock": "Cyberpunk 640T"
+    },
+    {
+      "w": 3130,
+      "h": 2075,
+      "sm": "/img/film-18-800.webp",
+      "lg": "/img/film-18-1600.webp",
+      "camera": "Olympus OM-1",
+      "stock": "Lomography 800"
+    },
+    {
+      "w": 3637,
+      "h": 2433,
+      "sm": "/img/film-19-800.webp",
+      "lg": "/img/film-19-1600.webp",
+      "camera": "Olympus OM-1 · Osaka",
+      "stock": "Kodak Vision3 250D"
+    },
+    {
+      "w": 2433,
+      "h": 3637,
+      "sm": "/img/film-20-800.webp",
+      "lg": "/img/film-20-1600.webp",
+      "camera": "Olympus OM-1 · Osaka",
+      "stock": "Kodak Vision3 250D"
+    }
+  ],
+  "work": {
+    "work-stlouis-lab": {
+      "w": 3264,
+      "h": 2448,
+      "sm": "/img/work-stlouis-lab-800.webp",
+      "lg": "/img/work-stlouis-lab-1600.webp"
+    },
+    "work-ipason-live": {
+      "w": 1477,
+      "h": 1108,
+      "sm": "/img/work-ipason-live-800.webp",
+      "lg": "/img/work-ipason-live-1600.webp"
+    },
+    "work-citywave-1": {
+      "w": 960,
+      "h": 961,
+      "sm": "/img/work-citywave-1-800.webp",
+      "lg": "/img/work-citywave-1-1600.webp"
+    },
+    "work-citywave-2": {
+      "w": 960,
+      "h": 961,
+      "sm": "/img/work-citywave-2-800.webp",
+      "lg": "/img/work-citywave-2-1600.webp"
+    },
+    "work-citywave-3": {
+      "w": 1080,
+      "h": 1620,
+      "sm": "/img/work-citywave-3-800.webp",
+      "lg": "/img/work-citywave-3-1600.webp"
+    },
+    "work-citywave-4": {
+      "w": 1080,
+      "h": 1080,
+      "sm": "/img/work-citywave-4-800.webp",
+      "lg": "/img/work-citywave-4-1600.webp"
+    },
+    "work-citywave-5": {
+      "w": 1920,
+      "h": 1280,
+      "sm": "/img/work-citywave-5-800.webp",
+      "lg": "/img/work-citywave-5-1600.webp"
+    },
+    "work-citywave-6": {
+      "w": 1920,
+      "h": 1920,
+      "sm": "/img/work-citywave-6-800.webp",
+      "lg": "/img/work-citywave-6-1600.webp"
+    },
+    "work-citywave-7": {
+      "w": 2000,
+      "h": 1125,
+      "sm": "/img/work-citywave-7-800.webp",
+      "lg": "/img/work-citywave-7-1600.webp"
+    },
+    "work-citywave-8": {
+      "w": 2000,
+      "h": 1125,
+      "sm": "/img/work-citywave-8-800.webp",
+      "lg": "/img/work-citywave-8-1600.webp"
+    },
+    "work-cimb-1": {
+      "w": 1000,
+      "h": 667,
+      "sm": "/img/work-cimb-1-sm.webp",
+      "lg": "/img/work-cimb-1-lg.webp"
+    },
+    "work-cimb-2": {
+      "w": 600,
+      "h": 900,
+      "sm": "/img/work-cimb-2-sm.webp",
+      "lg": "/img/work-cimb-2-lg.webp"
+    },
+    "work-cimb-3": {
+      "w": 600,
+      "h": 900,
+      "sm": "/img/work-cimb-3-sm.webp",
+      "lg": "/img/work-cimb-3-lg.webp"
+    },
+    "work-cimb-4": {
+      "w": 667,
+      "h": 1000,
+      "sm": "/img/work-cimb-4-sm.webp",
+      "lg": "/img/work-cimb-4-lg.webp"
+    }
   }
- ],
- "film": [
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-01-800.webp",
-   "lg": "/img/film-01-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Kodak ColorPlus 200"
-  },
-  {
-   "w": 2433,
-   "h": 3637,
-   "sm": "/img/film-02-800.webp",
-   "lg": "/img/film-02-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Kodak ColorPlus 200"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-03-800.webp",
-   "lg": "/img/film-03-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Kodak ColorPlus 200"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-04-800.webp",
-   "lg": "/img/film-04-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Kodak ColorPlus 200"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-05-800.webp",
-   "lg": "/img/film-05-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Lomography 400"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-06-800.webp",
-   "lg": "/img/film-06-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Lomography 400"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-07-800.webp",
-   "lg": "/img/film-07-1600.webp",
-   "camera": "Olympus XA2",
-   "stock": "Lomography 400"
-  },
-  {
-   "w": 3130,
-   "h": 2075,
-   "sm": "/img/film-08-800.webp",
-   "lg": "/img/film-08-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "REFLX Lab 400D"
-  },
-  {
-   "w": 2075,
-   "h": 3130,
-   "sm": "/img/film-09-800.webp",
-   "lg": "/img/film-09-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "REFLX Lab 400D"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-10-800.webp",
-   "lg": "/img/film-10-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "Kodak Vision3 250D"
-  },
-  {
-   "w": 2433,
-   "h": 3637,
-   "sm": "/img/film-11-800.webp",
-   "lg": "/img/film-11-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "Kodak Vision3 500T"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-12-800.webp",
-   "lg": "/img/film-12-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "Kodak Vision3 500T"
-  },
-  {
-   "w": 2433,
-   "h": 3637,
-   "sm": "/img/film-13-800.webp",
-   "lg": "/img/film-13-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "Kodak Vision3 500T"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-14-800.webp",
-   "lg": "/img/film-14-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "Kodak Vision3 500T"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-15-800.webp",
-   "lg": "/img/film-15-1600.webp",
-   "camera": "Olympus OM-1 · 28mm f/3.5",
-   "stock": "Cyberpunk 640T"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-16-800.webp",
-   "lg": "/img/film-16-1600.webp",
-   "camera": "Olympus OM-1 · 28mm f/3.5",
-   "stock": "Cyberpunk 640T"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-17-800.webp",
-   "lg": "/img/film-17-1600.webp",
-   "camera": "Olympus OM-1 · 28mm f/3.5",
-   "stock": "Cyberpunk 640T"
-  },
-  {
-   "w": 3130,
-   "h": 2075,
-   "sm": "/img/film-18-800.webp",
-   "lg": "/img/film-18-1600.webp",
-   "camera": "Olympus OM-1",
-   "stock": "Lomography 800"
-  },
-  {
-   "w": 3637,
-   "h": 2433,
-   "sm": "/img/film-19-800.webp",
-   "lg": "/img/film-19-1600.webp",
-   "camera": "Olympus OM-1 · Osaka",
-   "stock": "Kodak Vision3 250D"
-  },
-  {
-   "w": 2433,
-   "h": 3637,
-   "sm": "/img/film-20-800.webp",
-   "lg": "/img/film-20-1600.webp",
-   "camera": "Olympus OM-1 · Osaka",
-   "stock": "Kodak Vision3 250D"
-  }
- ],
- "work": {
-  "work-stlouis-lab": {
-   "w": 3264,
-   "h": 2448,
-   "sm": "/img/work-stlouis-lab-800.webp",
-   "lg": "/img/work-stlouis-lab-1600.webp"
-  },
-  "work-ipason-live": {
-   "w": 1477,
-   "h": 1108,
-   "sm": "/img/work-ipason-live-800.webp",
-   "lg": "/img/work-ipason-live-1600.webp"
-  },
-  "work-citywave-1": {
-   "w": 960,
-   "h": 961,
-   "sm": "/img/work-citywave-1-800.webp",
-   "lg": "/img/work-citywave-1-1600.webp"
-  },
-  "work-citywave-2": {
-   "w": 960,
-   "h": 961,
-   "sm": "/img/work-citywave-2-800.webp",
-   "lg": "/img/work-citywave-2-1600.webp"
-  },
-  "work-citywave-3": {
-   "w": 1080,
-   "h": 1620,
-   "sm": "/img/work-citywave-3-800.webp",
-   "lg": "/img/work-citywave-3-1600.webp"
-  },
-  "work-citywave-4": {
-   "w": 1080,
-   "h": 1080,
-   "sm": "/img/work-citywave-4-800.webp",
-   "lg": "/img/work-citywave-4-1600.webp"
-  },
-  "work-citywave-5": {
-   "w": 1920,
-   "h": 1280,
-   "sm": "/img/work-citywave-5-800.webp",
-   "lg": "/img/work-citywave-5-1600.webp"
-  },
-  "work-citywave-6": {
-   "w": 1920,
-   "h": 1920,
-   "sm": "/img/work-citywave-6-800.webp",
-   "lg": "/img/work-citywave-6-1600.webp"
-  },
-  "work-citywave-7": {
-   "w": 2000,
-   "h": 1125,
-   "sm": "/img/work-citywave-7-800.webp",
-   "lg": "/img/work-citywave-7-1600.webp"
-  },
-  "work-citywave-8": {
-   "w": 2000,
-   "h": 1125,
-   "sm": "/img/work-citywave-8-800.webp",
-   "lg": "/img/work-citywave-8-1600.webp"
-  }
- }
 }
