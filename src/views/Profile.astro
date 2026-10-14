@@ -135,9 +135,14 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
                     </div>
                   )}
                   {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
-                  {e.photos && (
-                    <div class="tl__photos" data-gallery-group={e.photos.join(',')}>
-                      {e.photos.map((k, i) => {
+                  {(e.photos || e.clips) && (
+                    <div class="tl__photos" data-gallery-group={(e.photos ?? []).join(',')}>
+                      {(e.clips ?? []).map((c) => (
+                        <a class="tl__clip" href={c.url} target="_blank" rel="noopener" aria-label={`${t(ui.play, lang)}: ${t(e.org, lang)}`}>
+                          <img src={c.cover} alt="" loading="lazy" decoding="async" />
+                        </a>
+                      ))}
+                      {(e.photos ?? []).map((k, i) => {
                         const im = workImg(k);
                         return (
                           <button type="button" data-lb={im.lg} data-lb-group={`exp-${k.split('-')[1]}`} data-lb-cap={t(e.org, lang)} aria-label={`${t(e.org, lang)} ${i + 1}`}>

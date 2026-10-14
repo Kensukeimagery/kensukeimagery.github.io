@@ -150,6 +150,8 @@ export const experience = [
     group: 'freelance',
     org: 'CIMB Thai',
     role: { th: 'นักแสดงเดินทรูป รับบทมาสคอต "Reminder Man"', en: 'Troupe performer as mascot "Reminder Man"' },
+    clips: [{ cover: '/img/fb/976940862115240.webp', url: 'https://www.facebook.com/CIMBThai/videos/976940862115240/' }],
+    photos: ['work-cimb-1', 'work-cimb-2', 'work-cimb-3', 'work-cimb-4'],
   },
   {
     group: 'freelance',
@@ -165,6 +167,7 @@ export const experience = [
     group: 'freelance',
     org: 'Spica Hair Design',
     role: { th: 'นายแบบทรงผม', en: 'Hair model' },
+    clips: [{ cover: '/img/ig/DdlHoLKC8cW.webp', url: 'https://www.instagram.com/reel/DdlHoLKC8cW/' }],
   },
   {
     group: 'freelance',
