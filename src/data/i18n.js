@@ -146,5 +146,5 @@ export const ui = {
   askTalent: { th: 'สอบถามงานแสดง / พิธีกร', en: 'Talent & MC enquiries' },
   askIt: { th: 'สอบถามบริการคอม', en: 'Computer service enquiries' },
   offers: { th: 'รับงาน', en: 'Available for' },
-  openTiktok: { th: 'บนคอมจะเปิดดูใน TikTok', en: 'Opens in TikTok on desktop' },
+  openTiktok: { th: 'เปิดดูใน TikTok', en: 'Watch on TikTok' },
 };

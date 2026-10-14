@@ -66,8 +66,8 @@ if ('IntersectionObserver' in window) {
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('[data-embed]');
   if (!btn) return;
-  // TikTok blocks shoppable (cart) videos in embedded players on desktop — open TikTok instead
-  if (btn.dataset.shop && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  // shoppable (cart) TikTok clips: open the TikTok app (phone) or tiktok.com (desktop) instead of embedding
+  if (btn.dataset.shop) {
     window.open(btn.dataset.ext, '_blank', 'noopener');
     return;
   }
