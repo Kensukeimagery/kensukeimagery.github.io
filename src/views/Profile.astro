@@ -48,7 +48,7 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
             <div class="comp__th">{person.nameTh} · {t(person.nick, lang)}</div>
           </div>
           <dl>
-            <div><dt>{t(ui.age, lang)}</dt><dd><span data-age={person.birthDate}>{age}</span> {t(ui.years, lang)}</dd></div>
+            <div><dt>{t(ui.age, lang)}</dt><dd>{age} {t(ui.years, lang)}</dd></div>
             <div><dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd></div>
             <div><dt>{t(ui.weight, lang)}</dt><dd>{person.stats.weightKg} kg</dd></div>
             <div><dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in<br /><span class="muted">{person.stats.measurementsCm} cm</span></dd></div>

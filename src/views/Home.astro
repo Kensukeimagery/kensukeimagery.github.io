@@ -128,7 +128,7 @@ const chev = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
         <h2 class="h-quote reveal" style="--d:.08s">{t(person.intro, lang)}</h2>
         <p class="reveal" style="--d:.16s">{t(person.about, lang)[1]}</p>
         <dl class="facts reveal" style="--d:.24s">
-          <div><dt>{t(ui.age, lang)}</dt><dd data-age={person.birthDate}>{age}</dd></div>
+          <div><dt>{t(ui.age, lang)}</dt><dd>{age}</dd></div>
           <div><dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd></div>
           <div><dt>{t(ui.shoe, lang)}</dt><dd>EU 44.5</dd></div>
         </dl>

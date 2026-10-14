@@ -133,7 +133,7 @@ const intern = experience.filter((e) => e.group === 'intern');
 
       <h3>{t(ui.compCard, lang)}</h3>
       <dl class="kv">
-        <dt>{t(ui.age, lang)}</dt><dd><span data-age={person.birthDate}>{age}</span> {t(ui.years, lang)}</dd>
+        <dt>{t(ui.age, lang)}</dt><dd>{age} {t(ui.years, lang)}</dd>
         <dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd>
         <dt>{t(ui.weight, lang)}</dt><dd>{person.stats.weightKg} kg</dd>
         <dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in</dd>
@@ -212,11 +212,6 @@ const intern = experience.filter((e) => e.group === 'intern');
   </article>
   <script is:inline>
     (function () {
-      document.querySelectorAll('[data-age]').forEach(function (el) {
-        var b = new Date(el.getAttribute('data-age')), n = new Date(), a = n.getFullYear() - b.getFullYear();
-        if (n.getMonth() < b.getMonth() || (n.getMonth() === b.getMonth() && n.getDate() < b.getDate())) a--;
-        el.textContent = a;
-      });
       // On screen, enlarge the A4 sheet so text is readable without zooming:
       // desktop = the same A4 page scaled up; phone = single column, scaled to the screen width.
       var s = document.querySelector('.sheet'), Z = 1.32;

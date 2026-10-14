@@ -3,8 +3,9 @@ import { chromium } from 'playwright';
 import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = new URL('../dist/', import.meta.url).pathname;
+const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml' };
 const server = http.createServer(async (req, res) => {
   let p = join(root, decodeURIComponent(req.url.split('?')[0]));
@@ -12,7 +13,14 @@ const server = http.createServer(async (req, res) => {
   catch { res.writeHead(404); res.end(); }
 }).listen(4399);
 
-const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
+// ใช้ CHROMIUM_PATH ถ้าตั้งไว้ ไม่งั้นใช้ Chromium ของ Playwright และถ้าไม่มีก็ใช้ Chrome หรือ Edge ที่ลงในเครื่อง
+let browser;
+try {
+  browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
+} catch {
+  try { browser = await chromium.launch({ channel: 'chrome' }); }
+  catch { browser = await chromium.launch({ channel: 'msedge' }); }
+}
 const page = await browser.newPage();
 for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/']]) {
   await page.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });

@@ -37,14 +37,6 @@ menuBtn?.addEventListener('click', () => setMenu(!document.documentElement.class
 mobileMenu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
-// ---------- live age ----------
-document.querySelectorAll('[data-age]').forEach((el) => {
-  const b = new Date(el.dataset.age), n = new Date();
-  let a = n.getFullYear() - b.getFullYear();
-  if (n.getMonth() < b.getMonth() || (n.getMonth() === b.getMonth() && n.getDate() < b.getDate())) a--;
-  el.textContent = a;
-});
-
 document.querySelectorAll('[data-year]').forEach((el) => {
   el.textContent = new Date().getFullYear() + (el.dataset.year === 'th' ? 543 : 0);
 });
