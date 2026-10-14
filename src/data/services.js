@@ -18,22 +18,22 @@ export const icons = {
 
 export const talentServices = [
   {
-    id: 'acting', filter: 'commercial',
+    id: 'acting', filter: 'acting',
     title: { th: 'งานแสดง / โฆษณา', en: 'Acting & Commercials' },
     desc: { th: 'นักแสดงโฆษณา คอนเทนต์แบรนด์ และวิดีโอออนไลน์', en: 'Commercials, brand content and online video' },
   },
   {
-    id: 'event', filter: 'event',
+    id: 'event', filter: 'mc',
     title: { th: 'งานอีเวนต์', en: 'Events' },
     desc: { th: 'ประจำบูธ แนะนำสินค้า ทรูปแสดง และงานเปิดตัว', en: 'Booths, product demos, troupes and launches' },
   },
   {
-    id: 'mc', filter: 'event',
+    id: 'mc', filter: 'mc',
     title: { th: 'พิธีกร / MC', en: 'MC & Host' },
     desc: { th: 'พิธีกรงานอีเวนต์ งานแข่งขัน และอีสปอร์ต', en: 'Event, competition and esports hosting' },
   },
   {
-    id: 'live', filter: 'live',
+    id: 'live', filter: 'mc',
     title: { th: 'รับไลฟ์ขายของ', en: 'Live Commerce' },
     desc: { th: 'พิธีกรไลฟ์ TikTok / Shopee / Lazada ปิดการขายเป็น', en: 'TikTok, Shopee & Lazada live selling' },
   },

@@ -1,6 +1,6 @@
 // =============================================================
 //  ผลงาน — เพิ่มผลงานใหม่ได้โดยคัดลอก 1 ก้อน { ... } แล้วแก้ข้อมูล
-//  category: 'commercial' | 'live' | 'event' | 'short' | 'model' | 'bts' | 'business'
+//  category: 'acting' | 'model' | 'mc' | 'short' | 'bts' | 'business'
 //  media:
 //    { type: 'tiktok', user: '<ชื่อบัญชี>', id: '<เลขวิดีโอ>' }
 //    { type: 'youtube', id: '<รหัสวิดีโอ>' }
@@ -17,19 +17,22 @@
 
 export const categories = [
   { id: 'all', th: 'ทั้งหมด', en: 'All' },
-  { id: 'commercial', th: 'โฆษณา', en: 'Commercial' },
-  { id: 'live', th: 'MC ไลฟ์สด', en: 'Live MC' },
-  { id: 'event', th: 'พิธีกรอีเวนต์', en: 'Event Host' },
-  { id: 'short', th: 'คลิปสั้น', en: 'Short Video' },
-  { id: 'model', th: 'นายแบบ / นักแสดง', en: 'Model / Acting' },
+  { id: 'acting', th: 'นักแสดง / โฆษณา', en: 'Acting / Commercial' },
+  { id: 'model', th: 'นายแบบ', en: 'Model' },
+  { id: 'mc', th: 'MC / พิธีกร', en: 'MC / Host' },
+  { id: 'short', th: 'คลิปสั้น / คอนเทนต์', en: 'Short Video / Content' },
   { id: 'bts', th: 'เบื้องหลัง', en: 'Behind the Scenes' },
-  { id: 'business', th: 'งานขาย & โครงการ', en: 'Sales & Projects' },
+  { id: 'business', th: 'งานขาย & IT', en: 'Sales & IT' },
 ];
 
-export const works = [
+// ลำดับความสำคัญของผลงาน (บนสุด = สำคัญสุด) — หน้า 'ทั้งหมด' เรียงตามลำดับหมวดด้านบน
+// แล้วเรียงตามรายการนี้ ผลงานที่ 'รอออนแอร์' จะอยู่ท้ายหมวดเสมอ
+const priority = ['samsonite', 'cimb', 'persol', 'tecno', 'posee', 'spica', 'entaku', 'live-mc-techland', 'giga-live', 'valorant', 'commart', 'ipason-live', 'livelab', 'ipason-short', 'samsonite-bts', 'standin', 'st-louis'];
+
+const allWorks = [
   {
     slug: 'samsonite',
-    category: 'commercial',
+    category: 'acting',
     featured: 1,
     brand: 'SAMSONITE',
     title: { th: 'นักแสดงโฆษณากระเป๋า', en: 'Bag commercial — on-screen talent' },
@@ -48,7 +51,6 @@ export const works = [
   {
     slug: 'samsonite-bts',
     category: 'bts',
-    featured: 6,
     brand: 'SAMSONITE × LIVELAB',
     title: { th: 'เบื้องหลังกองถ่ายโฆษณา', en: 'Commercial shoot — behind the scenes' },
     company: 'Techland Technology',
@@ -58,7 +60,7 @@ export const works = [
   },
   {
     slug: 'tecno',
-    category: 'commercial',
+    category: 'acting',
     status: 'soon',
     brand: 'TECNO Mobile',
     title: { th: 'โฆษณาโทรศัพท์มือถือ Pova 8 Pro และ Pova 8', en: 'Pova 8 Pro & Pova 8 smartphone commercial' },
@@ -67,7 +69,7 @@ export const works = [
   },
   {
     slug: 'posee',
-    category: 'commercial',
+    category: 'acting',
     status: 'soon',
     brand: 'POSEE',
     title: { th: 'โฆษณารองเท้า', en: 'Footwear commercial' },
@@ -76,8 +78,8 @@ export const works = [
   },
   {
     slug: 'live-mc-techland',
-    category: 'live',
-    featured: 2,
+    category: 'mc',
+    featured: 4,
     brand: 'JOYROOM & MORE',
     title: { th: 'พิธีกรไลฟ์สดประจำแบรนด์', en: 'Resident live commerce host' },
     company: 'Techland Technology',
@@ -93,7 +95,7 @@ export const works = [
   },
   {
     slug: 'giga-live',
-    category: 'live',
+    category: 'mc',
     brand: 'Giga Live',
     title: { th: 'MC ไลฟ์ขายสินค้า (สัญญาจ้าง)', en: 'Live commerce MC (contract)' },
     year: '2026',
@@ -102,7 +104,6 @@ export const works = [
   {
     slug: 'livelab',
     category: 'short',
-    featured: 3,
     brand: 'LIVELAB TH',
     title: { th: 'คลิปสั้นแนะนำบริษัท', en: 'Company promo short videos' },
     company: 'Techland Technology',
@@ -114,8 +115,8 @@ export const works = [
   },
   {
     slug: 'valorant',
-    category: 'event',
-    featured: 4,
+    category: 'mc',
+    featured: 5,
     brand: 'Esports · VALORANT',
     title: { th: 'พิธีกรการแข่งขัน Valorant ณ มหาวิทยาลัยศรีปทุม', en: 'Valorant tournament MC at Sripatum University' },
     company: 'Devas IPASON',
@@ -124,7 +125,7 @@ export const works = [
   },
   {
     slug: 'ipason-live',
-    category: 'live',
+    category: 'mc',
     brand: 'DEVAS IPASON',
     title: { th: 'พิธีกรไลฟ์ขายสินค้า แนะนำโปรโมชั่นและกิจกรรม', en: 'Live sales host — promotions & campaigns' },
     company: 'Devas IPASON',
@@ -161,7 +162,8 @@ export const works = [
   },
   {
     slug: 'cimb',
-    category: 'commercial',
+    category: 'acting',
+    featured: 2,
     brand: 'CIMB THAI',
     title: { th: 'นักแสดงเดินทรูป รับบทมาสคอต "Reminder Man"', en: 'Troupe performer as mascot "Reminder Man"' },
     desc: {
@@ -179,7 +181,7 @@ export const works = [
   {
     slug: 'spica',
     category: 'model',
-    featured: 5,
+    featured: 3,
     brand: 'SPICA HAIR DESIGN',
     title: { th: 'นายแบบทรงผม', en: 'Hair model' },
     media: [{ type: 'instagram', id: 'DdlHoLKC8cW' }],
@@ -195,15 +197,19 @@ export const works = [
   },
   {
     slug: 'persol',
-    category: 'model',
+    category: 'acting',
     brand: 'PERSOL THAILAND',
     title: { th: 'นักแสดงคอนเทนต์สัมภาษณ์ (บท Graphic Designer)', en: 'Interview content actor (as a Graphic Designer)' },
   },
   {
     slug: 'commart',
-    category: 'event',
+    category: 'mc',
     brand: 'COMMART',
     title: { th: 'เดินบิล พนักงานขาย และตัวแทนแนะนำสินค้าประจำบูธ', en: 'Booth sales & product presenter' },
     desc: { th: 'บูธ Razer, EPOS, Thermaltake และ IPASON', en: 'Razer, EPOS, Thermaltake and IPASON booths' },
   },
 ];
+
+const rank = (w) => { const i = priority.indexOf(w.slug); return i < 0 ? 999 : i; };
+const catIdx = (w) => categories.findIndex((c) => c.id === w.category);
+export const works = [...allWorks].sort((a, b) => (catIdx(a) - catIdx(b)) || ((a.status === 'soon') - (b.status === 'soon')) || (rank(a) - rank(b)));
