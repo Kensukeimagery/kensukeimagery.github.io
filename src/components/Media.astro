@@ -35,18 +35,22 @@ if (m.type === 'tiktok') {
     cls: 'embed--ig', platform: 'Instagram',
     src: `https://www.instagram.com/reel/${m.id}/embed/`,
     ext: `https://www.instagram.com/reel/${m.id}/`,
+    // cover saved at public/img/ig/<id>.webp — tapping opens Instagram (app on phone, web on desktop)
+    poster: `/img/ig/${m.id}.webp`,
+    external: true,
   };
 }
+const external = !!(m.shop || cfg?.external);
 const label = t(m.label, lang) || brand;
 const im = m.type === 'image' ? workImg(m.src) : null;
 ---
 {cfg && (
   <div class={`embed ${card ? 'embed--card' : cfg.cls}`}>
-    <button class="embed__poster" type="button" data-embed={cfg.src} data-shop={m.shop ? '1' : undefined} data-ext={m.shop ? cfg.ext : undefined} data-title={`${cfg.platform} — ${label}`} aria-label={`${t(ui.play, lang)}: ${label}`}>
+    <button class="embed__poster" type="button" data-embed={cfg.src} data-shop={external ? '1' : undefined} data-ext={external ? cfg.ext : undefined} data-title={`${cfg.platform} — ${label}`} aria-label={`${t(ui.play, lang)}: ${label}`}>
       {cfg.poster && <img src={cfg.poster} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />}
       <span class="embed__platform">{cfg.platform}</span>
       <span class="embed__play" set:html={play} />
-      <span class="embed__label">{label}{m.shop && <small class="embed__note">{t(ui.openTiktok, lang)} ↗</small>}</span>
+      <span class="embed__label">{label}{external && <small class="embed__note">{t(ui.watchOn, lang)} {cfg.platform} ↗</small>}</span>
     </button>
     <a class="embed__ext" href={cfg.ext} target="_blank" rel="noopener" aria-label={`${t(ui.watchOn, lang)} ${cfg.platform}`}>↗</a>
   </div>
