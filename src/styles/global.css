@@ -687,3 +687,23 @@ html[lang='th'] .ladder__label { font-size: 14px; }
 /* photo strip inside a work card */
 .work__photos { flex-wrap: wrap; margin-top: 0; }
 .work__photos button { width: 84px; height: 84px; }
+
+/* ============ Finishing touches (browser surfaces, typography, page transitions) ============ */
+html { scroll-padding-top: 88px; scrollbar-color: var(--gold-dim) var(--bg); scrollbar-width: thin; }
+body { accent-color: var(--gold); caret-color: var(--gold); }
+h1, h2, h3, .h-display, .h-section { text-wrap: balance; }
+p, li, .lead { text-wrap: pretty; }
+.stat, .yr, .count, dd { font-variant-numeric: lining-nums tabular-nums; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 10px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+/* smooth cross-page fade (Chrome/Edge/Safari; ignored elsewhere) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 220ms var(--ease) both vt-out; }
+::view-transition-new(root) { animation: 380ms var(--ease) both vt-in; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
