@@ -1,4 +1,20 @@
 ---
+import '@fontsource/cormorant-garamond/latin-400.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-600.css';
+import '@fontsource/cormorant-garamond/latin-400-italic.css';
+import '@fontsource/ibm-plex-sans-thai/latin-300.css';
+import '@fontsource/ibm-plex-sans-thai/thai-300.css';
+import '@fontsource/ibm-plex-sans-thai/latin-400.css';
+import '@fontsource/ibm-plex-sans-thai/thai-400.css';
+import '@fontsource/ibm-plex-sans-thai/latin-500.css';
+import '@fontsource/ibm-plex-sans-thai/thai-500.css';
+import '@fontsource/noto-serif-thai/latin-300.css';
+import '@fontsource/noto-serif-thai/thai-300.css';
+import '@fontsource/noto-serif-thai/latin-400.css';
+import '@fontsource/noto-serif-thai/thai-400.css';
+import '@fontsource/noto-serif-thai/latin-500.css';
+import '@fontsource/noto-serif-thai/thai-500.css';
 // เรซูเม่ A4 — หน้านี้ถูกแปลงเป็น PDF อัตโนมัติ (resume-th.pdf / resume-en.pdf) ตอน deploy
 import { t, ui, path, fmtRange, fmtYear, ageOn } from '../data/i18n.js';
 import { person, experience, education, awards } from '../data/profile.js';
@@ -20,9 +36,6 @@ const intern = experience.filter((e) => e.group === 'intern');
   <title>{L('เรซูเม่', 'Résumé')} — {person.nameEn}</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Thai:wght@300;400;500&family=Noto+Serif+Thai:wght@400;500&display=swap" rel="stylesheet" />
   <style is:global>
     :root { --green: #0d2520; --green-2: #133129; --gold: #b8955a; --gold-l: #d9bd86; --ink: #1b2622; --ink-2: #4b5852; --paper: #fbf8f1; --rule: #e4dccb; }
     * { box-sizing: border-box; }
