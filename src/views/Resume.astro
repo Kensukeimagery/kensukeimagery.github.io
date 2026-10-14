@@ -64,6 +64,12 @@ const intern = experience.filter((e) => e.group === 'intern');
     html[lang='th'] .main { font-size: 96%; } html[lang='th'] .compact li { padding: .4mm 0; } html[lang='th'] .main section + section { margin-top: 3.8mm; } html[lang='th'] .job ul, html[lang='th'] .compact { line-height: 1.42; }
     .summary { font-size: 9.2pt; line-height: 1.65; color: var(--ink-2); margin: 0; }
     .job { margin-bottom: 3mm; break-inside: avoid; }
+    /* career timeline: gold rail + diamond markers (same language as the profile page) */
+    .jobs { position: relative; }
+    .jobs::before { content: ''; position: absolute; left: .85mm; top: 1.8mm; bottom: 2.4mm; width: .35mm; background: var(--gold-l); }
+    .job { position: relative; padding-left: 4.2mm; }
+    .job::before { content: ''; position: absolute; left: 0; top: 1.2mm; width: 1.9mm; height: 1.9mm; border: .25mm solid var(--gold); background: var(--paper); transform: rotate(45deg); }
+    .job:first-child::before { background: var(--gold); }
     .job__top { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
     .job__org { font-weight: 500; font-size: 9.6pt; color: var(--ink); }
     .job__when { font-size: 7.8pt; color: var(--gold); white-space: nowrap; letter-spacing: .04em; }
@@ -163,6 +169,7 @@ const intern = experience.filter((e) => e.group === 'intern');
 
       <section>
         <h2>{t(ui.experience, lang)}</h2>
+        <div class="jobs">
         {full.map((e) => (
           <div class="job">
             <div class="job__top"><span class="job__org">{t(e.org, lang)}</span><span class="job__when">{fmtRange(e.start, e.end, lang)}</span></div>
@@ -173,6 +180,7 @@ const intern = experience.filter((e) => e.group === 'intern');
             {e.points && <ul>{t(e.points, lang).map((p) => <li>{p}</li>)}</ul>}
           </div>
         ))}
+        </div>
         <div class="sub">{t(ui.groups.freelance, lang)}</div>
         <ul class="compact">
           {free.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{e.start ? fmtRange(e.start, e.end, lang) : ''}</span></li>)}
