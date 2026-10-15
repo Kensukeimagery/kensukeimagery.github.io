@@ -48,6 +48,12 @@ export const person = {
   languages: [],
   // คลิปรวมผลงาน (showreel) เช่น { type: 'youtube', id: 'xxxx' } — null = ไม่แสดง
   showreel: null,
+  // โซเชียลส่วนตัว — แสดงที่ส่วนติดต่อ ฟุตเตอร์ เมนูมือถือ และเรซูเม่
+  socials: [
+    { id: 'instagram', label: 'Instagram', handle: 'kensukefps', url: 'https://www.instagram.com/kensukefps/' },
+    { id: 'tiktok', label: 'TikTok', handle: 'kensukefps', url: 'https://www.tiktok.com/@kensukefps' },
+    { id: 'youtube', label: 'YouTube', handle: 'kensukefps', url: 'https://www.youtube.com/@kensukefps' },
+  ],
   contact: {
     instagram: 'kensukefps',
     email: '', // ใส่อีเมลงานภายหลัง เช่น 'ken@example.com' แล้วปุ่มอีเมลจะขึ้นเอง

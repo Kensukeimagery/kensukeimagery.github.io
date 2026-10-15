@@ -145,7 +145,7 @@ const intern = experience.filter((e) => e.group === 'intern');
 
       <h3>{t(ui.nav.contact, lang)}</h3>
       <ul class="list contact">
-        <li>Instagram: <a href={`https://www.instagram.com/${person.contact.instagram}/`}>@{person.contact.instagram}</a></li>
+        <li>{person.socials.map((x, i) => <>{i > 0 && " · "}<a href={x.url}>{x.label}</a></>)}: @{person.socials[0].handle}</li>
         {person.contact.email && <li><a href={`mailto:${person.contact.email}`}>{person.contact.email}</a></li>}
         <li><a href="https://kensukeimagery.github.io">kensukeimagery.github.io</a></li>
       </ul>
