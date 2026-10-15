@@ -231,7 +231,14 @@ export const awards = [
   {
     year: '2019',
     title: { th: 'Bangna Print Service — ระบบพิมพ์เอกสารบริการตนเอง', en: 'Bangna Print Service — self-service document printing system' },
-    event: { th: 'Thailand Innovation · ประเภทสิ่งประดิษฐ์ด้านพัฒนาคุณภาพชีวิต', en: 'Thailand Innovation · Quality-of-life inventions' },
+    event: { th: 'Thailand Innovation · ประเภทนวัตกรรมซอฟต์แวร์และระบบสมองกลฝังตัว', en: 'Thailand Innovation · Software & Embedded System Innovation' },
+    image: 'award-printservice',
+    team: { th: 'ผลงานทีมนักศึกษา ปวส. วิทยาลัยพณิชยการบางนา', en: 'Student team project, Bangna Commercial College (diploma level)' },
+    facts: {
+      th: ['สั่งพิมพ์ได้ตลอด 24 ชั่วโมง โดยไม่ต้องมีพนักงาน', 'เข้าสู่ระบบด้วย Google OAuth', 'พิมพ์เอกสารบนกระดาษ A4'],
+      en: ['Print any time, 24 hours a day, no staff needed', 'Sign in with Google OAuth', 'Prints documents on A4 paper'],
+    },
+    stat: { value: '4.23 / 5', label: { th: 'ความพึงพอใจโดยรวมของผู้ใช้ (กลุ่มตัวอย่าง 38 คน)', en: 'overall user satisfaction (38 respondents)' } },
     results: { th: ['รางวัลชนะเลิศ ระดับจังหวัด', 'รางวัลชมเชย เหรียญเงิน ระดับภูมิภาค (ภาคกลาง)'], en: ['Winner, provincial level', 'Honourable mention (silver), Central region'] },
     url: 'https://thaiinvention.net/detail.php?p=cHJvamVjdF9pZD01Njc3MSZjZmdfaWQ9MzUmY29tcGV0X2lkPTE=&cond=JnNfY29tcGV0PTE=',
   },
@@ -239,6 +246,12 @@ export const awards = [
     year: '2018',
     title: { th: 'ราวตากผ้าอัตโนมัติ', en: 'Automatic clothesline' },
     event: { th: 'Thailand Innovation · ประเภทสิ่งประดิษฐ์ด้านพัฒนาคุณภาพชีวิต', en: 'Thailand Innovation · Quality-of-life inventions' },
+    image: 'award-clothesline',
+    team: { th: 'ผลงานทีมนักศึกษา ปวช. วิทยาลัยพณิชยการบางนา', en: 'Student team project, Bangna Commercial College (vocational level)' },
+    facts: {
+      th: ['ยาว 2 เมตร สูงจากพื้น 1.30 เมตร', 'เก็บผ้าให้เองเมื่อฝนตก ด้วยระบบตรวจจับน้ำฝน', 'ใช้พลังงานแสงอาทิตย์ร่วมกับแบตเตอรี่สำรอง'],
+      en: ['2 m long, 1.30 m above the floor', 'Pulls the clothes in by itself when it rains, using a rain sensor', 'Runs on solar power with a backup battery'],
+    },
     results: { th: ['รางวัลชมเชย'], en: ['Honourable mention'] },
     url: 'https://thaiinvention.net/bb_projectdetail.php?p=cHJvamVjdF9pZD00MDAwMCZjZmdfaWQ9MjkmY29tcGV0X2lkPTE=',
   },

@@ -163,6 +163,19 @@ export const eduJa = [
   { level: '職業教育修了証（職業資格）', major: 'ビジネスコンピュータ' },
 ];
 
+export const awardsJaExtra = [
+  {
+    event: 'Thailand Innovation・ソフトウェア＆組み込みシステム部門',
+    team: '学生チームの作品（バンナー商業カレッジ・ディプロマ課程）',
+    facts: ['24時間いつでも、スタッフなしで印刷できる', 'Google OAuthでログイン', 'A4用紙に印刷'],
+    stat: { label: '利用者の総合満足度（回答者38名）' },
+  },
+  {
+    team: '学生チームの作品（バンナー商業カレッジ・職業課程）',
+    facts: ['長さ2m、地面から高さ1.30m', '雨を検知するセンサーで、雨が降ると自動で洗濯物を取り込む', '太陽光発電とバックアップ用バッテリーで動作'],
+  },
+];
+
 export const awardsJa = [
   { title: 'Bangna Print Service — セルフサービス式の文書印刷システム', event: 'Thailand Innovation・生活の質を高める発明部門', results: ['県大会 優勝', '中部地方大会 優秀賞（銀）'] },
   { title: '自動物干しシステム', event: 'Thailand Innovation・生活の質を高める発明部門', results: ['入賞'] },
@@ -275,3 +288,6 @@ export const miscJa = {
   pfDownload: 'ポートフォリオをダウンロード (PDF)',
   langName: '日本語',
 };
+
+// extra award details (kept next to the base translations)
+awardsJa.forEach((a, i) => Object.assign(a, awardsJaExtra[i]));

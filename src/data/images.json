@@ -427,6 +427,18 @@
       "h": 430,
       "sm": "/img/proj-win11-status-800.webp",
       "lg": "/img/proj-win11-status-1600.webp"
+    },
+    "award-printservice": {
+      "w": 800,
+      "h": 600,
+      "sm": "/img/award-printservice-800.webp",
+      "lg": "/img/award-printservice-1600.webp"
+    },
+    "award-clothesline": {
+      "w": 600,
+      "h": 800,
+      "sm": "/img/award-clothesline-800.webp",
+      "lg": "/img/award-clothesline-1600.webp"
     }
   }
 }

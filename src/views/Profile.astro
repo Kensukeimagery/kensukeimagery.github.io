@@ -185,14 +185,27 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
           <h2 class="h-section reveal">{t(ui.awards, lang)}</h2>
         </div>
         <div class="cards">
-          {awards.map((a) => (
-            <div class="card reveal">
-              <div class="tl__when">{fmtYear(a.year, lang)} · {t(a.event, lang)}</div>
-              <h3>{t(a.title, lang)}</h3>
-              <ul>{t(a.results, lang).map((r) => <li>{r}</li>)}</ul>
-              <a class="link-arrow no-print" href={a.url} target="_blank" rel="noopener">{t(ui.references, lang)} ↗</a>
-            </div>
-          ))}
+          {awards.map((a) => {
+            const im = a.image ? workImg(a.image) : null;
+            return (
+              <div class={`card award reveal${im ? ' award--img' : ''}`}>
+                {im && (
+                  <button type="button" class="award__photo no-print" data-lb={im.lg} data-lb-group="awards" data-lb-cap={t(a.title, lang)} aria-label={t(a.title, lang)}>
+                    <img src={im.sm} alt="" loading="lazy" decoding="async" width={im.w} height={im.h} />
+                  </button>
+                )}
+                <div class="award__body">
+                  <div class="tl__when">{fmtYear(a.year, lang)} · {t(a.event, lang)}</div>
+                  <h3>{t(a.title, lang)}</h3>
+                  <div class="award__results">{t(a.results, lang).map((r) => <span>{r}</span>)}</div>
+                  {a.facts && <ul class="award__facts no-print">{t(a.facts, lang).map((f) => <li>{f}</li>)}</ul>}
+                  {a.stat && <p class="award__stat no-print"><b>{a.stat.value}</b> {t(a.stat.label, lang)}</p>}
+                  {a.team && <p class="award__team no-print">{t(a.team, lang)}</p>}
+                  <a class="link-arrow no-print" href={a.url} target="_blank" rel="noopener">{t(ui.references, lang)} ↗</a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
