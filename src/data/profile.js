@@ -66,7 +66,7 @@ export const person = {
   },
   contact: {
     instagram: 'kensukefps',
-    email: '', // ใส่อีเมลงานภายหลัง เช่น 'ken@example.com' แล้วปุ่มอีเมลจะขึ้นเอง
+    email: 'contact.suthat@gmail.com', // อีเมลติดต่องาน
   },
 };
 

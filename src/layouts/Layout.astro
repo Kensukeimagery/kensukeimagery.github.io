@@ -60,7 +60,7 @@ const links = [
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org', '@type': 'Person',
       name: person.nameEn, alternateName: [person.nameTh, 'Ken'],
-      jobTitle: person.roles.en.join(', '), url: site, image: site + '/og.jpg',
+      jobTitle: person.roles.en.join(', '), url: site, email: person.contact.email || undefined, image: site + '/og.jpg',
       description: t(person.intro, 'en'),
       knowsAbout: ['Live commerce hosting', 'Commercial acting', 'Event hosting', 'Modeling'],
       sameAs: person.socials.map((s) => s.url),

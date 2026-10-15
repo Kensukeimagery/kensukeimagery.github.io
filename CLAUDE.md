@@ -33,7 +33,7 @@ Main focus of the content: on-camera (presenter/actor) and sales work.
 
 ## Open items (waiting on owner)
 - Change "10+ brands" to "20+"?
-- Work email.
+- (done) Work email is set: contact.suthat@gmail.com.
 - TECNO and POSEE clips once aired.
 - 5th CIMB photo (group shot).
 
