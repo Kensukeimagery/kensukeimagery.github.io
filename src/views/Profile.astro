@@ -31,6 +31,7 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
           {t(ui.print, lang)}
         </a>
         <a class="btn btn--ghost" href={`/portfolio-${lang}.pdf`} download={`Suthat-Thongkamkaew-Portfolio-${lang.toUpperCase()}.pdf`}>{t(ui.portfolioPdf, lang)}</a>
+        <a class="btn btn--ghost" href={path('/portfolio/', lang)} target="_blank" rel="noopener">{t(ui.portfolioOnline, lang)}</a>
         <a class="btn btn--ghost" href={`/resume-${lang}.png`} download={`Suthat-Thongkamkaew-Resume-${lang.toUpperCase()}.png`}>{t(ui.printPng, lang)}</a>
         <a class="btn btn--ghost" href={path('/resume/', lang)} target="_blank" rel="noopener">{t(ui.resumeOnline, lang)}</a>
       </p>

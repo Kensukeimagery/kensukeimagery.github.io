@@ -102,6 +102,7 @@ export const ui = {
   hobbies: { th: 'งานอดิเรก', en: 'Hobbies' },
   print: { th: 'ดาวน์โหลดเรซูเม่ (PDF)', en: 'Download résumé (PDF)' },
   portfolioPdf: { th: 'ดาวน์โหลด Portfolio (PDF)', en: 'Download portfolio (PDF)' },
+  portfolioOnline: { th: 'ดูตัวอย่าง Portfolio ออนไลน์', en: 'Preview portfolio online' },
   printPng: { th: 'ดาวน์โหลดเป็นรูปภาพ (PNG)', en: 'Download as image (PNG)' },
   galleryTitle: { th: 'อัลบั้ม', en: 'Gallery' },
   portraits: { th: 'Portraits', en: 'Portraits' },

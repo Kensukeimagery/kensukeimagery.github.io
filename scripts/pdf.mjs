@@ -45,6 +45,8 @@ for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/'], ['ja', '/j
 for (const [lang, url] of [['th', '/portfolio/'], ['en', '/en/portfolio/'], ['ja', '/ja/portfolio/']]) {
   await page.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
+  // swap to the JPEG versions (much smaller inside a PDF) and wait until they have loaded
+  await page.evaluate(() => Promise.all([...document.images].filter((i) => i.dataset.pdf).map((i) => new Promise((done) => { i.onload = i.onerror = done; i.src = i.dataset.pdf; }))));
   await page.pdf({ path: join(root, `portfolio-${lang}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
   console.log('wrote', `portfolio-${lang}.pdf`);
 }

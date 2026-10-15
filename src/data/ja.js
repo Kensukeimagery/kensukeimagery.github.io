@@ -55,6 +55,7 @@ export const uiJa = {
   hobbies: '趣味',
   print: '履歴書をダウンロード (PDF)',
   portfolioPdf: 'ポートフォリオをダウンロード (PDF)',
+  portfolioOnline: 'ポートフォリオをオンラインで見る',
   printPng: '画像でダウンロード (PNG)',
   galleryTitle: 'ギャラリー',
   portraits: 'ポートレート',
