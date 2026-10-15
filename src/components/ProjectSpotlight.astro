@@ -1,0 +1,35 @@
+---
+// การ์ดโปรเจกต์ส่วนตัวแบบเด่น: ภาพหน้าจอ (กดดูขยายได้) + จุดเด่น + ปุ่มดาวน์โหลด/GitHub/คู่มือ
+import { t, ui, fmtYear } from '../data/i18n.js';
+import { workImg } from '../data/img.js';
+const { p, lang } = Astro.props;
+const shots = p.images.map(workImg);
+const points = t(p.points, lang);
+---
+<article class="spot reveal">
+  <div class="spot__shots" data-gallery-group={p.images.join(',')}>
+    {shots.map((im, i) => (
+      <button type="button" class="spot__shot" data-lb={im.lg} data-lb-group={`proj-${p.title}`} data-lb-cap={p.title} aria-label={`${p.title} — ${i + 1}/${shots.length}`}>
+        <img src={im.sm} alt="" loading="lazy" decoding="async" width={im.w} height={im.h} />
+      </button>
+    ))}
+  </div>
+  <div class="spot__body">
+    <div class="spot__meta"><span class="spot__badge">{t(ui.projectFree, lang)}</span><span>{fmtYear(p.year, lang)}</span></div>
+    <h3 class="spot__title" translate="no">{p.title}</h3>
+    <p class="spot__tagline">{t(p.tagline, lang)}</p>
+    <ul class="spot__points">{points.map((x) => <li>{x}</li>)}</ul>
+    <dl class="spot__facts">
+      {p.facts.map((f) => <div><dt>{f.value}</dt><dd>{t(f.label, lang)}</dd></div>)}
+    </dl>
+    <div class="spot__cta">
+      <a class="btn" href={p.download} rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+        {t(ui.projectDownload, lang)}
+      </a>
+      <a class="btn btn--ghost" href={p.url} target="_blank" rel="noopener">{t(ui.viewProject, lang)} ↗</a>
+      <a class="btn btn--ghost" href={p.docs} target="_blank" rel="noopener">{t(ui.projectDocs, lang)} ↗</a>
+    </div>
+    <p class="spot__note">{t(p.note, lang)}</p>
+  </div>
+</article>

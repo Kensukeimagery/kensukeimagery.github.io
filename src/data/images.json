@@ -409,6 +409,24 @@
       "h": 2000,
       "sm": "/img/work-entaku-4-800.webp",
       "lg": "/img/work-entaku-4-1600.webp"
+    },
+    "proj-win11-menu": {
+      "w": 718,
+      "h": 567,
+      "sm": "/img/proj-win11-menu-800.webp",
+      "lg": "/img/proj-win11-menu-1600.webp"
+    },
+    "proj-win11-plan": {
+      "w": 1075,
+      "h": 428,
+      "sm": "/img/proj-win11-plan-800.webp",
+      "lg": "/img/proj-win11-plan-1600.webp"
+    },
+    "proj-win11-status": {
+      "w": 753,
+      "h": 430,
+      "sm": "/img/proj-win11-status-800.webp",
+      "lg": "/img/proj-win11-status-1600.webp"
     }
   }
 }
