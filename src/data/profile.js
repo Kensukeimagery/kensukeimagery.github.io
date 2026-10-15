@@ -175,6 +175,7 @@ export const experience = [
     group: 'freelance',
     org: 'ENTAKU Exhibition',
     when: { th: '14 ต.ค. – 4 พ.ย. 2569', en: '14 Oct – 4 Nov 2026' },
+    note: { th: 'ภาพถ่ายเมื่อ 18 ก.ย. 2569', en: 'Photos taken on 18 September 2026' },
     role: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ “อยากอวยให้ทุกครั้ง”', en: 'Featured model — exhibition “อยากอวยให้ทุกครั้ง”' },
     photos: ['work-entaku-1', 'work-entaku-2', 'work-entaku-3', 'work-entaku-4'],
   },
@@ -187,6 +188,7 @@ export const experience = [
     group: 'freelance',
     org: 'Spica Hair Design',
     role: { th: 'นายแบบทรงผม', en: 'Hair model' },
+    when: { th: '22 ก.ย. 2569', en: '22 Sep 2026' },
     clips: [{ cover: '/img/ig/DdlHoLKC8cW.webp', url: 'https://www.instagram.com/reel/DdlHoLKC8cW/' }],
   },
   {

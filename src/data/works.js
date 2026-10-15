@@ -186,6 +186,8 @@ const allWorks = [
     featured: 3,
     brand: 'SPICA HAIR DESIGN',
     title: { th: 'นายแบบทรงผม', en: 'Hair model' },
+    year: '2026',
+    desc: { th: 'ไปตัดผมเป็นนายแบบเมื่อวันที่ 22 ก.ย. 2569', en: 'Hair-model session on 22 September 2026' },
     media: [{ type: 'instagram', id: 'DdlHoLKC8cW' }],
   },
   {
@@ -194,7 +196,7 @@ const allWorks = [
     brand: 'ENTAKU EXHIBITION',
     title: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ “อยากอวยให้ทุกครั้ง”', en: 'Featured model — exhibition content “อยากอวยให้ทุกครั้ง”' },
     year: '2026',
-    desc: { th: 'จัดแสดงที่ Palette Artspace ชั้น 3–4 ระหว่างวันที่ 14 ต.ค. – 4 พ.ย. 2569', en: 'On show at Palette Artspace, floors 3–4, from 14 October to 4 November 2026' },
+    desc: { th: 'จัดแสดงที่ Palette Artspace ชั้น 3–4 ระหว่างวันที่ 14 ต.ค. – 4 พ.ย. 2569 · ภาพถ่ายเมื่อ 18 ก.ย. 2569', en: 'On show at Palette Artspace, floors 3–4, from 14 October to 4 November 2026 · photos taken on 18 September 2026' },
     photos: ['work-entaku-1', 'work-entaku-2', 'work-entaku-3', 'work-entaku-4'],
   },
   {
