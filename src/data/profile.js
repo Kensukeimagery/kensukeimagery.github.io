@@ -55,6 +55,15 @@ export const person = {
     { id: 'youtube', label: 'YouTube', handle: 'kensukefps', url: 'https://www.youtube.com/@kensukefps' },
     { id: 'twitch', label: 'Twitch', handle: 'kensukefps', url: 'https://www.twitch.tv/kensukefps' },
   ],
+  // ช่องคอนเทนต์แยก: Law with Ken (กฎหมายใกล้ตัว)
+  lawChannel: {
+    name: 'Law with Ken',
+    caption: { th: 'ช่องกฎหมายใกล้ตัว', en: 'Everyday law channel' },
+    socials: [
+      { id: 'tiktok', label: 'TikTok', handle: 'law.with.ken', url: 'https://www.tiktok.com/@law.with.ken' },
+      { id: 'youtube', label: 'YouTube', handle: 'LawwithKen', url: 'https://www.youtube.com/@LawwithKen' },
+    ],
+  },
   contact: {
     instagram: 'kensukefps',
     email: '', // ใส่อีเมลงานภายหลัง เช่น 'ken@example.com' แล้วปุ่มอีเมลจะขึ้นเอง

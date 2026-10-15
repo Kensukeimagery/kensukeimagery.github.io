@@ -109,6 +109,10 @@ const links = [
         <h2 class="h-display reveal" style="--d:.08s">{t(ui.contactTitle, lang)}</h2>
         <p class="lead reveal" style="--d:.16s">{t(ui.contactLead, lang)}</p>
         <div class="reveal" style="--d:.2s"><Socials variant="full" /></div>
+        <div class="law reveal" style="--d:.22s">
+          <p class="law__cap">{t(person.lawChannel.caption, lang)} · <b>{person.lawChannel.name}</b></p>
+          <Socials variant="full" items={person.lawChannel.socials} />
+        </div>
         <div class="contact__actions reveal" style="--d:.24s">
           <a class="btn" href={`https://www.instagram.com/${person.contact.instagram}/`} target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
