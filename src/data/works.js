@@ -189,11 +189,11 @@ const allWorks = [
   {
     slug: 'entaku',
     category: 'model',
-    status: 'soon',
-    brand: 'ENTAKU EXHIBITION · JAPAN',
-    title: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ ประเทศญี่ปุ่น', en: 'Featured model — exhibition content, Japan' },
+    brand: 'ENTAKU EXHIBITION',
+    title: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ “อยากอวยให้ทุกครั้ง”', en: 'Featured model — exhibition content “อยากอวยให้ทุกครั้ง”' },
     year: '2026',
-    desc: { th: 'จัดแสดง 14 ต.ค.', en: 'On show from October 14' },
+    desc: { th: 'จัดแสดงที่ Palette Artspace ชั้น 3–4 ระหว่างวันที่ 14 ต.ค. – 4 พ.ย. 2569', en: 'On show at Palette Artspace, floors 3–4, from 14 October to 4 November 2026' },
+    photos: ['work-entaku-1', 'work-entaku-2', 'work-entaku-3', 'work-entaku-4'],
   },
   {
     slug: 'persol',

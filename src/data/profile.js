@@ -155,8 +155,10 @@ export const experience = [
   },
   {
     group: 'freelance',
-    org: 'Exhibition ENTAKU (Japan)',
-    role: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ ประเทศญี่ปุ่น', en: 'Featured model for an exhibition in Japan' },
+    org: 'ENTAKU Exhibition',
+    when: { th: '14 ต.ค. – 4 พ.ย. 2569', en: '14 Oct – 4 Nov 2026' },
+    role: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ “อยากอวยให้ทุกครั้ง”', en: 'Featured model — exhibition “อยากอวยให้ทุกครั้ง”' },
+    photos: ['work-entaku-1', 'work-entaku-2', 'work-entaku-3', 'work-entaku-4'],
   },
   {
     group: 'freelance',

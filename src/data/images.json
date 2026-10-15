@@ -385,6 +385,30 @@
       "h": 1000,
       "sm": "/img/work-cimb-4-sm.webp",
       "lg": "/img/work-cimb-4-lg.webp"
+    },
+    "work-entaku-1": {
+      "w": 1086,
+      "h": 1448,
+      "sm": "/img/work-entaku-1-800.webp",
+      "lg": "/img/work-entaku-1-1600.webp"
+    },
+    "work-entaku-2": {
+      "w": 1500,
+      "h": 2000,
+      "sm": "/img/work-entaku-2-800.webp",
+      "lg": "/img/work-entaku-2-1600.webp"
+    },
+    "work-entaku-3": {
+      "w": 1500,
+      "h": 2000,
+      "sm": "/img/work-entaku-3-800.webp",
+      "lg": "/img/work-entaku-3-1600.webp"
+    },
+    "work-entaku-4": {
+      "w": 1500,
+      "h": 2000,
+      "sm": "/img/work-entaku-4-800.webp",
+      "lg": "/img/work-entaku-4-1600.webp"
     }
   }
 }
