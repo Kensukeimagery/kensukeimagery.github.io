@@ -1,0 +1,210 @@
+---
+import '@fontsource/cormorant-garamond/latin-400.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-400-italic.css';
+import '@fontsource/ibm-plex-sans-thai/latin-300.css';
+import '@fontsource/ibm-plex-sans-thai/thai-300.css';
+import '@fontsource/ibm-plex-sans-thai/latin-400.css';
+import '@fontsource/ibm-plex-sans-thai/thai-400.css';
+import '@fontsource/ibm-plex-sans-thai/latin-500.css';
+import '@fontsource/ibm-plex-sans-thai/thai-500.css';
+import '@fontsource/noto-serif-thai/latin-400.css';
+import '@fontsource/noto-serif-thai/thai-400.css';
+import '@fontsource/noto-serif-thai/latin-500.css';
+import '@fontsource/noto-serif-thai/thai-500.css';
+// Portfolio PDF (A4, หลายหน้า) — หน้านี้ถูกแปลงเป็น portfolio-th.pdf / portfolio-en.pdf อัตโนมัติตอน deploy
+// เนื้อหามาจาก works.js / profile.js / images.json ทั้งหมด: เพิ่มผลงานใหม่แล้ว PDF อัปเดตเอง
+import { t, ui, path, fmtYear, ageOn } from '../data/i18n.js';
+import { person } from '../data/profile.js';
+import { works, categories } from '../data/works.js';
+import { ttPosters } from '../data/ttposters.js';
+import { portrait, workImg } from '../data/img.js';
+const { lang } = Astro.props;
+const L = (th, en) => (lang === 'th' ? th : en);
+// รูปใน PDF ใช้ JPEG (สร้างโดย scripts/pdf.mjs ที่ dist/pdf-img/) เพราะ Chromium ฝัง WebP เป็นแบบไม่บีบอัด ทำให้ไฟล์ใหญ่มาก
+const pj = (src) => src.replace('/img/', '/pdf-img/').replace('.webp', '.jpg');
+const age = ageOn(person.birthDate);
+const cover = portrait(1);
+const gallery = [13, 2, 8, 7, 5, 21].map(portrait);
+
+const ext = (m) => ({
+  tiktok: [`https://www.tiktok.com/@${m.user}/video/${m.id}`, 'TikTok'],
+  youtube: [`https://www.youtube.com/watch?v=${m.id}`, 'YouTube'],
+  facebook: [`https://www.facebook.com/${m.page}/videos/${m.id}/`, 'Facebook'],
+  instagram: [`https://www.instagram.com/reel/${m.id}/`, 'Instagram'],
+}[m.type]);
+
+// cover image per work: clip poster saved in the site, else a photo
+function coverOf(w) {
+  const m = (w.media ?? [])[0];
+  if (m) {
+    if (m.type === 'tiktok' && ttPosters.has(m.id)) return { src: `/img/tt/${m.id}.webp`, vertical: true };
+    if (m.type === 'instagram') return { src: `/img/ig/${m.id}.webp`, vertical: true };
+    if (m.type === 'youtube') return { src: `/img/yt/${m.id}.webp` };
+    if (m.type === 'facebook') return { src: `/img/fb/${m.id}.webp` };
+    if (m.type === 'image' && workImg(m.src)) return { src: workImg(m.src).sm, photo: true };
+  }
+  if (w.photos?.length) return { src: workImg(w.photos[0]).sm, photo: true, fromPhotos: true };
+  return null;
+}
+
+const items = works.filter((w) => w.status !== 'soon').map((w) => {
+  const c = coverOf(w);
+  const m = (w.media ?? []).find((x) => ext(x));
+  const thumbs = (w.photos ?? []).slice(c?.fromPhotos ? 1 : 0).slice(0, 4).map((k) => workImg(k).sm);
+  return { w, c, link: m ? ext(m) : null, thumbs };
+});
+const groups = categories.filter((c) => c.id !== 'all').map((c) => ({ c, list: items.filter((i) => i.w.category === c.id) })).filter((g) => g.list.length);
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — {person.nameEn}</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style is:global>
+    :root { --bg: #0a1c17; --bg-2: #0f2620; --surface: #133129; --gold: #c9a96e; --gold-2: #e3cb98; --ivory: #efe7d6; --ivory-2: #c9c0ad; --muted: #8e9a90; --line: rgba(201,169,110,.28); --line-2: rgba(239,231,214,.1); }
+    * { box-sizing: border-box; }
+    @page { size: A4; margin: 15mm 15mm 16mm; background: #0a1c17; }
+    @page :first { margin: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: var(--bg); }
+    body { margin: 0; background: var(--bg); color: var(--ivory); font-family: 'IBM Plex Sans Thai', 'Helvetica Neue', Arial, sans-serif; font-weight: 300; font-size: 9pt; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; }
+    .serif { font-family: 'Cormorant Garamond', 'Noto Serif Thai', serif; }
+    html[lang='th'] .serif { font-family: 'Noto Serif Thai', 'Cormorant Garamond', serif; }
+
+    /* ---- cover (full bleed first page) ---- */
+    .cover { position: relative; width: 210mm; height: 297mm; overflow: hidden; break-after: page; background: var(--bg); }
+    .cover__img { position: absolute; inset: 0 0 auto 0; width: 210mm; height: 214mm; object-fit: cover; object-position: 50% 24%; }
+    .cover__fade { position: absolute; inset: 0 0 auto 0; height: 214mm; background: linear-gradient(to bottom, rgba(10,28,23,0) 55%, var(--bg) 99%); }
+    .cover__body { position: absolute; left: 16mm; right: 16mm; bottom: 14mm; }
+    .cover__eyebrow { color: var(--gold); letter-spacing: .28em; font-size: 8pt; text-transform: uppercase; }
+    .cover__name { font-size: 36pt; line-height: 1.05; margin: 3mm 0 1mm; font-weight: 400; }
+    html[lang='th'] .cover__name { font-size: 30pt; line-height: 1.2; }
+    .cover__name em { color: var(--gold-2); font-style: italic; }
+    .cover__th { color: var(--gold-2); font-size: 12pt; margin-bottom: 2mm; }
+    .cover__roles { color: var(--ivory-2); letter-spacing: .12em; font-size: 8.5pt; }
+    .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 6mm 0 5mm; border-top: .25mm solid var(--line); border-bottom: .25mm solid var(--line); }
+    .stats div { padding: 3mm 2mm; border-left: .25mm solid var(--line-2); }
+    .stats div:first-child { border-left: 0; padding-left: 0; }
+    .stats dt { font-size: 7pt; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+    html[lang='th'] .stats dt { text-transform: none; letter-spacing: .02em; }
+    .stats dd { margin: 0; font-size: 11pt; color: var(--ivory); font-weight: 400; }
+    .cover__contact { display: flex; flex-wrap: wrap; gap: 1.5mm 8mm; font-size: 8.5pt; color: var(--ivory-2); }
+    .cover__contact a { color: var(--gold-2); }
+
+    /* ---- inner pages ---- */
+    .doc { max-width: 210mm; margin: 0 auto; }
+    h2.sec { font-weight: 400; font-size: 20pt; margin: 0 0 1mm; color: var(--ivory); }
+    html[lang='th'] h2.sec { font-size: 17pt; }
+    .sec__lead { color: var(--muted); margin: 0 0 4mm; font-size: 8.5pt; }
+    .cat { font-size: 8pt; color: var(--gold); letter-spacing: .22em; text-transform: uppercase; margin: 6mm 0 1mm; padding-bottom: 1.5mm; border-bottom: .25mm solid var(--line); break-after: avoid; }
+    html[lang='th'] .cat { letter-spacing: .04em; text-transform: none; font-size: 9.5pt; }
+    .work { display: grid; grid-template-columns: 62mm 1fr; gap: 6mm; padding: 4.5mm 0; border-bottom: .2mm solid var(--line-2); break-inside: avoid; }
+    .work--text { grid-template-columns: 1fr; }
+    .work__media { width: 62mm; }
+    .work__img { width: 62mm; height: 44mm; object-fit: cover; background: var(--surface); border: .2mm solid var(--line); }
+    .work__img.is-v { width: 30mm; height: 53mm; }
+    .work__img.is-p { height: 62mm; }
+    .work__meta { display: flex; justify-content: space-between; gap: 4mm; font-size: 7.5pt; color: var(--gold); letter-spacing: .08em; }
+    .work__brand { font-size: 15pt; font-weight: 500; margin: 1mm 0 0; line-height: 1.2; }
+    .work__title { color: var(--ivory); font-size: 9.5pt; margin: 1mm 0 0; font-weight: 400; }
+    .work__desc { color: var(--ivory-2); font-size: 8.5pt; margin: 2mm 0 0; }
+    .work__link { display: inline-block; margin-top: 2.5mm; color: var(--gold-2); border-bottom: .2mm solid var(--gold); font-size: 8.5pt; }
+    .thumbs { display: flex; gap: 1.8mm; margin-top: 3mm; }
+    .thumbs img { width: 17mm; height: 17mm; object-fit: cover; border: .2mm solid var(--line); }
+
+    .gallery { break-before: page; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 4mm; }
+    .grid img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border: .2mm solid var(--line); }
+    .contact { margin-top: 10mm; padding-top: 6mm; border-top: .25mm solid var(--line); break-inside: avoid; }
+    .contact h3 { font-weight: 400; font-size: 14pt; margin: 0 0 2mm; }
+    .contact ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .8mm; color: var(--ivory-2); }
+    .contact a { color: var(--gold-2); }
+
+    /* ---- screen preview ---- */
+    .toolbar { display: none; }
+    @media screen {
+      body { padding-bottom: 40px; }
+      .toolbar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 14px; position: sticky; top: 0; z-index: 5; background: rgba(10,28,23,.92); backdrop-filter: blur(8px); font-size: 14px; }
+      .toolbar a { border: 1px solid var(--gold); color: var(--gold-2); padding: 8px 16px; }
+      .toolbar a:first-child { background: var(--gold); color: var(--bg); }
+      .cover { margin: 0 auto; max-width: 100%; }
+      .doc { padding: 15mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href={`/portfolio-${lang}.pdf`} download={`Suthat-Thongkamkaew-Portfolio-${lang.toUpperCase()}.pdf`}>{L('ดาวน์โหลด Portfolio (PDF)', 'Download portfolio (PDF)')}</a>
+    <a href={path('/portfolio/', lang === 'th' ? 'en' : 'th')}>{lang === 'th' ? 'English' : 'ภาษาไทย'}</a>
+    <a href={path('/', lang)}>← {t(ui.nav.home, lang)}</a>
+  </div>
+
+  <section class="cover">
+    <img class="cover__img" src={pj(cover.lg)} alt={person.nameEn} />
+    <div class="cover__fade"></div>
+    <div class="cover__body">
+      <div class="cover__eyebrow">Portfolio · {new Date().getFullYear()}</div>
+      <h1 class="cover__name serif">Suthat <em>Ken</em> Thongkamkaew</h1>
+      <div class="cover__th">{person.nameTh} ({t(person.nick, 'th')})</div>
+      <div class="cover__roles">{person.roles.en.join(' · ')}</div>
+      <dl class="stats">
+        <div><dt>{t(ui.age, lang)}</dt><dd>{age} {t(ui.years, lang)}</dd></div>
+        <div><dt>{t(ui.height, lang)}</dt><dd>{person.stats.heightCm} cm</dd></div>
+        <div><dt>{t(ui.weight, lang)}</dt><dd>{person.stats.weightKg} kg</dd></div>
+        <div><dt>{t(ui.measurements, lang)}</dt><dd>{person.stats.measurementsIn} in</dd></div>
+        <div><dt>{t(ui.shoe, lang)}</dt><dd>EU 44.5 · US 10.5</dd></div>
+      </dl>
+      <div class="cover__contact">
+        {person.contact.email && <a href={`mailto:${person.contact.email}`}>{person.contact.email}</a>}
+        {person.socials.map((s) => <a href={s.url}>{s.label} @{s.handle}</a>)}
+        <a href="https://kensukeimagery.github.io">kensukeimagery.github.io</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="doc">
+    <h2 class="sec serif">{L('ผลงานคัดสรร', 'Selected works')}</h2>
+    <p class="sec__lead">{L('กดที่ลิงก์ใต้แต่ละผลงานเพื่อดูคลิปต้นฉบับ', 'Tap the link under each work to watch the original clip')}</p>
+    {groups.map((g) => (
+      <>
+        <div class="cat">{t(g.c, lang)}</div>
+        {g.list.map(({ w, c, link, thumbs }) => (
+          <article class={`work${c ? '' : ' work--text'}`}>
+            {c && (
+              <div class="work__media">
+                <img class={`work__img${c.vertical ? ' is-v' : ''}${c.photo ? ' is-p' : ''}`} src={pj(c.src)} alt="" />
+              </div>
+            )}
+            <div>
+              <div class="work__meta"><span>{t(g.c, lang)}</span><span>{fmtYear(w.year, lang)}</span></div>
+              <h3 class="work__brand serif">{t(w.brand, lang)}</h3>
+              <p class="work__title">{t(w.title, lang)}</p>
+              {w.desc && <p class="work__desc">{t(w.desc, lang)}</p>}
+              {link && <a class="work__link" href={link[0]}>{t(ui.watchOn, lang)} {link[1]} ↗</a>}
+              {thumbs.length > 0 && <div class="thumbs">{thumbs.map((s) => <img src={pj(s)} alt="" />)}</div>}
+            </div>
+          </article>
+        ))}
+      </>
+    ))}
+
+    <section class="gallery">
+      <h2 class="sec serif">{L('ภาพถ่าย', 'Photos')}</h2>
+      <div class="grid">{gallery.map((im) => <img src={pj(im.sm)} alt="" />)}</div>
+      <div class="contact">
+        <h3 class="serif">{L('ร่วมงานกับเคน', 'Work with Ken')}</h3>
+        <ul>
+          {person.contact.email && <li><a href={`mailto:${person.contact.email}`}>{person.contact.email}</a></li>}
+          {person.socials.map((s) => <li>{s.label}: <a href={s.url}>@{s.handle}</a></li>)}
+          <li>{L('ดูผลงานทั้งหมด', 'Full portfolio')}: <a href="https://kensukeimagery.github.io">kensukeimagery.github.io</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

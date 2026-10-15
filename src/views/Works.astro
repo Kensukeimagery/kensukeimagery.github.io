@@ -13,6 +13,12 @@ const cats = categories.filter((c) => counts[c.id] > 0);
       <span class="eyebrow">Portfolio</span>
       <h1 class="h-display">{t(ui.worksTitle, lang)}</h1>
       <p class="lead">{t(ui.worksLead, lang)}</p>
+      <p class="no-print" style="margin-top:24px">
+        <a class="btn" href={`/portfolio-${lang}.pdf`} download={`Suthat-Thongkamkaew-Portfolio-${lang.toUpperCase()}.pdf`}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+          {t(ui.portfolioPdf, lang)}
+        </a>
+      </p>
     </div>
   </header>
 
