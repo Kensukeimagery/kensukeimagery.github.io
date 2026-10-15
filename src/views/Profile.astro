@@ -197,9 +197,16 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
                 <div class="award__body">
                   <div class="tl__when">{fmtYear(a.year, lang)} · {t(a.event, lang)}</div>
                   <h3>{t(a.title, lang)}</h3>
+                  {a.problem && <p class="award__problem no-print">{t(a.problem, lang)}</p>}
                   <div class="award__results">{t(a.results, lang).map((r) => <span>{r}</span>)}</div>
                   {a.facts && <ul class="award__facts no-print">{t(a.facts, lang).map((f) => <li>{f}</li>)}</ul>}
-                  {a.stat && <p class="award__stat no-print"><b>{a.stat.value}</b> {t(a.stat.label, lang)}</p>}
+                  {a.steps && (
+                    <ol class="award__steps no-print">{t(a.steps, lang).map((x) => <li>{x}</li>)}</ol>
+                  )}
+                  {a.stats && (
+                    <dl class="award__stats no-print">{a.stats.map((x) => <div><dt>{x.value}</dt><dd>{t(x.label, lang)}</dd></div>)}</dl>
+                  )}
+                  {a.stack && <p class="award__team no-print">{t(a.stack, lang)}</p>}
                   {a.team && <p class="award__team no-print">{t(a.team, lang)}</p>}
                   <a class="link-arrow no-print" href={a.url} target="_blank" rel="noopener">{t(ui.references, lang)} ↗</a>
                 </div>

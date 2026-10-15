@@ -238,7 +238,20 @@ export const awards = [
       th: ['สั่งพิมพ์ได้ตลอด 24 ชั่วโมง โดยไม่ต้องมีพนักงาน', 'เข้าสู่ระบบด้วย Google OAuth', 'พิมพ์เอกสารบนกระดาษ A4'],
       en: ['Print any time, 24 hours a day, no staff needed', 'Sign in with Google OAuth', 'Prints documents on A4 paper'],
     },
-    stat: { value: '4.23 / 5', label: { th: 'ความพึงพอใจโดยรวมของผู้ใช้ (กลุ่มตัวอย่าง 38 คน)', en: 'overall user satisfaction (38 respondents)' } },
+    problem: {
+      th: 'โจทย์: ร้านรับพิมพ์ส่วนใหญ่ไม่เปิดนอกเวลา และการจ้างพนักงานคุมเครื่องเป็นต้นทุนสูง — จึงทำระบบให้ผู้ใช้พิมพ์เองได้ทั้งวันทั้งคืน',
+      en: 'The problem: most print shops close after hours, and paying staff to run the machine is costly — so users print by themselves, day and night.',
+    },
+    steps: {
+      th: ['สแกน QR หรือเข้าเว็บ แล้วสมัครสมาชิก (ได้เครดิตทดลองพิมพ์ 10 บาท)', 'อัปโหลดไฟล์ PDF, JPG หรือ PNG', 'รับบาร์โค้ดสำหรับสั่งพิมพ์', 'สแกนที่เครื่องพิมพ์บริการตนเอง (หรือกรอกรหัส) แล้วรับเอกสาร'],
+      en: ['Scan the QR code or open the site, then register (10 baht trial credit)', 'Upload a PDF, JPG or PNG file', 'Get a barcode for your print job', 'Scan it at the self-service printer (or type the code) and collect the pages'],
+    },
+    stats: [
+      { value: '4.23 / 5', label: { th: 'ความพึงพอใจโดยรวมของผู้ใช้', en: 'overall user satisfaction' } },
+      { value: '4.56', label: { th: 'ความสะดวกในการใช้งาน (คะแนนสูงสุด)', en: 'ease of use (highest rated)' } },
+      { value: '4.53', label: { th: 'ประสิทธิภาพของเครื่อง', en: 'machine performance' } },
+    ],
+    stack: { th: 'พัฒนาด้วย PHP, JavaScript, Bootstrap · งบทั้งโครงการ 10,000 บาท', en: 'Built with PHP, JavaScript and Bootstrap · whole project budget: 10,000 baht' },
     results: { th: ['รางวัลชนะเลิศ ระดับจังหวัด', 'รางวัลชมเชย เหรียญเงิน ระดับภูมิภาค (ภาคกลาง)'], en: ['Winner, provincial level', 'Honourable mention (silver), Central region'] },
     url: 'https://thaiinvention.net/detail.php?p=cHJvamVjdF9pZD01Njc3MSZjZmdfaWQ9MzUmY29tcGV0X2lkPTE=&cond=JnNfY29tcGV0PTE=',
   },
