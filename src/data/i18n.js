@@ -1,15 +1,18 @@
-export const LANGS = ['th', 'en'];
+import { uiJa, deepAdd } from './ja.js';
+
+export const LANGS = ['th', 'en', 'ja'];
 
 /** pick the right language from a {th, en} object, or return a plain string */
 export function t(v, lang) {
   if (v == null) return '';
   if (typeof v === 'string' || Array.isArray(v)) return v;
-  return v[lang] ?? v.th ?? '';
+  // ja falls back to English first (a Japanese reader can still follow it), then Thai
+  return v[lang] ?? (lang === 'ja' ? v.en : undefined) ?? v.th ?? '';
 }
 
 /** build a path for a page in a language: path('/works/', 'en') -> '/en/works/' */
 export function path(p, lang) {
-  return lang === 'en' ? '/en' + (p === '/' ? '/' : p) : p;
+  return lang === 'en' || lang === 'ja' ? '/' + lang + (p === '/' ? '/' : p) : p;
 }
 
 const thMonths = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
@@ -20,16 +23,17 @@ export function fmtDate(d, lang) {
   if (!d) return '';
   const [y, m] = d.split('-').map(Number);
   const year = lang === 'th' ? y + 543 : y;
-  if (!m) return String(year);
+  if (!m) return lang === 'ja' ? `${year}年` : String(year);
+  if (lang === 'ja') return `${year}年${m}月`;
   return `${(lang === 'th' ? thMonths : enMonths)[m - 1]} ${year}`;
 }
 
 export function fmtRange(start, end, lang) {
   if (!start) return '';
   const s = fmtDate(start, lang);
-  if (end === null) return `${s} – ${lang === 'th' ? 'ปัจจุบัน' : 'Present'}`;
+  if (end === null) return lang === 'ja' ? `${s}～現在` : `${s} – ${lang === 'th' ? 'ปัจจุบัน' : 'Present'}`;
   if (!end) return s;
-  return `${s} – ${fmtDate(end, lang)}`;
+  return lang === 'ja' ? `${s}～${fmtDate(end, lang)}` : `${s} – ${fmtDate(end, lang)}`;
 }
 
 /** convert a CE year string like '2025 – 2026' to BE for Thai */
@@ -150,3 +154,6 @@ export const ui = {
   offers: { th: 'รับงาน', en: 'Available for' },
   openTiktok: { th: 'เปิดดูใน TikTok', en: 'Watch on TikTok' },
 };
+
+// Japanese strings live in ja.js
+deepAdd(ui, uiJa);

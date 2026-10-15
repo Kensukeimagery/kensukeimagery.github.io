@@ -7,10 +7,11 @@ const store = {
 document.querySelectorAll('[data-lang]').forEach((a) =>
   a.addEventListener('click', () => store.set(a.dataset.lang)),
 );
-// first-time default is Thai; if the visitor chose English before, take them there
-if (document.documentElement.lang === 'th' && store.get() === 'en' && !document.referrer.includes(location.host)) {
-  const en = document.querySelector('[data-lang="en"]');
-  if (en) location.replace(en.getAttribute('href') + location.hash);
+// first-time default is Thai; if the visitor chose another language before, take them there
+const pref = store.get();
+if (document.documentElement.lang === 'th' && (pref === 'en' || pref === 'ja') && !document.referrer.includes(location.host)) {
+  const link = document.querySelector(`[data-lang="${pref}"]`);
+  if (link) location.replace(link.getAttribute('href') + location.hash);
 }
 
 // ---------- header: solid on scroll, hide on scroll down ----------

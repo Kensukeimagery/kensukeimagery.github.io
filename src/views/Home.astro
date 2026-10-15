@@ -84,7 +84,7 @@ const chev = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
       <div class="sec-head">
         <div>
           <span class="eyebrow reveal">{t(ui.selected, lang)}</span>
-          <h2 class="h-section reveal" style="--d:.08s">{lang === 'th' ? 'ผลงานที่ภาคภูมิใจ' : 'Work I’m proud of'}</h2>
+          <h2 class="h-section reveal" style="--d:.08s">{{ th: 'ผลงานที่ภาคภูมิใจ', en: 'Work I’m proud of', ja: '誇れる実績' }[lang]}</h2>
           <p class="lead reveal" style="--d:.12s;margin-top:14px">{t(ui.carouselHint, lang)}</p>
         </div>
         <div class="carousel-nav reveal">
@@ -112,7 +112,7 @@ const chev = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
         <a class="wcard wcard--more reveal" href={path('/works/', lang)}>
           <span class="eyebrow">{t(ui.worksTitle, lang)}</span>
           <span class="wcard__more">{t(ui.allWorks, lang)} →</span>
-          <span class="muted">{works.length} {lang === 'th' ? 'ผลงาน' : 'projects'}</span>
+          <span class="muted">{works.length} {{ th: 'ผลงาน', en: 'projects', ja: '件の実績' }[lang]}</span>
         </a>
       </div>
     </div>

@@ -4,5 +4,7 @@ Disallow: /resume/
 Disallow: /en/resume/
 Disallow: /portfolio/
 Disallow: /en/portfolio/
+Disallow: /ja/resume/
+Disallow: /ja/portfolio/
 
 Sitemap: https://kensukeimagery.github.io/sitemap.xml

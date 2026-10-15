@@ -1,13 +1,13 @@
 # Ken Suthat — Portfolio (handoff from the claude.ai "Portfolio website" chat)
 
-Bilingual (TH/EN) portfolio + résumé site built with Astro. Live: https://kensukeimagery.github.io
+Trilingual (TH/EN/JA) portfolio + résumé site built with Astro. Live: https://kensukeimagery.github.io
 Repo: Kensukeimagery/kensukeimagery.github.io — push to `main` → GitHub Actions builds and deploys (`.github/workflows/deploy.yml`).
 Main focus of the content: on-camera (presenter/actor) and sales work.
 
 ## Commands
 - `npm install`, `npm run dev` (http://localhost:4321), `npm run build`
 - `npm run pdf` — generates résumé PDF/PNG into dist/ (run after build; uses Playwright Chromium, or Chrome/Edge installed locally); each PDF must stay 1 page.
-- `npm run check` — privacy check on dist/ (no full birthdate, LINE ID, salary); runs in CI before deploy.
+- `npm run check` — privacy check on dist/ (no full birthdate, LINE ID, salary) + internal link/meta check; runs in CI before deploy.
 - `npm run add-image -- <file> <portraits|film|work> [key]` — resizes to 800/1600 WebP and registers in images.json.
 
 ## Where to edit
@@ -18,6 +18,13 @@ Main focus of the content: on-camera (presenter/actor) and sales work.
 | Images | `src/data/images.json` + `public/img/` (800px and 1600px WebP) |
 | Menu/button text | `src/data/i18n.js` |
 | Colors, fonts, design | `src/styles/global.css` |
+| Japanese translations (all of them, AI-written — needs native review) | `src/data/ja.js` |
+| Portfolio PDF layout (auto-built from works/profile data) | `src/views/Portfolio.astro` |
+
+## Languages
+- Pages: Thai at `/`, English at `/en/`, Japanese at `/ja/` (each page file under src/pages/<lang>/ just renders the shared view with lang).
+- Every {th, en} text gets a .ja from `src/data/ja.js` (merged at load); missing ja falls back to English. New content: add th+en in the data file, ja in ja.js.
+- `npm run pdf` builds resume-{th,en,ja}.pdf/png and portfolio-{th,en,ja}.pdf (portfolio images are converted to JPEG in dist/pdf-img/ to keep the PDF ~1.5MB).
 
 ## Rules set by the owner
 - No LINE ID on the site.

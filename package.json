@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "pdf": "node scripts/pdf.mjs",
-    "check": "node scripts/check-privacy.mjs",
+    "check": "node scripts/check-privacy.mjs && node scripts/check-links.mjs",
     "add-image": "node scripts/add-image.mjs"
   },
   "dependencies": {

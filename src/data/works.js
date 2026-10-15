@@ -15,6 +15,8 @@
 //  featured: ตัวเลข = แสดงในสไลด์ผลงานหน้าแรก (เรียงตามเลข)
 // =============================================================
 
+import { categoriesJa, worksJa } from './ja.js';
+
 export const categories = [
   { id: 'all', th: 'ทั้งหมด', en: 'All' },
   { id: 'acting', th: 'นักแสดง / โฆษณา', en: 'Acting / Commercial' },
@@ -209,6 +211,17 @@ const allWorks = [
     desc: { th: 'บูธ Razer, EPOS, Thermaltake และ IPASON', en: 'Razer, EPOS, Thermaltake and IPASON booths' },
   },
 ];
+
+// ---------- Japanese (strings in ja.js) ----------
+categories.forEach((c) => { if (categoriesJa[c.id]) c.ja = categoriesJa[c.id]; });
+allWorks.forEach((w) => {
+  const j = worksJa[w.slug];
+  if (!j) return;
+  if (j.title && w.title) w.title.ja = j.title;
+  if (j.desc && w.desc) w.desc.ja = j.desc;
+  if (j.brand && w.brand && typeof w.brand === 'object') w.brand.ja = j.brand;
+  (w.media ?? []).filter((m) => m.label).forEach((m, i) => { if (j.labels?.[i]) m.label.ja = j.labels[i]; });
+});
 
 const rank = (w) => { const i = priority.indexOf(w.slug); return i < 0 ? 999 : i; };
 const catIdx = (w) => categories.findIndex((c) => c.id === w.category);

@@ -45,5 +45,5 @@ const single = media.length === 1 && media[0].type !== 'tiktok' && media[0].type
       </div>
     </div>
   )}
-  {w.company && <p class="work__company" style="margin-top:auto">{lang === 'th' ? 'ในนาม' : 'With'} {w.company}</p>}
+  {w.company && <p class="work__company" style="margin-top:auto">{{ th: 'ในนาม', en: 'With', ja: '企業：' }[lang]} {w.company}</p>}
 </article>

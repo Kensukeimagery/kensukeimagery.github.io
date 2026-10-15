@@ -8,8 +8,8 @@ import { person } from '../src/data/profile.js';
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const rules = [
   ['วันเกิดเต็ม', new RegExp(person.birthDate.replace(/-/g, '[-/.]'))],
-  ['LINE ID', /line\.me|lin\.ee|line\s*id|ไลน์\s*ไอดี/i],
-  ['เงินเดือน', /salary|เงินเดือน/i],
+  ['LINE ID', /line\.me|lin\.ee|line\s*id|ไลน์\s*ไอดี|ライン\s*ID/i],
+  ['เงินเดือน', /salary|เงินเดือน|月給|年収|給与|給料/i],
 ];
 const exts = new Set(['.html', '.js', '.css', '.json', '.xml', '.txt']);
 

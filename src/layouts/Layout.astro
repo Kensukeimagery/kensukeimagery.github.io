@@ -24,7 +24,6 @@ const { lang = 'th', page = 'home', title, description } = Astro.props;
 const site = 'https://kensukeimagery.github.io';
 const routes = { home: '/', works: '/works/', profile: '/profile/', gallery: '/gallery/', it: '/it-services/' };
 const here = routes[page] ?? '/';
-const otherLang = lang === 'th' ? 'en' : 'th';
 const fullTitle = title ? `${title} — ${person.nameEn} (${t(person.nick, 'en')})` : `${person.nameEn} (${t(person.nick, 'en')}) — ${person.roles.en.join(' · ')}`;
 const desc = description ?? t(person.intro, lang);
 const canonical = site + path(here, lang);
@@ -43,6 +42,7 @@ const links = [
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="th" href={site + path(here, 'th')} />
     <link rel="alternate" hreflang="en" href={site + path(here, 'en')} />
+    <link rel="alternate" hreflang="ja" href={site + path(here, 'ja')} />
     <link rel="alternate" hreflang="x-default" href={site + path(here, 'th')} />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={fullTitle} />
@@ -51,7 +51,7 @@ const links = [
     <meta property="og:image" content={site + '/og.jpg'} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content={lang === 'th' ? 'th_TH' : 'en_US'} />
+    <meta property="og:locale" content={{ th: 'th_TH', en: 'en_US', ja: 'ja_JP' }[lang]} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script is:inline>
@@ -85,6 +85,7 @@ const links = [
           <div class="lang" role="group" aria-label="Language">
             <a href={path(here, 'th')} hreflang="th" data-lang="th" aria-current={lang === 'th' ? 'true' : undefined}>TH</a>
             <a href={path(here, 'en')} hreflang="en" data-lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+            <a href={path(here, 'ja')} hreflang="ja" data-lang="ja" aria-current={lang === 'ja' ? 'true' : undefined}>JA</a>
           </div>
           <button class="menu-btn" aria-label={t(ui.menu, lang)} aria-expanded="false" data-menu-btn><span></span><span></span></button>
         </div>

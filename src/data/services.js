@@ -78,3 +78,10 @@ export const itSteps = [
   { th: 'นัดวันเวลาที่สะดวก ไปดูหน้างานหรือรับเครื่อง', en: 'Book a time — on-site visit or device pick-up' },
   { th: 'ซ่อม/อัปเกรด/ประกอบ แล้วทดสอบเครื่องก่อนส่งมอบ', en: 'Repair, upgrade or build — tested before hand-over' },
 ];
+
+// ---------- Japanese (strings in ja.js) ----------
+import { deepAdd, itServicesJa, itStepsJa, serviceAreaJa, talentServicesJa } from './ja.js';
+itServices.forEach((x, i) => deepAdd(x, itServicesJa[i]));
+itSteps.forEach((x, i) => { if (itStepsJa[i]) x.ja = itStepsJa[i]; });
+serviceArea.ja = serviceAreaJa;
+talentServices.forEach((x, i) => deepAdd(x, talentServicesJa[i]));

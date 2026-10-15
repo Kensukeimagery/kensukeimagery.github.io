@@ -4,50 +4,90 @@
     <loc>https://kensukeimagery.github.io/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/en/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/"/>
+  </url>
+  <url>
+    <loc>https://kensukeimagery.github.io/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/works/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/works/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/works/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/works/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/en/works/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/works/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/works/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/works/"/>
+  </url>
+  <url>
+    <loc>https://kensukeimagery.github.io/ja/works/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/works/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/works/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/works/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/profile/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/profile/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/profile/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/profile/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/en/profile/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/profile/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/profile/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/profile/"/>
+  </url>
+  <url>
+    <loc>https://kensukeimagery.github.io/ja/profile/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/profile/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/profile/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/profile/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/gallery/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/gallery/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/gallery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/gallery/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/en/gallery/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/gallery/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/gallery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/gallery/"/>
+  </url>
+  <url>
+    <loc>https://kensukeimagery.github.io/ja/gallery/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/gallery/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/gallery/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/gallery/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/it-services/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/it-services/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/it-services/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/it-services/"/>
   </url>
   <url>
     <loc>https://kensukeimagery.github.io/en/it-services/</loc>
     <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/it-services/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/it-services/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/it-services/"/>
+  </url>
+  <url>
+    <loc>https://kensukeimagery.github.io/ja/it-services/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://kensukeimagery.github.io/it-services/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kensukeimagery.github.io/en/it-services/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kensukeimagery.github.io/ja/it-services/"/>
   </url>
 </urlset>

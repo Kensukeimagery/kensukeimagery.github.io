@@ -10,7 +10,7 @@ const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.png': 'image/png',  '.woff2': 'font/woff2', '.woff': 'font/woff' };
 // รูปสำหรับ Portfolio PDF: แปลง WebP → JPEG (ไฟล์เล็กกว่ามากเมื่อฝังใน PDF) เฉพาะรูปที่หน้า /portfolio/ ใช้จริง
 const pdfImgs = new Set();
-for (const f of ['portfolio/index.html', 'en/portfolio/index.html']) {
+for (const f of ['portfolio/index.html', 'en/portfolio/index.html', 'ja/portfolio/index.html']) {
   const html = await readFile(join(root, f), 'utf8');
   for (const m of html.matchAll(/\/pdf-img\/([^"\s]+?)\.jpg/g)) pdfImgs.add(m[1]);
 }
@@ -35,14 +35,14 @@ try {
   catch { browser = await chromium.launch({ channel: 'msedge' }); }
 }
 const page = await browser.newPage();
-for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/']]) {
+for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/'], ['ja', '/ja/resume/']]) {
   await page.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.pdf({ path: join(root, `resume-${lang}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
   console.log('wrote', `resume-${lang}.pdf`);
 }
 // Portfolio PDF หลายหน้า (ปก + ผลงานคัดสรร + ภาพถ่าย) จากหน้า /portfolio/
-for (const [lang, url] of [['th', '/portfolio/'], ['en', '/en/portfolio/']]) {
+for (const [lang, url] of [['th', '/portfolio/'], ['en', '/en/portfolio/'], ['ja', '/ja/portfolio/']]) {
   await page.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.pdf({ path: join(root, `portfolio-${lang}.pdf`), format: 'A4', printBackground: true, preferCSSPageSize: true });
@@ -51,7 +51,7 @@ for (const [lang, url] of [['th', '/portfolio/'], ['en', '/en/portfolio/']]) {
 // รูปภาพ PNG: หน้า A4 เดียวกับไฟล์ PDF แต่เป็นรูป ความละเอียดสูง (3x ≈ 2382×3369 px) ซูมดูได้คมชัด
 const shot = await browser.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 3 });
 await shot.emulateMedia({ media: 'print' });
-for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/']]) {
+for (const [lang, url] of [['th', '/resume/'], ['en', '/en/resume/'], ['ja', '/ja/resume/']]) {
   await shot.goto('http://localhost:4399' + url, { waitUntil: 'networkidle' });
   await shot.evaluate(() => document.fonts.ready);
   await shot.waitForTimeout(300);

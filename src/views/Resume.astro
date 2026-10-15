@@ -22,7 +22,8 @@ import { portrait } from '../data/img.js';
 const { lang } = Astro.props;
 const photo = portrait(13);
 const age = ageOn(person.birthDate);
-const L = (th, en) => (lang === 'th' ? th : en);
+const LANG_LINKS = [['th', 'ภาษาไทย'], ['en', 'English'], ['ja', '日本語']];
+const L = (th, en, ja = en) => ({ th, en, ja }[lang]);
 const full = experience.filter((e) => e.group === 'full' && e.type !== 'part');
 const part = experience.filter((e) => e.type === 'part');
 const free = experience.filter((e) => e.group === 'freelance');
@@ -33,7 +34,7 @@ const intern = experience.filter((e) => e.group === 'intern');
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{L('เรซูเม่', 'Résumé')} — {person.nameEn}</title>
+  <title>{L('เรซูเม่', 'Résumé', '履歴書')} — {person.nameEn}</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <style is:global>
@@ -74,6 +75,7 @@ const intern = experience.filter((e) => e.group === 'intern');
     html[lang='th'] .main h2 { font-family: 'Noto Serif Thai', serif; font-size: 12.5pt; }
     .main h2::after { content: ''; flex: 1; height: .25mm; background: var(--rule); }
     .main section + section { margin-top: 4.6mm; }
+    html[lang='ja'] .main { font-size: 95%; } html[lang='ja'] .main section + section { margin-top: 3.2mm; } html[lang='ja'] .compact li { padding: .2mm 0; } html[lang='ja'] .list { line-height: 1.45; } html[lang='ja'] .job ul, html[lang='ja'] .compact { line-height: 1.4; }
     html[lang='th'] .main { font-size: 96%; } html[lang='th'] .compact li { padding: .4mm 0; } html[lang='th'] .main section + section { margin-top: 3.8mm; } html[lang='th'] .job ul, html[lang='th'] .compact { line-height: 1.42; }
     .summary { font-size: 9.2pt; line-height: 1.65; color: var(--ink-2); margin: 0; }
     .job { margin-bottom: 3mm; break-inside: avoid; }
@@ -132,7 +134,7 @@ const intern = experience.filter((e) => e.group === 'intern');
   <div class="toolbar">
     <a href={`/resume-${lang}.pdf`} download={`Suthat-Thongkamkaew-Resume-${lang.toUpperCase()}.pdf`}>{t(ui.print, lang)}</a>
     <a class="ghost" href={`/resume-${lang}.png`} download={`Suthat-Thongkamkaew-Resume-${lang.toUpperCase()}.png`}>{t(ui.printPng, lang)}</a>
-    <a class="ghost" href={path('/resume/', lang === 'th' ? 'en' : 'th')}>{lang === 'th' ? 'English' : 'ภาษาไทย'}</a>
+    {LANG_LINKS.filter((l) => l[0] !== lang).map(([code, name]) => <a class="ghost" href={path('/resume/', code)}>{name}</a>)}
     <a class="ghost" href={path('/profile/', lang)}>← {t(ui.nav.profile, lang)}</a>
   </div>
 
@@ -160,8 +162,8 @@ const intern = experience.filter((e) => e.group === 'intern');
 
       <h3>{t(ui.offers, lang)}</h3>
       <ul class="list">
-        <li>{L('งานแสดง · อีเวนต์ · พิธีกร/MC · ไลฟ์ขายของ · นายแบบ', 'Acting · Events · MC · Live commerce · Modelling')}</li>
-        <li>{L('ซ่อม · ดูแล · อัปเกรด · ประกอบคอม', 'PC repair · care · upgrades · builds')}</li>
+        <li>{L('งานแสดง · อีเวนต์ · พิธีกร/MC · ไลฟ์ขายของ · นายแบบ', 'Acting · Events · MC · Live commerce · Modelling', '演技・イベント・MC・ライブ販売・モデル')}</li>
+        <li>{L('ซ่อม · ดูแล · อัปเกรด · ประกอบคอม', 'PC repair · care · upgrades · builds', 'PC修理・メンテ・アップグレード・自作')}</li>
       </ul>
 
       <h3>{t(ui.skills, lang)}</h3>
@@ -175,7 +177,7 @@ const intern = experience.filter((e) => e.group === 'intern');
 
     <main class="main">
       <section>
-        <h2>{L('ข้อมูลโดยสรุป', 'Profile')}</h2>
+        <h2>{L('ข้อมูลโดยสรุป', 'Profile', '自己紹介')}</h2>
         <p class="summary">{t(person.intro, lang)}</p>
       </section>
 
@@ -227,7 +229,7 @@ const intern = experience.filter((e) => e.group === 'intern');
         </div>
       </section>
 
-      <div class="foot"><span>{L('ดูผลงานวิดีโอและภาพทั้งหมดที่', 'Full video portfolio at')} kensukeimagery.github.io</span><span>{new Date().getFullYear() + (lang === 'th' ? 543 : 0)}</span></div>
+      <div class="foot"><span>{L('ดูผลงานวิดีโอและภาพทั้งหมดที่', 'Full video portfolio at', '動画・写真の実績はこちら：')} kensukeimagery.github.io</span><span>{new Date().getFullYear() + (lang === 'th' ? 543 : 0)}</span></div>
     </main>
   </article>
   <script is:inline>

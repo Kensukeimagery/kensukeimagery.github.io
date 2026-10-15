@@ -243,3 +243,11 @@ export const awards = [
     url: 'https://thaiinvention.net/bb_projectdetail.php?p=cHJvamVjdF9pZD00MDAwMCZjZmdfaWQ9MjkmY29tcGV0X2lkPTE=',
   },
 ];
+
+// ---------- Japanese (strings in ja.js) ----------
+import { deepAdd, personJa, highlightsJa, expJa, eduJa, awardsJa, orgKey } from './ja.js';
+deepAdd(person, personJa);
+highlights.forEach((h, i) => { if (highlightsJa[i]) h.label.ja = highlightsJa[i]; });
+experience.forEach((e) => deepAdd(e, expJa[orgKey(e)]));
+education.forEach((e, i) => deepAdd(e, eduJa[i]));
+awards.forEach((a, i) => deepAdd(a, awardsJa[i]));

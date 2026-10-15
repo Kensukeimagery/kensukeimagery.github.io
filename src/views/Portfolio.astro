@@ -20,7 +20,8 @@ import { works, categories } from '../data/works.js';
 import { ttPosters } from '../data/ttposters.js';
 import { portrait, workImg } from '../data/img.js';
 const { lang } = Astro.props;
-const L = (th, en) => (lang === 'th' ? th : en);
+const L = (th, en, ja = en) => ({ th, en, ja }[lang]);
+const LANG_LINKS = [['th', 'ภาษาไทย'], ['en', 'English'], ['ja', '日本語']];
 // รูปใน PDF ใช้ JPEG (สร้างโดย scripts/pdf.mjs ที่ dist/pdf-img/) เพราะ Chromium ฝัง WebP เป็นแบบไม่บีบอัด ทำให้ไฟล์ใหญ่มาก
 const pj = (src) => src.replace('/img/', '/pdf-img/').replace('.webp', '.jpg');
 const age = ageOn(person.birthDate);
@@ -139,8 +140,8 @@ const groups = categories.filter((c) => c.id !== 'all').map((c) => ({ c, list: i
 </head>
 <body>
   <div class="toolbar">
-    <a href={`/portfolio-${lang}.pdf`} download={`Suthat-Thongkamkaew-Portfolio-${lang.toUpperCase()}.pdf`}>{L('ดาวน์โหลด Portfolio (PDF)', 'Download portfolio (PDF)')}</a>
-    <a href={path('/portfolio/', lang === 'th' ? 'en' : 'th')}>{lang === 'th' ? 'English' : 'ภาษาไทย'}</a>
+    <a href={`/portfolio-${lang}.pdf`} download={`Suthat-Thongkamkaew-Portfolio-${lang.toUpperCase()}.pdf`}>{L('ดาวน์โหลด Portfolio (PDF)', 'Download portfolio (PDF)', 'ポートフォリオをダウンロード (PDF)')}</a>
+    {LANG_LINKS.filter((l) => l[0] !== lang).map(([code, name]) => <a href={path('/portfolio/', code)}>{name}</a>)}
     <a href={path('/', lang)}>← {t(ui.nav.home, lang)}</a>
   </div>
 
@@ -168,8 +169,8 @@ const groups = categories.filter((c) => c.id !== 'all').map((c) => ({ c, list: i
   </section>
 
   <main class="doc">
-    <h2 class="sec serif">{L('ผลงานคัดสรร', 'Selected works')}</h2>
-    <p class="sec__lead">{L('กดที่ลิงก์ใต้แต่ละผลงานเพื่อดูคลิปต้นฉบับ', 'Tap the link under each work to watch the original clip')}</p>
+    <h2 class="sec serif">{L('ผลงานคัดสรร', 'Selected works', '注目の実績')}</h2>
+    <p class="sec__lead">{L('กดที่ลิงก์ใต้แต่ละผลงานเพื่อดูคลิปต้นฉบับ', 'Tap the link under each work to watch the original clip', '各実績の下のリンクから、元の動画をご覧いただけます')}</p>
     {groups.map((g) => (
       <>
         <div class="cat">{t(g.c, lang)}</div>
@@ -194,14 +195,14 @@ const groups = categories.filter((c) => c.id !== 'all').map((c) => ({ c, list: i
     ))}
 
     <section class="gallery">
-      <h2 class="sec serif">{L('ภาพถ่าย', 'Photos')}</h2>
+      <h2 class="sec serif">{L('ภาพถ่าย', 'Photos', '写真')}</h2>
       <div class="grid">{gallery.map((im) => <img src={pj(im.sm)} alt="" />)}</div>
       <div class="contact">
-        <h3 class="serif">{L('ร่วมงานกับเคน', 'Work with Ken')}</h3>
+        <h3 class="serif">{L('ร่วมงานกับเคน', 'Work with Ken', 'ケンとお仕事をしませんか')}</h3>
         <ul>
           {person.contact.email && <li><a href={`mailto:${person.contact.email}`}>{person.contact.email}</a></li>}
           {person.socials.map((s) => <li>{s.label}: <a href={s.url}>@{s.handle}</a></li>)}
-          <li>{L('ดูผลงานทั้งหมด', 'Full portfolio')}: <a href="https://kensukeimagery.github.io">kensukeimagery.github.io</a></li>
+          <li>{L('ดูผลงานทั้งหมด', 'Full portfolio', '実績の全体はこちら')}: <a href="https://kensukeimagery.github.io">kensukeimagery.github.io</a></li>
         </ul>
       </div>
     </section>

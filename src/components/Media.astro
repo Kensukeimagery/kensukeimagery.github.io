@@ -3,6 +3,9 @@
 import { t, ui } from '../data/i18n.js';
 import { workImg, srcset } from '../data/img.js';
 import { ttPosters } from '../data/ttposters.js';
+import { existsSync } from 'node:fs';
+// YouTube covers saved in public/img/yt/<id>.webp are used first (no third-party request); otherwise YouTube's own thumbnail
+const ytPoster = (id) => (existsSync(new URL(`../../public/img/yt/${id}.webp`, import.meta.url)) ? `/img/yt/${id}.webp` : `https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
 const { m, lang, brand = '', card = false } = Astro.props;
 
 const play = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>`;
@@ -19,7 +22,7 @@ if (m.type === 'tiktok') {
     cls: 'embed--h', platform: 'YouTube',
     src: `https://www.youtube-nocookie.com/embed/${m.id}?autoplay=1&rel=0`,
     ext: `https://www.youtube.com/watch?v=${m.id}`,
-    poster: `https://i.ytimg.com/vi/${m.id}/hqdefault.jpg`,
+    poster: ytPoster(m.id),
   };
 } else if (m.type === 'facebook') {
   // Facebook video plugin — poster saved locally at public/img/fb/<id>.webp

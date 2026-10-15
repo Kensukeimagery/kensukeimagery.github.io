@@ -12,3 +12,7 @@ export const projects = [
     url: 'https://github.com/Kensukeimagery/win11-optimizer',
   },
 ];
+
+// ---------- Japanese (strings in ja.js) ----------
+import { deepAdd, projectsJa } from './ja.js';
+projects.forEach((p, i) => deepAdd(p, projectsJa[i]));
