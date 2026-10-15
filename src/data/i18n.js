@@ -110,6 +110,7 @@ export const ui = {
   },
   dm: { th: 'ส่งข้อความทาง Instagram', en: 'Message on Instagram' },
   email: { th: 'ส่งอีเมล', en: 'Send an email' },
+  support: { th: 'สนับสนุนช่อง', en: 'Support my channels' },
   rights: { th: 'สงวนลิขสิทธิ์', en: 'All rights reserved' },
   menu: { th: 'เมนู', en: 'Menu' },
   close: { th: 'ปิด', en: 'Close' },

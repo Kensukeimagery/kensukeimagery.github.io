@@ -129,6 +129,7 @@ const links = [
     <footer class="site-footer">
       <div class="wrap">
         <span>© <span data-year={lang}>{new Date().getFullYear() + (lang === 'th' ? 543 : 0)}</span> {lang === 'th' ? person.nameTh : person.nameEn} · {t(ui.rights, lang)}</span>
+        <a class="footer-support" href={person.support.url} target="_blank" rel="noopener">♡ {t(ui.support, lang)}</a>
         <Socials variant="mini" />
       </div>
     </footer>

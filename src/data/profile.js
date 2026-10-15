@@ -55,6 +55,8 @@ export const person = {
     { id: 'youtube', label: 'YouTube', handle: 'kensukefps', url: 'https://www.youtube.com/@kensukefps' },
     { id: 'twitch', label: 'Twitch', handle: 'kensukefps', url: 'https://www.twitch.tv/kensukefps' },
   ],
+  // ช่องทางสนับสนุน (โดเนท) — แสดงเป็นลิงก์เล็กที่ฟุตเตอร์
+  support: { url: 'https://easydonate.app/kensukefps' },
   // ช่องคอนเทนต์แยก: Law with Ken (กฎหมายใกล้ตัว)
   lawChannel: {
     name: 'Law with Ken',
