@@ -5,7 +5,7 @@ import { join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
-const generatedLater = [/^\/resume-(th|en|ja)\.(pdf|png)$/, /^\/portfolio-(th|en|ja)\.pdf$/, /^\/pdf-img\//];
+const generatedLater = [/^\/resume-(th|en|ja)\.(pdf|png)$/, /^\/portfolio-(th|en|ja)\.pdf$/, /^\/pdf-img\//, /^\/business-card(-print)?\.pdf$/, /^\/card-(front|back)\.png$/];
 
 async function* walk(dir) {
   for (const e of await readdir(dir, { withFileTypes: true })) {
@@ -26,7 +26,7 @@ for await (const f of walk(root)) {
   const html = await readFile(f, 'utf8');
   if (!/<title>[^<]+<\/title>/.test(html)) fail(`${rel}: ไม่มี <title>`);
   if (!/<html[^>]*\slang="(th|en|ja)"/.test(html)) fail(`${rel}: ไม่มี lang`);
-  if (!rel.includes('resume') && !rel.includes('portfolio') && !/rel="canonical"/.test(html)) fail(`${rel}: ไม่มี canonical`);
+  if (!rel.includes('resume') && !rel.includes('portfolio') && !rel.startsWith('card') && !/rel="canonical"/.test(html)) fail(`${rel}: ไม่มี canonical`);
   for (const m of html.matchAll(/\s(?:href|src)="(\/[^"#?]*)/g)) {
     const url = decodeURIComponent(m[1]);
     if (url.startsWith('//') || generatedLater.some((re) => re.test(url))) continue;

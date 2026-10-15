@@ -26,6 +26,9 @@ Main focus of the content: on-camera (presenter/actor) and sales work.
 - Every {th, en} text gets a .ja from `src/data/ja.js` (merged at load); missing ja falls back to English. New content: add th+en in the data file, ja in ja.js.
 - `npm run pdf` builds resume-{th,en,ja}.pdf/png and portfolio-{th,en,ja}.pdf (portfolio images are converted to JPEG in dist/pdf-img/ to keep the PDF ~1.5MB).
 
+## Business card
+- Page `/card/` (with 3 mm bleed → 96×60 mm print file) and `/card-plain/` (90×54 mm); built by `npm run pdf` into business-card-print.pdf, business-card.pdf and card-front/back.png (600 dpi). Not linked from the public site (noindex, owner uses it directly). QR (vector) points to the main site; design in `src/views/Card.astro`.
+
 ## Rules set by the owner
 - No LINE ID on the site.
 - Show age only, never the full birthdate.

@@ -1,0 +1,143 @@
+---
+import '@fontsource/cormorant-garamond/latin-400.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-400-italic.css';
+import '@fontsource/ibm-plex-sans-thai/latin-300.css';
+import '@fontsource/ibm-plex-sans-thai/thai-300.css';
+import '@fontsource/ibm-plex-sans-thai/latin-400.css';
+import '@fontsource/ibm-plex-sans-thai/thai-400.css';
+import '@fontsource/ibm-plex-sans-thai/latin-500.css';
+import '@fontsource/ibm-plex-sans-thai/thai-500.css';
+import '@fontsource/noto-serif-thai/thai-400.css';
+import '@fontsource/noto-serif-thai/latin-400.css';
+// นามบัตร 2 ด้าน (หน้า-หลัง) ขนาดมาตรฐาน 90 × 54 มม. — หน้านี้ถูกแปลงเป็นไฟล์ส่งโรงพิมพ์อัตโนมัติตอน deploy
+//   /card/        = มีพื้นที่เผื่อตัด (bleed) 3 มม. รอบด้าน → 96 × 60 มม. ← ไฟล์ส่งร้านพิมพ์
+//   /card-plain/  = ขนาดตัดจริง 90 × 54 มม. (ไม่มี bleed) ← สำหรับปริ้นเอง/ร้านที่ไม่ต้องการ bleed
+// ข้อมูลทั้งหมดมาจาก profile.js (อีเมล โซเชียล) — QR ชี้ไปที่เว็บหลัก สร้างเป็นเวกเตอร์ตอน build
+import QRCode from 'qrcode';
+import { person } from '../data/profile.js';
+const { bleed = true } = Astro.props;
+const b = bleed ? 3 : 0;
+const W = 90 + 2 * b;
+const H = 54 + 2 * b;
+const site = 'https://kensukeimagery.github.io/';
+const qr = await QRCode.toString(site, { type: 'svg', margin: 1, errorCorrectionLevel: 'M', color: { dark: '#0a1c17', light: '#ffffff' } });
+const ig = person.socials.find((s) => s.id === 'instagram');
+const tt = person.socials.find((s) => s.id === 'tiktok');
+const yt = person.socials.find((s) => s.id === 'youtube');
+const stub = person.roles.en;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business card — {person.nameEn}</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style is:global define:vars={{ b: `${b}mm`, w: `${W}mm`, h: `${H}mm` }}>
+    :root { --bg: #0a1c17; --gold: #c9a96e; --gold-2: #e3cb98; --ivory: #efe7d6; --paper: #f6f0e3; --ink: #0d2520; --ink-2: #4b5852; }
+    * { box-sizing: border-box; }
+    @page { size: var(--w) var(--h); margin: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { margin: 0; font-family: 'IBM Plex Sans Thai', 'Helvetica Neue', Arial, sans-serif; font-weight: 300; color: var(--ink); background: #1b1f1d; }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: 'Cormorant Garamond', 'Noto Serif Thai', serif; }
+
+    .side { position: relative; width: var(--w); height: var(--h); overflow: hidden; break-after: page; page-break-after: always; }
+    .side:last-of-type { break-after: auto; page-break-after: auto; }
+
+    /* ---------- front: dark green, headshot on the right ---------- */
+    .front { background: radial-gradient(120% 140% at 15% 20%, #123229 0%, var(--bg) 62%); color: var(--ivory); }
+    .front__photo { position: absolute; top: 0; right: 0; bottom: 0; width: calc(37mm + var(--b)); height: 100%; object-fit: cover; object-position: 50% 18%; }
+    .front__edge { position: absolute; top: 0; bottom: 0; right: calc(37mm + var(--b)); width: .25mm; background: var(--gold); opacity: .85; }
+    .front__text { position: absolute; left: calc(var(--b) + 6mm); top: calc(var(--b) + 6mm); bottom: calc(var(--b) + 6mm); width: 43mm; display: flex; flex-direction: column; justify-content: space-between; }
+    .mono { width: 7mm; height: 7mm; border: .25mm solid var(--gold); color: var(--gold); display: grid; place-items: center; font-family: 'Cormorant Garamond', serif; font-size: 11pt; line-height: 1; }
+    .name { font-size: 17pt; line-height: 1.02; font-weight: 400; margin: 0; letter-spacing: .005em; }
+    .name em { color: var(--gold-2); font-style: italic; }
+    .th { margin: 1.6mm 0 0; font-family: 'Noto Serif Thai', serif; font-size: 7pt; color: var(--gold-2); }
+    .roles { margin: 0; padding: 0; list-style: none; font-size: 5.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); line-height: 1.9; }
+
+    /* ---------- back: paper, contact + QR ---------- */
+    .back { background: var(--paper); color: var(--ink); }
+    .back__frame { position: absolute; inset: calc(var(--b) + 3mm); border: .2mm solid rgba(184, 149, 90, .55); }
+    .back__top { position: absolute; left: calc(var(--b) + 6.5mm); top: calc(var(--b) + 6mm); display: flex; align-items: center; gap: 2.4mm; }
+    .back__top .mono { border-color: #b8955a; color: #9a7a43; }
+    .back__brand { font-size: 8pt; letter-spacing: .26em; text-transform: uppercase; color: var(--ink); font-weight: 400; line-height: 1.2; }
+    .back__brand small { display: block; font-size: 4.8pt; letter-spacing: .24em; color: #9a7a43; margin-top: .6mm; }
+    .contact { position: absolute; left: calc(var(--b) + 6.5mm); bottom: calc(var(--b) + 6mm); margin: 0; padding: 0; list-style: none; font-size: 6.6pt; line-height: 1.75; }
+    .contact li { display: flex; gap: 2mm; }
+    .contact b { width: 14.5mm; flex: none; font-weight: 500; color: #9a7a43; font-size: 5.4pt; letter-spacing: .14em; text-transform: uppercase; padding-top: .25mm; }
+    .qr { position: absolute; right: calc(var(--b) + 6mm); bottom: calc(var(--b) + 6mm); width: 27mm; text-align: center; }
+    .qr__plate { width: 27mm; height: 27mm; background: #fff; border: .2mm solid rgba(184, 149, 90, .55); padding: .8mm; }
+    .qr__plate svg { display: block; width: 100%; height: 100%; }
+    .qr__cap { margin-top: 1.4mm; font-size: 5pt; letter-spacing: .2em; text-transform: uppercase; color: #9a7a43; }
+
+    /* ---------- screen preview ---------- */
+    .toolbar { display: none; }
+    .specs { display: none; }
+    @media screen {
+      body { padding: 0 0 48px; }
+      .toolbar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 14px; position: sticky; top: 0; z-index: 5; background: rgba(10, 28, 23, .94); font-size: 14px; }
+      .toolbar a { border: 1px solid var(--gold); color: var(--gold-2); padding: 8px 16px; }
+      .toolbar a:first-child { background: var(--gold); color: var(--bg); }
+      .specs { display: block; max-width: 640px; margin: 18px auto 0; padding: 0 16px; color: #cfc6b2; font-size: 13px; line-height: 1.7; }
+      .specs b { color: var(--gold-2); font-weight: 500; }
+      .side { margin: 22px auto 0; zoom: 3; box-shadow: 0 0 0 .1mm rgba(255, 255, 255, .15), 0 2mm 6mm rgba(0, 0, 0, .5); }
+      .trim { position: absolute; inset: var(--b); outline: .15mm dashed rgba(255, 80, 80, .0); pointer-events: none; }
+    }
+    @media screen and (max-width: 1199px) { .side { zoom: 2.4; } }
+    @media screen and (max-width: 960px) { .side { zoom: 1.9; } }
+    @media screen and (max-width: 740px) { .side { zoom: 1.45; } }
+    @media screen and (max-width: 560px) { .side { zoom: 1; } }
+    @media screen and (max-width: 400px) { .side { zoom: .9; } }
+    @media screen and (max-width: 340px) { .side { zoom: .78; } }
+    @media print { .side { zoom: 1; box-shadow: none; margin: 0; } }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href={bleed ? '/business-card-print.pdf' : '/business-card.pdf'} download={bleed ? 'Ken-Suthat-business-card-print-90x54mm-3mm-bleed.pdf' : 'Ken-Suthat-business-card-90x54mm.pdf'}>{bleed ? 'Download print file (PDF, with bleed)' : 'Download card (PDF, 90 × 54 mm)'}</a>
+    <a href={bleed ? '/card-plain/' : '/card/'}>{bleed ? 'Version without bleed' : 'Version with bleed (for print shops)'}</a>
+    <a href="/card-front.png" download="Ken-Suthat-card-front.png">Front (PNG 600 dpi)</a>
+    <a href="/card-back.png" download="Ken-Suthat-card-back.png">Back (PNG 600 dpi)</a>
+    <a href="/">← Home</a>
+  </div>
+  <div class="specs">
+    <b>Size</b> 90 × 54 mm (standard) · <b>{bleed ? 'Bleed' : 'No bleed'}</b> {bleed ? '3 mm each side → file is 96 × 60 mm, 2 pages: front, back' : '— cut size only, 2 pages: front, back'} · Text and QR are vector, photo at ≥ 600 px/in.
+    Keep this file as is and ask the shop for a matte or silk finish on 300–350 gsm paper.
+  </div>
+
+  <section class="side front">
+    <img class="front__photo" src="/img/portrait-13-1600.webp" data-pdf="/pdf-img/card-portrait.jpg" alt="" />
+    <div class="front__edge"></div>
+    <div class="front__text">
+      <div class="mono">K</div>
+      <div>
+        <h1 class="name serif" translate="no">Suthat <em>Ken</em><br />Thongkamkaew</h1>
+        <p class="th">{person.nameTh} ({person.nick.th})</p>
+      </div>
+      <ul class="roles">{stub.map((r) => <li>{r}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="side back">
+    <div class="back__frame"></div>
+    <div class="back__top">
+      <div class="mono">K</div>
+      <div class="back__brand serif" translate="no">Ken Suthat<small>{stub[0]}</small></div>
+    </div>
+    <ul class="contact">
+      {person.contact.email && <li><b>Email</b><span>{person.contact.email}</span></li>}
+      {ig && <li><b>Instagram</b><span>@{ig.handle}</span></li>}
+      {tt && <li><b>TikTok</b><span>@{tt.handle}</span></li>}
+      {yt && <li><b>YouTube</b><span>@{yt.handle}</span></li>}
+      <li><b>Web</b><span>kensukeimagery.github.io</span></li>
+    </ul>
+    <div class="qr">
+      <div class="qr__plate" set:html={qr}></div>
+      <div class="qr__cap">Scan · Portfolio</div>
+    </div>
+  </section>
+</body>
+</html>

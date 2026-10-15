@@ -6,5 +6,7 @@ Disallow: /portfolio/
 Disallow: /en/portfolio/
 Disallow: /ja/resume/
 Disallow: /ja/portfolio/
+Disallow: /card/
+Disallow: /card-plain/
 
 Sitemap: https://kensukeimagery.github.io/sitemap.xml
