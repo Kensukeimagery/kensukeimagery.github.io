@@ -194,8 +194,16 @@ document.querySelectorAll('[data-slideshow]').forEach((box) => {
   const dots = [...(box.parentElement.querySelectorAll('.slide-dots span') || [])];
   if (slides.length < 2 || reduceMotion) return;
   let i = 0;
+  let paused = false;
+  const toggle = box.parentElement.querySelector('[data-slide-pause]');
+  toggle?.addEventListener('click', () => {
+    paused = !paused;
+    box.parentElement.classList.toggle('is-paused', paused);
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.setAttribute('aria-label', paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause);
+  });
   const go = () => {
-    if (document.hidden) return;
+    if (document.hidden || paused) return;
     slides[i].classList.remove('is-active'); dots[i]?.classList.remove('is-active');
     i = (i + 1) % slides.length;
     slides[i].classList.add('is-active');

@@ -16,7 +16,7 @@ const single = media.length === 1 && media[0].type !== 'tiktok' && media[0].type
     {w.status === 'soon' ? <span class="badge">{t(ui.comingSoon, lang)}</span> : w.year && <span class="yr">{fmtYear(w.year, lang)}</span>}
   </div>
   <div>
-    <h3 class="work__brand">{brand}</h3>
+    <h3 class="work__brand" translate="no">{brand}</h3>
     <p class="work__title">{t(w.title, lang)}</p>
   </div>
   {w.desc && <p class="work__desc">{t(w.desc, lang)}</p>}
