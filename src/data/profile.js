@@ -53,6 +53,7 @@ export const person = {
     { id: 'instagram', label: 'Instagram', handle: 'kensukefps', url: 'https://www.instagram.com/kensukefps/' },
     { id: 'tiktok', label: 'TikTok', handle: 'kensukefps', url: 'https://www.tiktok.com/@kensukefps' },
     { id: 'youtube', label: 'YouTube', handle: 'kensukefps', url: 'https://www.youtube.com/@kensukefps' },
+    { id: 'twitch', label: 'Twitch', handle: 'kensukefps', url: 'https://www.twitch.tv/kensukefps' },
   ],
   contact: {
     instagram: 'kensukefps',
