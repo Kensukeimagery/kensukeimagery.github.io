@@ -91,9 +91,12 @@ const allWorks = [
       en: 'Currently the resident host for Joyroom (gadgets); previously hosted live sales for SAMSONITE, UGREEN, Skechers, POSEE, Qiaodan, AKASO, SOLOEVER and Bousvclight.',
     },
     media: [
+      { type: 'tiktok', user: 'joyroom.th1', id: '7694454879389043989', shop: true, label: { th: 'ไลฟ์ JOYROOM · แคมเปญ 10.10', en: 'JOYROOM live · 10.10 sale' } },
+      { type: 'tiktok', user: 'joyroom.th1', id: '7695634560620563732', shop: true, label: { th: 'ไลฟ์ JOYROOM · แนะนำสินค้า', en: 'JOYROOM live · product demo' } },
       { type: 'tiktok', user: 'bousvclight', id: '7365507705513069842', shop: true, label: { th: 'ตัวอย่างไลฟ์ 1', en: 'Live sample 1' } },
       { type: 'tiktok', user: 'bousvclight', id: '7394667143058492688', shop: true, label: { th: 'ตัวอย่างไลฟ์ 2', en: 'Live sample 2' } },
     ],
+    links: [{ label: 'TikTok live channel · @joyroom.th1', url: 'https://www.tiktok.com/@joyroom.th1' }],
   },
   {
     slug: 'giga-live',

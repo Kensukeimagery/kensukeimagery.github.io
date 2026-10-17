@@ -255,7 +255,7 @@ export const worksJa = {
   'live-mc-techland': {
     title: '専属ライブコマースMC',
     desc: '現在はJoyroom（ガジェット）の専属ホスト。これまでSAMSONITE、UGREEN、Skechers、POSEE、Qiaodan、AKASO、SOLOEVER、Bousvclightのライブ販売も担当しました。',
-    labels: ['ライブ例 1', 'ライブ例 2'],
+    labels: ['JOYROOM ライブ・10.10セール', 'JOYROOM ライブ・商品紹介', 'ライブ例 1', 'ライブ例 2'],
   },
   'giga-live': { title: 'ライブコマースMC（契約）', desc: '契約期間：2026年8月1日～12月31日' },
   valorant: { title: 'シーパトゥム大学でのValorant大会MC' },
