@@ -843,3 +843,7 @@ html { -webkit-tap-highlight-color: rgba(201, 169, 110, 0.18); }
 
 .award--img .award__photo { position: sticky; top: 100px; }
 @media (max-width: 640px) { .award--img .award__photo { position: static; } }
+
+/* phones: keep the slideshow pause button in the bottom corner, clear of the hero buttons */
+@media (max-width: 700px) { .slide-pause { right: 14px; bottom: 6px; width: 30px; height: 30px; } }
+@media (max-width: 700px) { .hero { padding-bottom: 76px; } }
