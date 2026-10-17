@@ -849,5 +849,5 @@ html { -webkit-tap-highlight-color: rgba(201, 169, 110, 0.18); }
 @media (max-width: 700px) { .hero { padding-bottom: 76px; } }
 
 /* school seal in the education cards */
-.edu__logo { grid-row: span 3; width: 68px; height: 68px; object-fit: contain; align-self: center; opacity: .95; }
-@media (max-width: 520px) { .edu__logo { width: 52px; height: 52px; } }
+.edu__logo { grid-row: span 3; width: 82px; height: 68px; object-fit: contain; align-self: center; opacity: .95; }
+@media (max-width: 520px) { .edu__logo { width: 62px; height: 52px; } }
