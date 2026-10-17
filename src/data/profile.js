@@ -228,11 +228,13 @@ export const education = [
     level: { th: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)', en: 'Higher Vocational Diploma' },
     major: { th: 'สาขาวิชาเทคโนโลยีสารสนเทศ', en: 'Information Technology' },
     school: { th: 'วิทยาลัยพณิชยการบางนา', en: 'Bangna Commercial College' },
+    logo: 'BNCC',
   },
   {
     level: { th: 'ประกาศนียบัตรวิชาชีพ (ปวช.)', en: 'Vocational Certificate' },
     major: { th: 'สาขาวิชาคอมพิวเตอร์ธุรกิจ', en: 'Business Computer' },
     school: { th: 'วิทยาลัยพณิชยการบางนา', en: 'Bangna Commercial College' },
+    logo: 'BNCC',
   },
 ];
 

@@ -170,7 +170,7 @@ const isNow = (e) => e.start && (e.end === null || (e.end && e.end >= today && e
         <div class="cards">
           {education.map((e) => (
             <div class="card edu reveal">
-              <span class="edu__mark">✦</span>
+              {e.logo && logos[e.logo] ? <img class="edu__logo" src={`/img/logos/${logos[e.logo].file}.png`} alt="" width="68" height="68" loading="lazy" decoding="async" /> : <span class="edu__mark">✦</span>}
               <h3>{t(e.level, lang)}</h3>
               <p class="edu__major">{t(e.major, lang)}</p>
               <p class="edu__school">{t(e.school, lang)}</p>
