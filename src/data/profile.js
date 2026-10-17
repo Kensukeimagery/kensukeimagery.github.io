@@ -167,6 +167,7 @@ export const experience = [
   {
     group: 'freelance',
     org: 'CIMB Thai',
+    logo: 'CIMB THAI',
     role: { th: 'นักแสดงเดินทรูป รับบทมาสคอต "Reminder Man"', en: 'Troupe performer as mascot "Reminder Man"' },
     clips: [{ cover: '/img/fb/976940862115240.webp', url: 'https://www.facebook.com/CIMBThai/videos/976940862115240/' }],
     photos: ['work-cimb-1', 'work-cimb-2', 'work-cimb-3', 'work-cimb-4'],
@@ -174,6 +175,7 @@ export const experience = [
   {
     group: 'freelance',
     org: 'ENTAKU Exhibition',
+    logo: 'ENTAKU',
     when: { th: '14 ต.ค. – 4 พ.ย. 2569', en: '14 Oct – 4 Nov 2026' },
     note: { th: 'ภาพถ่ายเมื่อ 18 ก.ย. 2569', en: 'Photos taken on 18 September 2026' },
     role: { th: 'นักแสดงถ่ายแบบคอนเทนต์นิทรรศการ “อยากอวยให้ทุกครั้ง”', en: 'Featured model — exhibition “อยากอวยให้ทุกครั้ง”' },
@@ -182,6 +184,7 @@ export const experience = [
   {
     group: 'freelance',
     org: 'PERSOL Thailand',
+    logo: 'PERSOL',
     role: { th: 'นักแสดงคอนเทนต์สัมภาษณ์ (บท Graphic Designer)', en: 'Interview content actor (as a Graphic Designer)' },
   },
   {
@@ -194,23 +197,27 @@ export const experience = [
   {
     group: 'freelance',
     org: 'Commart',
+    logo: 'COMMART',
     role: { th: 'เดินบิล พนักงานขาย และตัวแทนแนะนำสินค้าประจำบูธ (Razer, EPOS, Thermaltake, IPASON)', en: 'Booth sales & product presenter (Razer, EPOS, Thermaltake, IPASON)' },
   },
   {
     group: 'other',
     org: 'BIG Motor Sale 2017',
+    logo: 'HYUNDAI',
     role: { th: 'ดูแลลูกค้าและรถยนต์ บูธ Hyundai', en: 'Customer & vehicle care, Hyundai booth' },
     start: '2017',
   },
   {
     group: 'intern',
     org: { th: 'บมจ. สยามแก๊ส แอนด์ ปิโตรเคมิคัลส์', en: 'Siam Gas and Petrochemicals PCL' },
+    logo: 'SIAM GAS',
     role: { th: 'IT Support (ฝึกงาน)', en: 'IT Support Intern' },
     start: '2021-06', end: '2021-09',
   },
   {
     group: 'intern',
     org: { th: 'บมจ. มิตรสิบ ลิสซิ่ง (สำนักงานใหญ่)', en: 'Mitsib Leasing PCL (Head Office)' },
+    logo: 'MITSIB',
     role: { th: 'IT Support (ฝึกงาน)', en: 'IT Support Intern' },
     start: '2019-07', end: '2019-09',
   },

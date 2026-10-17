@@ -22,6 +22,12 @@ export const logos = {
   'FBT': { file: 'fbt', w: 116 },
   'SMILEYHOUND': { file: 'smileyhound', w: 273 },
   'EVEREST': { file: 'everest', w: 100 },
+  // โลโก้บริษัทในไทม์ไลน์หน้าโปรไฟล์ (หามาจากเว็บไซต์ทางการของแต่ละที่ แล้วแปลงเป็นสีงาช้างให้เข้ากับเว็บ)
+  'COMMART': { file: 'commart', w: 288 },
+  'SIAM GAS': { file: 'siamgas', w: 350 },
+  'HYUNDAI': { file: 'hyundai', w: 746 },
+  'MITSIB': { file: 'mitsib', w: 101 },
+  'ENTAKU': { file: 'entaku', w: 401 },
 };
 
 /** ความสูงที่แสดง (px) ให้พื้นที่โลโก้ใกล้เคียงกัน: โลโก้ยาวจะเตี้ยลง โลโก้กะทัดรัดจะสูงขึ้น */
