@@ -69,13 +69,13 @@ export const itServices = [
 
 export const serviceArea = {
   th: 'กรุงเทพฯ สมุทรปราการ และปริมณฑล — สะดวกโซน MRT ศรีแบริ่ง (สายสีเหลือง) และพื้นที่ติดรถไฟฟ้าไปได้ทุกสาย พื้นที่อื่นคุยค่าเดินทางกันก่อน',
-  en: 'Bangkok, Samut Prakan and nearby provinces — easiest around MRT Si Bearing (Yellow Line), and anywhere along the BTS/MRT lines; other areas by arrangement (travel fee agreed in advance)',
+  en: 'Bangkok, Samut Prakan and nearby provinces. Easiest around MRT Si Bearing (Yellow Line) and anywhere along the BTS/MRT lines; other areas by arrangement, with the travel fee agreed in advance.',
 };
 
 export const itSteps = [
   { th: 'ทักมาทาง Instagram แจ้งอาการ รุ่นเครื่อง หรือสเปกที่อยากได้', en: 'Message on Instagram with the symptoms, model or the spec you want' },
   { th: 'ประเมินงานและราคาเบื้องต้น รวมค่าเดินทาง (ถ้ามี)', en: 'Get an estimate, including any travel fee' },
-  { th: 'นัดวันเวลาที่สะดวก ไปดูหน้างานหรือรับเครื่อง', en: 'Book a time — on-site visit or device pick-up' },
+  { th: 'นัดวันเวลาที่สะดวก ไปดูหน้างานหรือรับเครื่อง', en: 'Book a time for an on-site visit or device pick-up' },
   { th: 'ซ่อม/อัปเกรด/ประกอบ แล้วทดสอบเครื่องก่อนส่งมอบ', en: 'Repair, upgrade or build — tested before hand-over' },
 ];
 

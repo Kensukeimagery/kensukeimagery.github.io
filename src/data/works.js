@@ -173,7 +173,7 @@ const allWorks = [
     title: { th: 'นักแสดงเดินทรูป รับบทมาสคอต "Reminder Man"', en: 'Troupe performer as mascot "Reminder Man"' },
     desc: {
       th: 'แคมเปญ “จำให้ขึ้นใจ มองหาหุ้นกู้ ต้องแอป CIMB THAI” — Reminder Man ออกเดินเตือนตามย่านต่าง ๆ ในคลิปโฆษณาของธนาคาร',
-      en: 'Campaign “Remember it by heart: for bonds, it’s the CIMB THAI app” — Reminder Man roams the city in the bank’s commercial.',
+      en: 'Campaign “Remember it by heart: for bonds, it’s the CIMB THAI app”. In the bank’s commercial, Reminder Man roams the city.',
     },
     media: [{ type: 'facebook', page: 'CIMBThai', id: '976940862115240', label: { th: 'คลิปโฆษณา Reminder Man', en: 'Reminder Man commercial' } }],
     photos: ['work-cimb-1', 'work-cimb-2', 'work-cimb-3', 'work-cimb-4'],

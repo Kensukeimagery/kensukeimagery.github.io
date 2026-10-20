@@ -15,7 +15,7 @@ export const person = {
   },
   intro: {
     th: 'พิธีกรไลฟ์สดและนักแสดงโฆษณา ผู้มีพื้นฐานด้านไอทีและงานขาย ถ่ายทอดจุดเด่นของสินค้าได้อย่างเข้าใจของจริง ผ่านงานกับแบรนด์ชั้นนำทั้งสินค้าไลฟ์สไตล์ แฟชั่น และแกดเจ็ต',
-    en: 'A live commerce MC and commercial talent with a background in IT and sales — presenting products with real understanding, across lifestyle, fashion and gadget brands.',
+    en: 'A live commerce MC and commercial talent with an IT and sales background, presenting lifestyle, fashion and gadget brands with a solid grasp of the products.',
   },
   about: {
     th: [
@@ -25,7 +25,7 @@ export const person = {
     ],
     en: [
       'Currently a full-time live commerce MC at Techland Technology (Thailand), hosting live sales for brands such as Joyroom, Samsonite, UGREEN and Skechers, and appearing in brand commercials.',
-      'A background in information technology and hands-on sales — from retail floors to B2B project bidding — lets him explain technical products clearly, read the audience and close the sale.',
+      'A background in information technology and hands-on sales, from retail floors to B2B project bidding, lets him explain technical products clearly, read the audience and close the sale.',
       'Off camera, he shoots film photography, listens to music and reads.',
     ],
   },
@@ -104,7 +104,7 @@ export const experience = [
     logo: 'LIVELAB', // LiveLab = อีกชื่อของบริษัท Techland
     role: { th: 'พิธีกรไลฟ์สด (MC Live)', en: 'Live Stream MC' },
     start: '2024-02-15', end: null,
-    note: { th: 'บริษัทติดต่อมาชวนร่วมงาน จึงกลับสู่สายงานขายและไลฟ์ที่ถนัด', en: 'Approached by the company — a return to the sales and live work I do best' },
+    note: { th: 'บริษัทติดต่อมาชวนร่วมงาน จึงกลับสู่สายงานขายและไลฟ์ที่ถนัด', en: 'Approached by the company to return to the sales and live work I do best' },
     // แบรนด์ที่ไลฟ์ เรียงจากแบรนด์แรก → แบรนด์ปัจจุบัน (ตัวสุดท้าย = ปัจจุบัน)
     brands: ['POSEE', 'UGREEN', 'Bousvclight', 'Qiaodan', 'AKASO', 'SOLOEVER', 'Skechers', 'JOYROOM'],
     points: {
@@ -251,7 +251,7 @@ export const awards = [
     },
     problem: {
       th: 'โจทย์: ร้านรับพิมพ์ส่วนใหญ่ไม่เปิดนอกเวลา และการจ้างพนักงานคุมเครื่องเป็นต้นทุนสูง — จึงทำระบบให้ผู้ใช้พิมพ์เองได้ทั้งวันทั้งคืน',
-      en: 'The problem: most print shops close after hours, and paying staff to run the machine is costly — so users print by themselves, day and night.',
+      en: 'Most print shops close after hours and paying staff to run the machine is costly, so the system lets users print by themselves, day and night.',
     },
     steps: {
       th: ['สแกน QR หรือเข้าเว็บ แล้วสมัครสมาชิก (ได้เครดิตทดลองพิมพ์ 10 บาท)', 'อัปโหลดไฟล์ PDF, JPG หรือ PNG', 'รับบาร์โค้ดสำหรับสั่งพิมพ์', 'สแกนที่เครื่องพิมพ์บริการตนเอง (หรือกรอกรหัส) แล้วรับเอกสาร'],
