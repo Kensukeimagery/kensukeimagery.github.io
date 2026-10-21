@@ -73,8 +73,8 @@ export const projects = [
       { value: 'MIT', label: { th: 'โอเพนซอร์ส ใช้ฟรี', en: 'open source, free' } },
     ],
     note: {
-      th: 'ผู้พัฒนาทดสอบแล้วใช้งานได้จริงกับ Microlab Solo 29 ส่วนลำโพงรุ่นอื่นยังอยู่ระหว่างรวบรวมผลจากผู้ใช้ จึงยังไม่รับรองทุกรุ่น',
-      en: 'Tested by the author and working on the Microlab Solo 29. Results from other models are still being collected, so no other model is guaranteed.',
+      th: 'ผลต่างกันไปตามรุ่นลำโพง เมื่อปรับโหมดและค่าให้เหมาะกับลำโพงก็ใช้งานได้ผล (ผู้พัฒนาทดสอบแล้วกับ Microlab Solo 29) วิธีปรับค่าอธิบายไว้ในคู่มือ',
+      en: 'Results vary by speaker model. Once the mode and settings are tuned to the speaker, it works (tested by the author on the Microlab Solo 29). The guide explains how to tune it.',
     },
     downloadLabel: { th: 'ดาวน์โหลดฟรี (Windows)', en: 'Download free (Windows)' },
     docsLabel: { th: 'อ่านวิธีใช้', en: 'Read the guide' },
