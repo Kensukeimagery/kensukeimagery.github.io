@@ -73,8 +73,8 @@ export const projects = [
       { value: 'MIT', label: { th: 'โอเพนซอร์ส ใช้ฟรี', en: 'open source, free' } },
     ],
     note: {
-      th: 'ทำมาสำหรับ Microlab Solo 29 ผลกับลำโพงรุ่นอื่นและการยืนยันจากผู้ใช้จริงยังอยู่ระหว่างรวบรวม จึงยังไม่รับรองทุกรุ่น',
-      en: 'Built for the Microlab Solo 29. Results from real speakers, including other models, are still being collected, so no model is guaranteed.',
+      th: 'ผู้พัฒนาทดสอบแล้วใช้งานได้จริงกับ Microlab Solo 29 ส่วนลำโพงรุ่นอื่นยังอยู่ระหว่างรวบรวมผลจากผู้ใช้ จึงยังไม่รับรองทุกรุ่น',
+      en: 'Tested by the author and working on the Microlab Solo 29. Results from other models are still being collected, so no other model is guaranteed.',
     },
     downloadLabel: { th: 'ดาวน์โหลดฟรี (Windows)', en: 'Download free (Windows)' },
     docsLabel: { th: 'อ่านวิธีใช้', en: 'Read the guide' },
