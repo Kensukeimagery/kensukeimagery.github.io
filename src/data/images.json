@@ -439,6 +439,24 @@
       "h": 800,
       "sm": "/img/award-clothesline-800.webp",
       "lg": "/img/award-clothesline-1600.webp"
+    },
+    "proj-speaker-banner": {
+      "w": 1280,
+      "h": 640,
+      "sm": "/img/proj-speaker-banner-800.webp",
+      "lg": "/img/proj-speaker-banner-1600.webp"
+    },
+    "proj-speaker-main": {
+      "w": 1040,
+      "h": 2928,
+      "sm": "/img/proj-speaker-main-800.webp",
+      "lg": "/img/proj-speaker-main-1600.webp"
+    },
+    "proj-speaker-tune": {
+      "w": 1040,
+      "h": 3944,
+      "sm": "/img/proj-speaker-tune-800.webp",
+      "lg": "/img/proj-speaker-tune-1600.webp"
     }
   }
 }

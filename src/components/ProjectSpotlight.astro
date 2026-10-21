@@ -25,10 +25,10 @@ const points = t(p.points, lang);
     <div class="spot__cta">
       <a class="btn" href={p.download} rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-        {t(ui.projectDownload, lang)}
+        {p.downloadLabel ? t(p.downloadLabel, lang) : t(ui.projectDownload, lang)}
       </a>
       <a class="btn btn--ghost" href={p.url} target="_blank" rel="noopener">{t(ui.viewProject, lang)} ↗</a>
-      <a class="btn btn--ghost" href={p.docs} target="_blank" rel="noopener">{t(ui.projectDocs, lang)} ↗</a>
+      <a class="btn btn--ghost" href={p.docs} target="_blank" rel="noopener">{p.docsLabel ? t(p.docsLabel, lang) : t(ui.projectDocs, lang)} ↗</a>
     </div>
     <p class="spot__note">{t(p.note, lang)}</p>
   </div>

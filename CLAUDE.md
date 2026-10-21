@@ -39,7 +39,7 @@ Main focus of the content: on-camera (presenter/actor) and sales work.
 ## Recent state
 - CIMB THAI "Reminder Man" clip + 4 event photos (lightbox) in the ads category are live. The 5th photo (group shot with staff) was left out.
 - ENTAKU exhibition "อยากอวยให้ทุกครั้ง" (Palette Artspace floors 3–4, Bangkok, 14 Oct – 4 Nov 2026) is live with 4 photos; owner will add photos from the real show after visiting.
-- Side projects section (Windows 11 Optimizer) on profile page.
+- Side projects on the profile page: Windows 11 Optimizer and Speaker Awake (spotlight cards from src/data/projects.js; images registered in images.json under proj-*).
 
 ## Open items (waiting on owner)
 - Change "10+ brands" to "20+"?

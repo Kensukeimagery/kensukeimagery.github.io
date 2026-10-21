@@ -42,6 +42,48 @@ export const projects = [
     download: 'https://github.com/Kensukeimagery/win11-optimizer/releases/latest/download/win11-optimizer.zip',
     docs: 'https://github.com/Kensukeimagery/win11-optimizer/tree/main/docs',
   },
+  {
+    title: 'Speaker Awake',
+    year: '2026',
+    tagline: {
+      th: 'กันลำโพงไม่ให้หลับ จะได้ไม่พลาดเสียงเรียกแรกของสายโทรเข้า',
+      en: 'Keep your speakers awake so you never miss the first ring of a call.',
+    },
+    desc: {
+      th: 'โปรแกรมบนถาดระบบของ Windows ที่เล่นสัญญาณเบาๆ เป็นช่วงๆ ให้ลำโพงที่เข้าโหมดหลับเองเมื่อเงียบ (เช่น Microlab Solo 29) ตื่นอยู่เสมอ ค่าเริ่มต้นเป็นพัลส์อัลตราโซนิก 20 kHz ที่คนส่วนใหญ่ไม่ได้ยิน',
+      en: 'A Windows tray app that plays a tiny signal at set intervals so auto-standby speakers (such as the Microlab Solo 29) never fall asleep. The default is a 20 kHz ultrasonic pulse most adults cannot hear.',
+    },
+    points: {
+      th: [
+        '6 โหมดสัญญาณ ปรับความถี่ ระดับเสียง ความยาวพัลส์ และรอบเวลาได้',
+        'ตั้งช่วงเวลาทำงาน เลือกอุปกรณ์เสียงออก และหยุดเองเมื่อมีเพลงหรือสายคุย',
+        'เริ่มพร้อม Windows ได้ มีหน้าจอภาษาไทยและอังกฤษ',
+        'โอเพนซอร์ส ไม่ต้องสมัครบัญชี ไม่เชื่อมต่อเน็ต ไม่เก็บข้อมูล',
+      ],
+      en: [
+        '6 signal modes with adjustable frequency, level, pulse length and interval',
+        'Schedule active hours, pick the output device, and pause automatically while music or a call is playing',
+        'Starts with Windows; Thai and English interface',
+        'Open source, no account, no network access, no telemetry',
+      ],
+    },
+    facts: [
+      { value: '6', label: { th: 'โหมดสัญญาณ', en: 'signal modes' } },
+      { value: 'TH · EN', label: { th: 'ภาษาในโปรแกรม', en: 'app languages' } },
+      { value: 'MIT', label: { th: 'โอเพนซอร์ส ใช้ฟรี', en: 'open source, free' } },
+    ],
+    note: {
+      th: 'ทำมาสำหรับ Microlab Solo 29 ผลกับลำโพงรุ่นอื่นและการยืนยันจากผู้ใช้จริงยังอยู่ระหว่างรวบรวม จึงยังไม่รับรองทุกรุ่น',
+      en: 'Built for the Microlab Solo 29. Results from real speakers, including other models, are still being collected, so no model is guaranteed.',
+    },
+    downloadLabel: { th: 'ดาวน์โหลดฟรี (Windows)', en: 'Download free (Windows)' },
+    docsLabel: { th: 'อ่านวิธีใช้', en: 'Read the guide' },
+    images: ['proj-speaker-banner', 'proj-speaker-main', 'proj-speaker-tune'],
+    tags: ['Windows 10/11', 'Electron', 'Audio', 'Open source (MIT)'],
+    url: 'https://github.com/Kensukeimagery/speaker-awake',
+    download: 'https://github.com/Kensukeimagery/speaker-awake/releases/latest',
+    docs: 'https://github.com/Kensukeimagery/speaker-awake#readme',
+  },
 ];
 
 // ---------- Japanese (strings in ja.js) ----------
