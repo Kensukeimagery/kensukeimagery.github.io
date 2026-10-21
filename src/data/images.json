@@ -411,8 +411,8 @@
       "lg": "/img/work-entaku-4-1600.webp"
     },
     "proj-win11-menu": {
-      "w": 718,
-      "h": 567,
+      "w": 962,
+      "h": 506,
       "sm": "/img/proj-win11-menu-800.webp",
       "lg": "/img/proj-win11-menu-1600.webp"
     },
@@ -457,6 +457,36 @@
       "h": 3944,
       "sm": "/img/proj-speaker-tune-800.webp",
       "lg": "/img/proj-speaker-tune-1600.webp"
+    },
+    "proj-win11-app-home": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-home-800.webp",
+      "lg": "/img/proj-win11-app-home-1600.webp"
+    },
+    "proj-win11-app-home-th": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-home-th-800.webp",
+      "lg": "/img/proj-win11-app-home-th-1600.webp"
+    },
+    "proj-win11-app-tweaks": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-tweaks-800.webp",
+      "lg": "/img/proj-win11-app-tweaks-1600.webp"
+    },
+    "proj-win11-app-tweaks-th": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-tweaks-th-800.webp",
+      "lg": "/img/proj-win11-app-tweaks-th-1600.webp"
+    },
+    "proj-speaker-shuffle": {
+      "w": 1040,
+      "h": 4074,
+      "sm": "/img/proj-speaker-shuffle-800.webp",
+      "lg": "/img/proj-speaker-shuffle-1600.webp"
     }
   }
 }

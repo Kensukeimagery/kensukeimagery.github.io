@@ -3,11 +3,12 @@
 import { t, ui, fmtYear } from '../data/i18n.js';
 import { workImg } from '../data/img.js';
 const { p, lang } = Astro.props;
-const shots = p.images.map(workImg);
+const keys = lang === 'th' && p.imagesTh ? p.imagesTh : p.images; // per-language screenshots when available
+const shots = keys.map(workImg);
 const points = t(p.points, lang);
 ---
 <article class="spot reveal">
-  <div class="spot__shots" data-gallery-group={p.images.join(',')}>
+  <div class="spot__shots" data-gallery-group={keys.join(',')}>
     {shots.map((im, i) => (
       <button type="button" class="spot__shot" data-lb={im.lg} data-lb-group={`proj-${p.title}`} data-lb-cap={p.title} aria-label={`${p.title} — ${i + 1}/${shots.length}`}>
         <img src={im.sm} alt="" loading="lazy" decoding="async" width={im.w} height={im.h} />
