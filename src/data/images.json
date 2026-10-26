@@ -458,6 +458,12 @@
       "sm": "/img/proj-speaker-tune-800.webp",
       "lg": "/img/proj-speaker-tune-1600.webp"
     },
+    "proj-speaker-shuffle": {
+      "w": 1040,
+      "h": 4074,
+      "sm": "/img/proj-speaker-shuffle-800.webp",
+      "lg": "/img/proj-speaker-shuffle-1600.webp"
+    },
     "proj-win11-app-home": {
       "w": 1180,
       "h": 769,
@@ -482,11 +488,35 @@
       "sm": "/img/proj-win11-app-tweaks-th-800.webp",
       "lg": "/img/proj-win11-app-tweaks-th-1600.webp"
     },
-    "proj-speaker-shuffle": {
-      "w": 1040,
-      "h": 4074,
-      "sm": "/img/proj-speaker-shuffle-800.webp",
-      "lg": "/img/proj-speaker-shuffle-1600.webp"
+    "proj-win11-app-startup": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-startup-800.webp",
+      "lg": "/img/proj-win11-app-startup-1600.webp"
+    },
+    "proj-win11-app-startup-th": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-startup-th-800.webp",
+      "lg": "/img/proj-win11-app-startup-th-1600.webp"
+    },
+    "proj-win11-app-tools": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-tools-800.webp",
+      "lg": "/img/proj-win11-app-tools-1600.webp"
+    },
+    "proj-win11-app-tools-th": {
+      "w": 1180,
+      "h": 769,
+      "sm": "/img/proj-win11-app-tools-th-800.webp",
+      "lg": "/img/proj-win11-app-tools-th-1600.webp"
+    },
+    "proj-ssb-banner": {
+      "w": 1280,
+      "h": 640,
+      "sm": "/img/proj-ssb-banner-800.webp",
+      "lg": "/img/proj-ssb-banner-1600.webp"
     }
   }
 }
