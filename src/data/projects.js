@@ -104,12 +104,14 @@ export const projects = [
         'ติดตั้งใน 3 ขั้นตอน ได้ทางลัด Edge (Stream-safe) บน Desktop และลบออกได้ด้วย Uninstall.bat',
         'มี extension เล็กๆ บอกว่า hardware DRM ปิดอยู่หรือไม่ และเตือนบนเว็บสตรีมมิ่ง',
         'ทดสอบบน Edge 156 กับ Netflix จริง: โหมดปกติจับภาพได้จอดำ โหมด Stream-safe เห็นภาพ และยังเล่น 1080p ได้',
+        'มีตารางบอกตรงๆ ว่าเบราว์เซอร์ไหนทดสอบแล้วหรือยัง และมีโหมดสร้างทางลัดสำหรับ Chrome, Vivaldi หรือเบราว์เซอร์อื่นให้ลองเอง',
       ],
       en: [
         'Turns off hardware DRM only, not the GPU, so other sites do not stutter the way they do with graphics acceleration off',
         'Three-step install adds an Edge (Stream-safe) shortcut to your Desktop, and Uninstall.bat removes it',
         'A small extension shows whether hardware DRM is off and warns you on streaming sites',
         'Tested on Edge 156 with a real Netflix account: the capture is black in normal mode and visible in Stream-safe mode, still at 1080p',
+        'A table says plainly which browsers were tested, and launcher modes for Chrome, Vivaldi or any other browser let you try it yourself',
       ],
     },
     facts: [
@@ -118,8 +120,8 @@ export const projects = [
       { value: 'MIT', label: { th: 'โอเพนซอร์ส ใช้ฟรี', en: 'open source, free' } },
     ],
     note: {
-      th: 'ตรงไปตรงมา: ใช้เพื่อแชร์จอของตัวเองให้เพื่อนดู ไม่ได้ช่วยเลี่ยง DRM เพื่อคัดลอกเนื้อหา Netflix 4K/HDR ดูไม่ได้ในโหมดนี้ และผลกับ Discord จริงยังรอรายงานจากผู้ใช้',
-      en: 'For sharing your own screen with friends, not for copying content. Netflix 4K/HDR does not play in this mode, and results with Discord itself are still awaiting user reports.',
+      th: 'ตรงไปตรงมา: ใช้เพื่อแชร์จอของตัวเองให้เพื่อนดู ไม่ได้ช่วยเลี่ยง DRM เพื่อคัดลอกเนื้อหา Netflix 4K/HDR ดูไม่ได้ในโหมดนี้ ทดสอบแล้วเฉพาะ Edge บน Windows 11 และผลกับ Discord จริงยังรอรายงานจากผู้ใช้',
+      en: 'For sharing your own screen with friends, not for copying content. Netflix 4K/HDR does not play in this mode, only Edge on Windows 11 has been tested so far, and results with Discord itself are still awaiting user reports.',
     },
     downloadLabel: { th: 'ดาวน์โหลดฟรี (Windows)', en: 'Download free (Windows)' },
     docsLabel: { th: 'อ่านวิธีใช้', en: 'Read the guide' },
