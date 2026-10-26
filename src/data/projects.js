@@ -123,7 +123,7 @@ export const projects = [
     },
     downloadLabel: { th: 'ดาวน์โหลดฟรี (Windows)', en: 'Download free (Windows)' },
     docsLabel: { th: 'อ่านวิธีใช้', en: 'Read the guide' },
-    images: ['proj-ssb-banner'],
+    images: ['proj-ssb-banner', 'proj-ssb-before-after', 'proj-ssb-steps'],
     tags: ['Windows', 'Microsoft Edge', 'PowerShell', 'Open source (MIT)'],
     url: 'https://github.com/Kensukeimagery/stream-safe-browser',
     download: 'https://github.com/Kensukeimagery/stream-safe-browser/releases/latest/download/stream-safe-browser-windows.zip',

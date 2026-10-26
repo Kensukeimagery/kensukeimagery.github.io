@@ -517,6 +517,18 @@
       "h": 640,
       "sm": "/img/proj-ssb-banner-800.webp",
       "lg": "/img/proj-ssb-banner-1600.webp"
+    },
+    "proj-ssb-before-after": {
+      "w": 1280,
+      "h": 650,
+      "sm": "/img/proj-ssb-before-after-800.webp",
+      "lg": "/img/proj-ssb-before-after-1600.webp"
+    },
+    "proj-ssb-steps": {
+      "w": 1280,
+      "h": 330,
+      "sm": "/img/proj-ssb-steps-800.webp",
+      "lg": "/img/proj-ssb-steps-1600.webp"
     }
   }
 }
