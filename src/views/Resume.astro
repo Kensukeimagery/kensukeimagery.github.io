@@ -207,7 +207,6 @@ const intern = experience.filter((e) => e.group === 'intern');
         <ul class="compact">
           {intern.map((e) => <li><span><b>{t(e.org, lang)}</b> — {t(e.role, lang)}</span><span class="when">{fmtYear(e.start.slice(0, 4), lang)}</span></li>)}
         </ul>
-        </div>
       </section>
 
       <section class="two">
