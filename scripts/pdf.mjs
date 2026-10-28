@@ -14,16 +14,7 @@ for (const f of ['portfolio/index.html', 'en/portfolio/index.html', 'ja/portfoli
   const html = await readFile(join(root, f), 'utf8');
   for (const m of html.matchAll(/\/pdf-img\/([^"\s]+?)\.(?:jpg|png)/g)) pdfImgs.add(m[1]);
 }
-// รูปบนนามบัตรต้องคมชัดกว่ารูปใน Portfolio (พิมพ์จริง) → JPEG คุณภาพสูง ไม่ย่อมาก
-// (ภาพตัดพื้นหลังต้องเป็น PNG เพื่อคงความโปร่งใส)
-const cardImgs = { 'card-portrait': ['img/portrait-13-cutout.webp', 1000] };
 for (const name of pdfImgs) {
-  if (cardImgs[name]) {
-    const [src, width] = cardImgs[name];
-    await mkdir(join(root, 'pdf-img'), { recursive: true });
-    await sharp(join(root, src)).resize({ width, withoutEnlargement: true }).png({ compressionLevel: 9 }).toFile(join(root, 'pdf-img', name + '.png'));
-    continue;
-  }
   const out = join(root, 'pdf-img', name + '.jpg');
   await mkdir(join(out, '..'), { recursive: true });
   await sharp(join(root, 'img', name + '.webp')).resize({ width: 1400, withoutEnlargement: true }).jpeg({ quality: 80, mozjpeg: true }).toFile(out);

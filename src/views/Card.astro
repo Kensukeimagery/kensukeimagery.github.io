@@ -47,14 +47,15 @@ const stub = person.roles.en;
     .side { position: relative; width: var(--w); height: var(--h); overflow: hidden; break-after: page; page-break-after: always; }
     .side:last-of-type { break-after: auto; page-break-after: auto; }
 
-    /* ---------- front: dark green, headshot on the right ---------- */
+    /* ---------- front: dark green, large gold monogram on the right (no photo) ---------- */
     .front { background: radial-gradient(120% 140% at 15% 20%, #123229 0%, var(--bg) 62%); color: var(--ivory); }
-    .front__glow { overflow: hidden; position: absolute; top: 0; right: 0; bottom: 0; width: calc(40mm + var(--b)); background: radial-gradient(90% 70% at 55% 38%, rgba(201, 169, 110, .30), rgba(201, 169, 110, 0) 70%), linear-gradient(180deg, #123229, #0a1c17); }
-    .front__photo { position: absolute; right: -8mm; bottom: 0; width: 57mm; height: auto; max-width: none; }
-    .front__edge { position: absolute; top: 0; bottom: 0; right: calc(40mm + var(--b)); width: .25mm; background: var(--gold); opacity: .85; }
-    .front__text { position: absolute; left: calc(var(--b) + 6mm); top: calc(var(--b) + 6mm); bottom: calc(var(--b) + 6mm); width: 40mm; display: flex; flex-direction: column; justify-content: space-between; }
+    .front__glow { overflow: hidden; position: absolute; top: 0; right: 0; bottom: 0; width: calc(27mm + var(--b)); background: radial-gradient(90% 60% at 50% 46%, rgba(201, 169, 110, .26), rgba(201, 169, 110, 0) 72%), linear-gradient(180deg, #123229, #0a1c17); }
+    .front__bigk { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -54%); font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 92pt; line-height: 1; color: var(--gold); opacity: .9; }
+    .front__bigk::after { content: ''; position: absolute; left: 50%; bottom: -3.2mm; width: 9mm; height: .25mm; background: var(--gold); transform: translateX(-50%); }
+    .front__edge { position: absolute; top: 0; bottom: 0; right: calc(27mm + var(--b)); width: .25mm; background: var(--gold); opacity: .85; }
+    .front__text { position: absolute; left: calc(var(--b) + 6mm); top: calc(var(--b) + 6mm); bottom: calc(var(--b) + 6mm); width: 54mm; display: flex; flex-direction: column; justify-content: space-between; }
     .mono { width: 7mm; height: 7mm; border: .25mm solid var(--gold); color: var(--gold); display: grid; place-items: center; font-family: 'Cormorant Garamond', serif; font-size: 11pt; line-height: 1; }
-    .name { font-size: 17pt; line-height: 1.02; font-weight: 400; margin: 0; letter-spacing: .005em; }
+    .name { font-size: 19.5pt; line-height: 1.02; font-weight: 400; margin: 0; letter-spacing: .005em; }
     .name em { color: var(--gold-2); font-style: italic; }
     .th { margin: 1.6mm 0 0; font-family: 'Noto Serif Thai', serif; font-size: 7pt; color: var(--gold-2); }
     .roles { margin: 0; padding: 0; list-style: none; font-size: 5.6pt; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); line-height: 1.9; }
@@ -105,15 +106,15 @@ const stub = person.roles.en;
     <a href="/">← Home</a>
   </div>
   <div class="specs">
-    <b>Size</b> 90 × 54 mm (standard) · <b>{bleed ? 'Bleed' : 'No bleed'}</b> {bleed ? '3 mm each side → file is 96 × 60 mm, 2 pages: front, back' : '— cut size only, 2 pages: front, back'} · Text and QR are vector, photo at ≥ 600 px/in.
+    <b>Size</b> 90 × 54 mm (standard) · <b>{bleed ? 'Bleed' : 'No bleed'}</b> {bleed ? '3 mm each side → file is 96 × 60 mm, 2 pages: front, back' : '— cut size only, 2 pages: front, back'} · Text and QR are vector, fonts embedded.
     Keep this file as is and ask the shop for a matte or silk finish on 300–350 gsm paper.
   </div>
 
   <section class="side front">
-    <div class="front__glow"><img class="front__photo" src="/img/portrait-13-cutout.webp" data-pdf="/pdf-img/card-portrait.png" alt="" /></div>
+    <div class="front__glow"><div class="front__bigk serif" aria-hidden="true">K</div></div>
     <div class="front__edge"></div>
     <div class="front__text">
-      <div class="mono">K</div>
+      <div></div>
       <div>
         <h1 class="name serif" translate="no">Suthat <em>Ken</em><br />Thongkamkaew</h1>
         <p class="th">{person.nameTh} ({person.nick.th})</p>
