@@ -8,6 +8,7 @@ Main focus of the content: on-camera (presenter/actor) and sales work.
 - `npm install`, `npm run dev` (http://localhost:4321), `npm run build`
 - `npm run pdf` — generates résumé PDF/PNG into dist/ (run after build; uses Playwright Chromium, or Chrome/Edge installed locally); each PDF must stay 1 page.
 - `npm run check` — privacy check on dist/ (no full birthdate, LINE ID, salary) + internal link/meta check; runs in CI before deploy.
+- `npm run smoke` — Playwright over every page of dist/ (desktop + 375 px): console errors, broken requests/images, horizontal overflow; run after build
 - `npm run add-image -- <file> <portraits|film|work> [key]` — resizes to 800/1600 WebP and registers in images.json.
 
 ## Where to edit

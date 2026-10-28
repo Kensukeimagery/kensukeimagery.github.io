@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "pdf": "node scripts/pdf.mjs",
     "check": "node scripts/check-privacy.mjs && node scripts/check-links.mjs",
+    "smoke": "node scripts/smoke.mjs",
     "add-image": "node scripts/add-image.mjs"
   },
   "dependencies": {
