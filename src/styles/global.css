@@ -61,11 +61,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .section + .section { border-top: 1px solid var(--line-2); }
 /* 60-30-10: base green everywhere, every second section sits on a lighter secondary band, gold stays for actions and key marks */
 .section:nth-of-type(even) { background:
-  radial-gradient(55% 60% at 88% 50%, rgba(138, 30, 54, 0.30), transparent 72%),
-  linear-gradient(180deg, transparent 0%, rgba(78, 18, 36, 0.40) 24%, rgba(78, 18, 36, 0.40) 76%, transparent 100%); }
+  radial-gradient(60% 55% at 85% 50%, rgba(122, 42, 53, 0.34), transparent 70%),
+  linear-gradient(180deg, transparent 0%, rgba(74, 22, 33, 0.55) 22%, rgba(74, 22, 33, 0.55) 78%, transparent 100%); }
 .section:nth-of-type(even), .section:nth-of-type(even) + .section { border-top-color: transparent; }
-.section:nth-of-type(even) :is(.work, .card, .wcard, .comp__card, .svc, .skill-grid div, .facts div) { background: rgba(8, 19, 15, 0.8); }
-.section:nth-of-type(even) a.svc:hover { background: rgba(19, 49, 41, 0.9); }
+.section:nth-of-type(even) :is(.work, .card, .wcard, .comp__card, .skill-grid div, .facts div) { background: var(--bg); }
 
 /* ---------- type ---------- */
 .eyebrow {
