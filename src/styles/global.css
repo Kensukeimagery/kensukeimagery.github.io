@@ -4,7 +4,7 @@
   --bg-2: #0f2620;
   --surface: #133129;
   --surface-2: #183b31;
-  --band: #33121a; /* 30%: secondary oxblood band for alternating sections (60% base --bg, 10% gold accent) */
+  --band: #123229; /* 30%: secondary green band for alternating sections (60% base --bg, 10% gold accent) */
   --gold: #c9a96e;
   --gold-2: #e3cb98;
   --gold-dim: #8f7748;
@@ -60,7 +60,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .section { padding: clamp(72px, 11vw, 140px) 0; position: relative; }
 .section + .section { border-top: 1px solid var(--line-2); }
 /* 60-30-10: base green everywhere, every second section sits on a lighter secondary band, gold stays for actions and key marks */
-.section:nth-of-type(even) { background: linear-gradient(180deg, var(--band), #240b11 100%); }
+.section:nth-of-type(even) { background: linear-gradient(180deg, var(--band), #0e271f 100%); }
 .section:nth-of-type(even) :is(.work, .card, .wcard, .comp__card, .skill-grid div, .facts div) { background: var(--bg); }
 
 /* ---------- type ---------- */
